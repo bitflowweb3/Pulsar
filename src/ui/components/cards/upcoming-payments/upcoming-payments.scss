@@ -1,0 +1,28 @@
+.upcoming-payments {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    // position: fixed;
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-primary);
+        border-radius: var(--space-l);
+        padding: var(--space-s) var(--space-base);
+        header {
+            color: white;
+        }
+        footer {
+            color: white;
+            text-align: center;
+        }
+        align-items: center;
+        justify-content: center;
+    }
+    button {
+        flex: 1;
+        border-radius: var(--space-l);
+        padding: var(--space-xs) var(--space-s);
+        font-size: 20px;
+      }
+}
