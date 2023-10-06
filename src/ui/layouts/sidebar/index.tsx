@@ -13,19 +13,19 @@ import {
   ToggleContent,
   Hr,
 } from './styled';
-import DashboardIcon from '@/assets/icons/dashboard-icon.svg';
-import ServersIcon from '@/assets/icons/servers-icon.svg';
-import PaymentsIcon from '@/assets/icons/payments-icon.svg';
-import SettingsIcon from '@/assets/icons/settings-icon.svg';
-import CityIcon from '@/assets/icons/city-icon.svg';
-import ProMaskIcon1 from '@/assets/icons/pro-mask-1.svg';
-import ProMaskIcon2 from '@/assets/icons/pro-mask-2.svg';
-import UpGradeImage from '@/assets/images/upgrade.png';
-import UserPassageIcon from '@/assets/icons/user-passage-icon.svg';
-import UpgrademaskIcon from '@/assets/images/upgrade-mask.png';
-import MoonImage from '@/assets/images/moon.png';
-import SettingIcon from '@/assets/icons/setting-icon.png';
-import MaximizeIcon from '@/assets/icons/maximize-icon.png'
+import DashboardIcon from '../../../assets/icons/dashboard-icon.svg';
+import ServersIcon from '../../../assets/icons/servers-icon.svg';
+import PaymentsIcon from '../../../assets/icons/payments-icon.svg';
+import SettingsIcon from '../../../assets/icons/settings-icon.svg';
+import CityIcon from '../../../assets/icons/city-icon.svg';
+import ProMaskIcon1 from '../../../assets/icons/pro-mask-1.svg';
+import ProMaskIcon2 from '../../../assets/icons/pro-mask-2.svg';
+import UpGradeImage from '../../../assets/images/upgrade.png';
+import UserPassageIcon from '../../../assets/icons/user-passage-icon.svg';
+import UpgrademaskIcon from '../../../assets/images/upgrade-mask.png';
+import MoonImage from '../../../assets/images/moon.png';
+import SettingIcon from '../../../assets/icons/setting-icon.png';
+import MaximizeIcon from '../../../assets/icons/maximize-icon.png'
 import Switch from '@mui/material/Switch';
 
 

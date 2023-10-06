@@ -1,8 +1,8 @@
-import Dshboard from '@/ui/pages/dashboard'
-import withAuth from '@/auth/withAuth';
+import Dashboard from '../ui/pages/dashboard'
+import withAuth from '../auth/withAuth';
 
 const DashboardPage = () => {
-  return <Dshboard />
+  return <Dashboard />
 }
 // export default withAuth(DashboardPage);
 export default DashboardPage;
