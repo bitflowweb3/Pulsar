@@ -2,7 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'assets.scss';
-@import '@/ui/styles/ui.scss';
+@import '../ui/styles/ui.scss';
 
 :root {
   //colors
@@ -53,11 +53,14 @@
 .main-content {
   display: flex;
   flex-direction: row;
-  .main-page {
-    background-color: var(--color-bg-primary);
-    height: calc(100vh - 60px);
-    padding: var(--padding-xl) var(--padding-lxl);
-  }
+  // .main-page {
+  //   background-color: var(--color-bg-primary);
+  //   height: calc(100vh - 60px);
+  //   padding-top: var(--padding-xl);
+  //   padding-bottom: var(--padding-xl);
+  //   padding-left: var(--padding-lxl);
+  //   padding-right: var(--padding-s);
+  // }
 }
 
 .button-primary {
@@ -82,7 +85,8 @@ span {
 }
 
 hr {
-  background-color: var(--color-gray-500);
+  border-top: none;
+  border-bottom: solid 1px var(--color-gray-100);
 }
 
 h1 {
