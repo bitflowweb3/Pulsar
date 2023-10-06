@@ -3,8 +3,8 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios';
-import router from 'next/router';
-import dotenv from 'dotenv'
+// import router from 'next/router';
+// import dotenv from 'dotenv'
 
 const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 const instance = axios.create({ baseURL });
