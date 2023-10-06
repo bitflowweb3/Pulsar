@@ -5,9 +5,13 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  webpack: (config) => {
-    config.resolve.alias['@'] = path.join(__dirname, 'src');
-    return config;
+  webpack: (config,
+    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve(__dirname,'src'),
+    }
+    return config
   },
 }
 module.exports = nextConfig
