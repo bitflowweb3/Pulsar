@@ -27,28 +27,12 @@ import MoonImage from '../../../assets/images/moon.png';
 import SettingIcon from '../../../assets/icons/setting-icon.png';
 import MaximizeIcon from '../../../assets/icons/maximize-icon.png'
 import Switch from '@mui/material/Switch';
+import TabButtonGroup from '@/ui/components/common/tabsgroup';
 
 const Sidebar = () => {
   return (
     <SidebarDiv>
-      <TabsGroup>
-        <TabButton className='button-primary'>
-          <Image src={DashboardIcon} alt='dashboard-icon' />
-          <span>Dashboard</span>
-        </TabButton>
-        <TabButtonNone className='button'>
-          <Image src={ServersIcon} alt='dashboard-icon' />
-          <span>Servers</span>
-        </TabButtonNone>
-        <TabButtonNone className='button'>
-          <Image src={PaymentsIcon} alt='dashboard-icon' />
-          <span>Payments</span>
-        </TabButtonNone>
-        <TabButtonNone className='button'>
-          <Image src={SettingsIcon} alt='dashboard-icon' />
-          <span>Settings</span>
-        </TabButtonNone>
-      </TabsGroup>
+      <TabButtonGroup />
       <ProContent>
         <hr />
         <ProAccountDiv>

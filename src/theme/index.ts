@@ -93,6 +93,7 @@ export const pulsarTheme = createTheme({
             border: 'solid 1px #475467 !important',
             backgroundColor: '#1F2128 !important',
             color: '#7B7B85',
+            // padding: '4px 8px',
             // paddingLeft: '12px',
             // paddingRight: '12px',
           },
@@ -100,7 +101,16 @@ export const pulsarTheme = createTheme({
             borderRadius: '16px !important',     
           },
           '& .MuiButtonBase-root.MuiMenuItem-root:hover': {
+            // backgroundColor: '#313442 !important',
             backgroundColor: '#151416 !important',
+          },
+          '& .MuiButtonBase-root.MuiMenuItem-root': {
+            fontSize: '0.9em',
+            '&:last-child': {
+              marginTop: '8px',
+              color: '#ED4C4D',
+
+            }
           }
         }
       }

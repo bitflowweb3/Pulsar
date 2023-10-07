@@ -31,7 +31,7 @@ const ctx = canvas?.getContext('2d');
 
 const gradient1 = ctx?.createLinearGradient(0, 0, 0, 300);
 gradient1?.addColorStop(0, 'rgba(255, 146, 114, 0.4)');
-gradient1?.addColorStop(0.8, 'rgba(0, 0, 0, 0)');
+gradient1?.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
 const gradient2 = ctx?.createLinearGradient(0, 0, 0, 300);
 gradient2?.addColorStop(0, 'rgba(13, 153, 255, 0.4)');

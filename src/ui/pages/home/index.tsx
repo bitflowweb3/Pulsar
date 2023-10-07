@@ -16,10 +16,8 @@ export default function About() {
   }, []);
 
   return (
-    <div className='h-screen w-screen bg-gray-900'>
-      <span className='text-white p-8'>hello</span>
-      <span className='text-white p-8'>hello</span>
-      <p className='mt-16 text-white p-8'>{`This is Home page!${hello}`}</p>
+    <div className='h-screen w-screen flex bg-gray-900 justify-center pt-32'>
+      <span><h1 className=' text-violet-700'><strong>Welcome to here!</strong></h1></span>
     </div>
   );
 }

@@ -13,7 +13,7 @@ export const TabsGroup = styled.div`
     flex-direction: column;
     gap: var(--padding-xs);
 `
-export const TabButton = styled.div`
+export const TabButton = styled.button`
     display: flex;
     flex: 1;
     flex-direction: row;
@@ -21,7 +21,7 @@ export const TabButton = styled.div`
     border-radius: 48px;
     padding: var(--padding-s) var(--padding-base);
 `
-export const TabButtonNone = styled.div`
+export const TabButtonNone = styled.button`
     display: flex;
     flex: 1;
     flex-direction: row;
