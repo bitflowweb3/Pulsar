@@ -6,8 +6,8 @@ interface StatusCellProps {
 
 const StatusCell = ({ status }: StatusCellProps) => {
   return (
-    <StatusCellDiv condition={status}>
-      <CircleIconDiv condition={status} />
+    <StatusCellDiv condition={status.toString()}>
+      <CircleIconDiv condition={status.toString()} />
       <label>{status ? 'ON' : 'OFF'}</label>
     </StatusCellDiv>
   );

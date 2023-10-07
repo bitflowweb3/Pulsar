@@ -250,7 +250,7 @@ interface TrafficTableProps {
 }
 const TrafficTable = ({ isminimized }: TrafficTableProps) => {
   return (
-    <TrafficTableContainer isminimized={isminimized}>
+    <TrafficTableContainer isminimized={isminimized.toString()}>
       <div style={{ height: 1000, width: '100%' }}>
         {isminimized ? (
           /* @ts-ignore */

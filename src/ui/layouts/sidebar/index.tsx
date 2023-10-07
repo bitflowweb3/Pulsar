@@ -28,7 +28,6 @@ import SettingIcon from '../../../assets/icons/setting-icon.png';
 import MaximizeIcon from '../../../assets/icons/maximize-icon.png'
 import Switch from '@mui/material/Switch';
 
-
 const Sidebar = () => {
   return (
     <SidebarDiv>

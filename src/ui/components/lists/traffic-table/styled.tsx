@@ -3,16 +3,16 @@ import { Color } from '../../../../constants/color';
 import { BorderRadius, Space } from '../../../../constants/size';
 
 interface StatusCellDivProps {
-  condition: boolean;
+  condition: string;
 }
 interface TrafficTableContainerProps {
-  isminimized: boolean;
+  isminimized: string;
 }
 const TrafficTableContainer = styled.div<TrafficTableContainerProps>`
   background-color: var(--color-primary);
   border-radius: var(--space-l);
   padding: var(--space-s) var(--space-base);
-  margin: ${props => (props.isminimized ? 'none' : '0px 16px 12px 12px')} 
+  margin: ${props => (props.isminimized === 'true' ? 'none' : '0px 16px 12px 12px')} 
 `
 const ServerCellDiv = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ const StatusCellDiv = styled.div<StatusCellDivProps>`
   padding: ${Space.xs} ${Space.s};
   border-radius: ${Space.l};
   width: ${Space.xxxl};
-  color: ${(props) => (props.condition ? Color.$green_dark : Color.$red_light)};
+  color: ${(props) => (props.condition == 'true' ? Color.$green_dark : Color.$red_light)};
 `;
 
 const CircleIconDiv = styled.div<StatusCellDivProps>`

@@ -1,5 +1,5 @@
 import React from 'react';
-import ServerImage from '../assets/images/server.png';
+import ServerImage from '../../../../assets/images/server.png';
 import Image from 'next/image';
 
 const UpcomingPayments = () => {
