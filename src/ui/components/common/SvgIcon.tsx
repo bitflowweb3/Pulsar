@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { Color } from '../../../constants/color';
 
 export interface SvgIconProps {
     stroke?: string;
@@ -7,8 +8,12 @@ export interface SvgIconProps {
 
 const SvgContainer = styled.div<SvgIconProps>`
     svg > path {
-        stroke: ${props => props.stroke};
-        stroke-width: ${props => props.strokeWidth};
-    }    
+        stroke: ${props => props.stroke ? props.stroke : Color.$netural_700};
+        stroke-width: ${props => props.stroke ? props.strokeWidth : '1'};
+    }  
+    svg > g >  path {
+        stroke: ${props => props.stroke ? props.stroke : Color.$netural_700};
+        stroke-width: ${props => props.stroke ? props.strokeWidth : '1'};
+    }   
 `
 export { SvgContainer };

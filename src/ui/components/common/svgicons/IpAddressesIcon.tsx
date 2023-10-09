@@ -4,16 +4,16 @@ const IpAddressesIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
   return (
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
+        width='20'
+        height='18'
+        viewBox='0 0 20 18'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
       >
         <path
-          d='M8 21H16M12 17V21M4 3H20C21.1046 3 22 3.89543 22 5V15C22 16.1046 21.1046 17 20 17H4C2.89543 17 2 16.1046 2 15V5C2 3.89543 2.89543 3 4 3Z'
-          stroke='white'
-          stroke-width='2'
+          d='M6.3335 17.25H13.6668M10.0002 13.5833V17.25M2.66683 0.75H17.3335C18.346 0.75 19.1668 1.57081 19.1668 2.58333V11.75C19.1668 12.7625 18.346 13.5833 17.3335 13.5833H2.66683C1.65431 13.5833 0.833496 12.7625 0.833496 11.75V2.58333C0.833496 1.57081 1.65431 0.75 2.66683 0.75Z'
+          stroke='#8B8B93'
+          stroke-width='1.5'
           stroke-linecap='round'
           stroke-linejoin='round'
         />

@@ -74,7 +74,7 @@ const TabButtonGroup = () => {
                               setCurrentTab(index);
                           }}
                       >
-                          <Icon stroke='white' strokeWidth='1.5' />
+                          <Icon stroke='white' strokeWidth='2' />
                           <span>{name}</span>
                       </TabButton>
                   )

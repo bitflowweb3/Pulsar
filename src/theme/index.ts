@@ -9,7 +9,6 @@ declare module '@mui/material/styles' {
           '&.MuiDataGrid-root'?: {
             borderWidth?: string;
             borderColor?: string;
-            
           };
           '&.MuiDataGrid-root .MuiDataGrid-withBorderColor'?: {
             borderBottom?: string;
@@ -27,23 +26,23 @@ declare module '@mui/material/styles' {
           };
           '&.MuiDataGrid-root .MuiDataGrid-menuIcon'?: {
             display?: string;
-          }
+          };
           '&.MuiDataGrid-root .MuiDataGrid-columnHeaderTitleContainer'?: {
             justifyContent?: string;
             color?: string;
-          }
+          };
           '&.MuiDataGrid-root .MuiDataGrid-sortIcon'?: {
-            color?: string
-          }
+            color?: string;
+          };
           '&.MuiDataGrid-root .MuiDataGrid-cellContent'?: {
-            color?: string
-          }
+            color?: string;
+          };
           '&.MuiDataGrid-root .MuiDataGrid-columnHeader:not(.MuiDataGrid-columnHeader--sorted) .MuiDataGrid-sortIcon'?: {
-            opacity?: number
-          }
+            opacity?: number;
+          };
           '&.MuiDataGrid-root .MuiDataGrid-iconButtonContainer'?: {
-            visibility?: string
-          }
+            visibility?: string;
+          };
         };
       };
     };
@@ -81,7 +80,7 @@ export const pulsarTheme = createTheme({
             color: 'white',
           },
           '&.MuiDataGrid-root .MuiDataGrid-iconButtonContainer': {
-            visibility: 'visible'
+            visibility: 'visible',
           },
         },
       },
@@ -98,7 +97,7 @@ export const pulsarTheme = createTheme({
             // paddingRight: '12px',
           },
           '& .MuiPaper-root.MuiPopover-paper.MuiMenu-paper': {
-            borderRadius: '16px !important',     
+            borderRadius: '16px !important',
           },
           '& .MuiButtonBase-root.MuiMenuItem-root:hover': {
             // backgroundColor: '#313442 !important',
@@ -106,14 +105,17 @@ export const pulsarTheme = createTheme({
           },
           '& .MuiButtonBase-root.MuiMenuItem-root': {
             fontSize: '0.9em',
-            '&:last-child': {
+            dispaly: 'flex',
+            flexDirection: 'row',
+            gap: '8px',
+            alignItems: 'center',
+            '&:nth-child(6)': {
               marginTop: '8px',
               color: '#ED4C4D',
-
-            }
-          }
-        }
-      }
-    }
+            },
+          },
+        },
+      },
+    },
   },
 });
