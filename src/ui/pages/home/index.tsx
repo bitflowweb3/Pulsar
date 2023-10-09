@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import apiService from '@/services/apiservice';
+import apiService from '../../../services/apiservice';
 
 export default function About() {
     const [hello, setHello] = useState<string>('');
