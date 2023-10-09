@@ -1,4 +1,4 @@
-import IPAddressesPage from '@/ui/pages/ipaddresses';
+import IPAddressesPage from '../ui/pages/ipaddresses';
 import withAuth from '../auth/withAuth';
 
 const IPAddresses = () => {

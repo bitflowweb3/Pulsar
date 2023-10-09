@@ -1,4 +1,4 @@
-import PaymentsPage from '@/ui/pages/payments';
+import PaymentsPage from '../ui/pages/payments';
 import withAuth from '../auth/withAuth';
 
 const Payments = () => {
