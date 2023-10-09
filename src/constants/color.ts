@@ -1,6 +1,8 @@
 export enum Color  {
     // main colors
     $white = 'white',
+    $black = 'balck',
+    $yellow = 'yellow',
 
     //
     $bg_primary = '#151416',
@@ -23,4 +25,41 @@ export enum Color  {
     $red_primary = '#FF8845',
     $red_dark = '#A81E1E',
     $green_dark = '#027A48',
+    $netural_700 = '8A8A98',
+
+    //neutral colors
+
+    //brand colors
+
+    //gray colors
+
+    //erro colors
+
+    //success colors
+
+    //blue gray colors
+
+    //warning colors
+
+    //gradient colors
+
+    //orange colors
+
+    //blue light colors
+
+    //blue colors
+
+    //indigo colors
+
+    //purple colors
+
+    //pink colors
+
+    //rose colors
+
+    //yellow colors
+
+    
+
+
 }
