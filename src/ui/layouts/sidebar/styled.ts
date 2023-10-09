@@ -8,33 +8,6 @@ export const SidebarDiv = styled.div`
     background-color: var(--color-primary);
     justify-content: space-between;
 `
-export const TabsGroup = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-xs);
-`
-export const TabButton = styled.button`
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    gap: var(--padding-s);
-    border-radius: 48px;
-    padding: var(--padding-s) var(--padding-base);
-`
-export const TabButtonNone = styled.button`
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    gap: var(--padding-s);
-    padding: var(--padding-s) var(--padding-base);
-
-    & > span {
-        color: var(--color-gray-400);
-    }
-    & > .button {
-        filter: brightness(50%)
-    }
-`
 export const ProContent = styled.div`
     display: flex;
     flex-direction: column;

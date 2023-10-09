@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
-import DashboardIcon from '../../../../assets/icons/dashboard-icon.svg';
-import ServersIcon from '../../../../assets/icons/servers-icon.svg';
-import PaymentsIcon from '../../../../assets/icons/payments-icon.svg';
-import SettingsIcon from '../../../../assets/icons/settings-icon.svg';
-import { Color } from '@/constants/color';
+import DashboardIcon from '../svgicons/DashboardIcon';
+import ServersIcon from '../svgicons/ServersIcon';
+import PaymentsIcon from '../svgicons/PaymentsIcon';
+import SettingsIcon from '../svgicons/SettingsIcon';
+import IpAddressesIcon from '../svgicons/IpAddressesIcon';
+import { Color } from '../../../../constants/color';
 
 const TabsGroup = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ const enum PageTabs {
 const pages = [
   { name: 'Dashboard', icon: DashboardIcon, route: 'dashboard' },
   { name: 'Servers', icon: ServersIcon, route: 'servers' },
-  { name: 'IP Addresses', icon: DashboardIcon, route: 'ipaddresses' },
+  { name: 'IP Addresses', icon: IpAddressesIcon, route: 'ipaddresses' },
   { name: 'Payments', icon: PaymentsIcon, route: 'payments' },
   { name: 'Settings', icon: SettingsIcon, route: 'settings' },
 ];
@@ -64,31 +64,31 @@ const TabButtonGroup = () => {
 
   return (
     <TabsGroup>
-          {pages.map((item, index) => {
+          {pages.map(({name, icon: Icon, route}, index) => {
               if (currentTab === index) {
                   return (
                       <TabButton
                           className='button-primary'
-                          key={item.name}
+                          key={name}
                           onClick={() => {
                               setCurrentTab(index);
                           }}
                       >
-                          <Image src={item.icon} alt={`${item.name}-icon`} />
-                          <span>{item.name}</span>
+                          <Icon stroke='white' strokeWidth='1.5' />
+                          <span>{name}</span>
                       </TabButton>
                   )
               }
               else {
                   return (
                       <TabButtonNone
-                          key={item.name}
+                          key={name}
                           onClick={() => {
                               setCurrentTab(index);
                           }}
                       >
-                          <Image src={item.icon} alt={`${item.name}-icon`} />
-                          <span>{item.name}</span>
+                          <Icon stroke='#8A8A98' strokeWidth='1' />
+                          <span>{name}</span>
                       </TabButtonNone>
                   );
               }
