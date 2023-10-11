@@ -1,3 +1,4 @@
+import { Color } from '../../../constants/color';
 import { Space } from '../../../constants/size';
 import styled from 'styled-components';
 
@@ -5,17 +6,16 @@ const PageHeader = styled.div`
   padding: ${Space.none} ${Space.sb};
   padding-bottom: ${Space.s};
   h6 {
-    color: var(--color-gray-100);
+    color: ${Color.$gray_primary};
   }
 `;
 
-const DashboardMainContent = styled.div`
+const IPAddressesMainContent = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: var(--space-xl);
   overflow-y: auto;
   height: calc(100vh - 154px);
-  padding-left: ${Space.sb};
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -36,25 +36,32 @@ const DashboardMainContent = styled.div`
     background: var(--color-neutral-400);
   }
 
-  .sub-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-l);
-
-    &:first-child {
-      flex-grow: 1;
-    }
-    &:last-child {
-      flex-basis: 240px;
-      flex-grow: none;
-    }
-  }
-  .dashboard-right-sidebar {
-    gap: var(--space-xxl);
-    position: sticky;
-    top: var(--space-s);
-    right: var(--space-base);
-  }
 `;
 
-export { PageHeader, DashboardMainContent };
+const IPAddressesHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: ${Space.none} ${Space.sb};
+  & > :first-child {
+    background-color: ${Color.$dark_primary};
+    width: 600px;
+    border-radius: ${Space.l};
+    padding: ${Space.none} ${Space.s};
+    align-items: center;
+    svg {
+      color: white;
+    }
+    & > :last-child {
+      /* display: none; */
+    }
+  }
+`
+
+const IPAllocateButton = styled.button`
+  height: 36px;
+  border-radius: var(--space-bl);
+  padding: var(--padding-none) var(--padding-bl);
+`;
+
+export { PageHeader, IPAddressesMainContent, IPAddressesHeader, IPAllocateButton };

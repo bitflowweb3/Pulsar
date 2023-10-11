@@ -7,7 +7,11 @@ import PaymentsIcon from '../svgicons/PaymentsIcon';
 import SettingsIcon from '../svgicons/SettingsIcon';
 import IpAddressesIcon from '../svgicons/IpAddressesIcon';
 import { Color } from '../../../../constants/color';
+import Link from 'next/link';
 
+const StyledLink = styled(Link)`
+  display: flex;
+`;
 const TabsGroup = styled.div`
   display: flex;
   flex-direction: column;
@@ -47,51 +51,59 @@ const enum PageTabs {
 }
 
 const pages = [
-  { name: 'Dashboard', icon: DashboardIcon, route: 'dashboard' },
-  { name: 'Servers', icon: ServersIcon, route: 'servers' },
-  { name: 'IP Addresses', icon: IpAddressesIcon, route: 'ipaddresses' },
-  { name: 'Payments', icon: PaymentsIcon, route: 'payments' },
-  { name: 'Settings', icon: SettingsIcon, route: 'settings' },
+  {
+    name: 'Dashboard',
+    icon: DashboardIcon,
+    route: 'dashboard',
+    link: '/dashboard',
+  },
+  { name: 'Servers', icon: ServersIcon, route: 'servers', link: '/servers' },
+  {
+    name: 'IP Addresses',
+    icon: IpAddressesIcon,
+    route: 'ipaddresses',
+    link: '/ipaddresses',
+  },
+  {
+    name: 'Payments',
+    icon: PaymentsIcon,
+    route: 'payments',
+    link: '/payments',
+  },
+  {
+    name: 'Settings',
+    icon: SettingsIcon,
+    route: 'settings',
+    link: '/settings',
+  },
 ];
 
 const TabButtonGroup = () => {
-  const [currentTab, setCurrentTab] = useState<number>(0);
   const router = useRouter();
-
-    useEffect(() => {
-        router.push(pages[currentTab].route)
-    }, [currentTab]);
+  const currentRoute = router.pathname;
 
   return (
     <TabsGroup>
-          {pages.map(({name, icon: Icon, route}, index) => {
-              if (currentTab === index) {
-                  return (
-                      <TabButton
-                          className='button-primary'
-                          key={name}
-                          onClick={() => {
-                              setCurrentTab(index);
-                          }}
-                      >
-                          <Icon stroke='white' strokeWidth='2' />
-                          <span>{name}</span>
-                      </TabButton>
-                  )
-              }
-              else {
-                  return (
-                      <TabButtonNone
-                          key={name}
-                          onClick={() => {
-                              setCurrentTab(index);
-                          }}
-                      >
-                          <Icon stroke='#8A8A98' strokeWidth='1' />
-                          <span>{name}</span>
-                      </TabButtonNone>
-                  );
-              }
+      {pages.map(({ name, icon: Icon, route, link }, index) => {
+        if (currentRoute.split('/').includes(route)) {
+          return (
+            <StyledLink key={name} href={link}>
+              <TabButton className='button-primary'>
+                <Icon stroke='white' strokeWidth='2' />
+                <span>{name}</span>
+              </TabButton>
+            </StyledLink>
+          );
+        } else {
+          return (
+            <StyledLink key={name} href={link}>
+              <TabButtonNone>
+                <Icon stroke='#8A8A98' strokeWidth='1' />
+                <span>{name}</span>
+              </TabButtonNone>
+            </StyledLink>
+          );
+        }
       })}
     </TabsGroup>
   );
