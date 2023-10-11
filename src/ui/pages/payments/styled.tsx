@@ -3,19 +3,21 @@ import styled from 'styled-components';
 
 const PageHeader = styled.div`
   padding: ${Space.none} ${Space.sb};
+  padding-right: ${Space.base};
   padding-bottom: ${Space.s};
   h6 {
     color: var(--color-gray-100);
   }
 `;
 
-const DashboardMainContent = styled.div`
+const PaymentsMainContent = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: var(--space-xl);
   overflow-y: auto;
   height: calc(100vh - 154px);
   padding-left: ${Space.sb};
+  padding-right: ${Space.base};
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -57,4 +59,4 @@ const DashboardMainContent = styled.div`
   }
 `;
 
-export { PageHeader, DashboardMainContent };
+export { PageHeader, PaymentsMainContent };

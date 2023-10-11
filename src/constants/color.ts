@@ -16,7 +16,7 @@ export enum Color  {
     $gray_dark = '#475467',
     $gray_600 = '#475467',
     $gray_primary = '#7d7d7d',
-    $gray_light = '969696',
+    $gray_light = '#969696',
     $yello_primary = '#FEEC4B',
     $brown_primary = '#FF8845',
     $brown_light = '#EC8C56',
@@ -25,9 +25,11 @@ export enum Color  {
     $red_primary = '#FF8845',
     $red_dark = '#A81E1E',
     $green_dark = '#027A48',
-    $netural_700 = '8A8A98',
+    $netural_700 = '#8A8A98',
 
     //neutral colors
+
+    $neutral_foreground = '#1f2128'
 
     //brand colors
 
