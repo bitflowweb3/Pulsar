@@ -14,7 +14,7 @@ const DashboardMainContent = styled.div`
   flex-direction: row;
   gap: var(--space-xl);
   overflow-y: auto;
-  height: calc(100vh - 154px);
+  height: calc(100vh - 200px);
   padding-left: ${Space.sb};
 
   &::-webkit-scrollbar {

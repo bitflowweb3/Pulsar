@@ -15,7 +15,7 @@ const SettingsMainContent = styled.div`
   justify-content: center;
   gap: var(--space-xl);
   overflow-y: auto;
-  height: calc(100vh - 154px);
+  height: calc(100vh - 180px);
   padding-left: ${Space.sb};
 
   &::-webkit-scrollbar {

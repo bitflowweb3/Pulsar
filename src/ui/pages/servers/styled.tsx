@@ -15,7 +15,7 @@ const ServersMainContent = styled.div`
   flex-direction: column;
   gap: var(--space-xl);
   overflow-y: auto;
-  height: calc(100vh - 154px);
+  height: calc(100vh - 200px);
 
   &::-webkit-scrollbar {
     width: 5px;
