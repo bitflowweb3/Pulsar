@@ -1,9 +1,10 @@
-import TrafficPerServer from '../../components/cards/traffic-per-server';
-import UpcomingPayments from '../../components/cards/upcoming-payments';
-import TrafficChart from '../../components/charts/traffic-chart';
-import TrafficTable from '../../components/lists/traffic-table';
 import { MainPageContainer } from '../../../styles/global';
-import { PageHeader, DashboardMainContent } from './styled';
+import { PageHeader, SettingsMainContent, CenterDiv } from './styled';
+import SavedPaymentMethod from '../../components/cards/setting-cards/saved-payment-methods';
+import BillingInformationCard from '../../components/cards/setting-cards/billing-infomation';
+import ContactsCard from '../../components/cards/setting-cards/contacts';
+import SupportPlanCard from '../../components/cards/setting-cards/support-plan';
+import BillingAlertsCard from '../../components/cards/setting-cards/billing-alerts';
 
 export default function SettingsPage() {
   return (
@@ -12,11 +13,16 @@ export default function SettingsPage() {
         <h3>
           <strong>Settings</strong>
         </h3>
-        <h6>January 1-30, 2023</h6>
       </PageHeader>
-      <DashboardMainContent className='dashboard-content flex justify-center pt-9'>
-       <h1>Coming Soon</h1>
-      </DashboardMainContent>
+      <SettingsMainContent>
+        <CenterDiv>
+          <SavedPaymentMethod />
+          <BillingInformationCard />
+          <ContactsCard />
+          <SupportPlanCard />
+          <BillingAlertsCard />
+        </CenterDiv>
+      </SettingsMainContent>
     </MainPageContainer>
   );
 }

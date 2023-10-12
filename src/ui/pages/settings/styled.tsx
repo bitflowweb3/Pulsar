@@ -9,9 +9,10 @@ const PageHeader = styled.div`
   }
 `;
 
-const DashboardMainContent = styled.div`
+const SettingsMainContent = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: var(--space-xl);
   overflow-y: auto;
   height: calc(100vh - 154px);
@@ -56,5 +57,15 @@ const DashboardMainContent = styled.div`
     right: var(--space-base);
   }
 `;
+export const CenterDiv = styled.div`
+    flex-basis: 1250px;
+    flex-grow: none;
+    flex-shrink: 1;
+    gap: ${Space.xl};
+    display: flex;
+    flex-direction: column;
+    gap: ${Space.xl};
+`;
 
-export { PageHeader, DashboardMainContent };
+
+export { PageHeader, SettingsMainContent };

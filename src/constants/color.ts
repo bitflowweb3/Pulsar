@@ -1,7 +1,7 @@
 export enum Color  {
     // main colors
     $white = 'white',
-    $black = 'balck',
+    $black = 'black',
     $yellow = 'yellow',
 
     //
@@ -25,11 +25,13 @@ export enum Color  {
     $red_primary = '#FF8845',
     $red_dark = '#A81E1E',
     $green_dark = '#027A48',
-    $netural_700 = '#8A8A98',
-
+    
     //neutral colors
 
-    $neutral_foreground = '#1f2128'
+    $neutral_foreground = '#1f2128',
+    $neutral_overlay = '#313442',
+    $netural_700 = '#8A8A98',
+    $netural_800 = '#A9A9B7',
 
     //brand colors
 
@@ -38,6 +40,8 @@ export enum Color  {
     //erro colors
 
     //success colors
+
+    $success_300 = '#50D1B2',
 
     //blue gray colors
 
