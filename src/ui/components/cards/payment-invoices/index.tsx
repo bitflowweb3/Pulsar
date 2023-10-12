@@ -1,6 +1,5 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -49,9 +48,7 @@ const PaymentInvoices = () => {
             </CategorySelect>
           </CategorySelectContainer>
           <InvoiceFilterDetails>
-            <DemoItem label='Desktop variant'>
               <DesktopDatePicker defaultValue={dayjs('2022-04-17')} />
-            </DemoItem>
             <StatusSelectContainer>
               <StatusSelect>
               <option value='' selected>
