@@ -35,6 +35,8 @@ export enum Color  {
 
     //brand colors
 
+    $brand_600 = '#8758FF',
+
     //gray colors
 
     //erro colors

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import {
   SidebarDiv,
@@ -18,12 +18,20 @@ import UserPassageIcon from '../../../assets/icons/user-passage-icon.svg';
 import UpgrademaskIcon from '../../../assets/images/upgrade-mask.png';
 import MoonImage from '../../../assets/images/moon.png';
 import SettingIcon from '../../../assets/icons/setting-icon.png';
-import MaximizeIcon from '../../../assets/icons/maximize-icon.png'
+import MaximizeIcon from '../../../assets/icons/maximize-icon.png';
 import Switch from '@mui/material/Switch';
 import TabButtonGroup from '../../../ui/components/common/tabsgroup';
+import { useAccount } from '../AccountProvider';
 
 const Sidebar = () => {
-  return (
+  const acount = useAccount();
+  const [isAccountPage, setIsAccountPage] = useState<boolean | undefined>(
+    undefined
+  );
+  useEffect(() => {
+    setIsAccountPage(acount?.isAccountPage);
+  }, []);
+  return isAccountPage ? (
     <SidebarDiv>
       <TabButtonGroup />
       <ProContent>
@@ -74,15 +82,17 @@ const Sidebar = () => {
         </UpgradeContentDiv>
         <ToggleDiv>
           <ToggleContent>
-          <Image src={MoonImage} className='moon-image' alt='moon-image' />
-          <Switch defaultChecked />
-          <Image src={SettingIcon} alt='setting-icon' />
+            <Image src={MoonImage} className='moon-image' alt='moon-image' />
+            <Switch defaultChecked />
+            <Image src={SettingIcon} alt='setting-icon' />
           </ToggleContent>
           <Hr />
           <Image src={MaximizeIcon} alt='maximize-icon' />
         </ToggleDiv>
       </ProContent>
     </SidebarDiv>
+  ) : (
+    <div style={{ display: 'none' }}></div>
   );
 };
 export default Sidebar;

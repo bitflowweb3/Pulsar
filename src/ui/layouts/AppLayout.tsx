@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppProvider } from './AppProvider';
+import { AccountProvider } from './AccountProvider';
 import Header from './header';
 import Sidebar from './sidebar';
 import { ThemeProvider } from '@mui/material';
@@ -11,7 +11,7 @@ interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   return (
-    <AppProvider>
+    <AccountProvider>
       <ThemeProvider theme={pulsarTheme}>
         <Header />
         <section className='main-content'>
@@ -19,7 +19,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
           {children}
         </section>
       </ThemeProvider>
-    </AppProvider>
+    </AccountProvider>
   );
 };
 export default AppLayout;
