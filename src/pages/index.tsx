@@ -1,5 +1,8 @@
+import withAuth from '../auth/withAuth';
 import Home from '../ui/pages/dashboard';
 
-export default function HomePage() {
+ function HomePage() {
   return <Home />;
 }
+
+export default withAuth(HomePage);
