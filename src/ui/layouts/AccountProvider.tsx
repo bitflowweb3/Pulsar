@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-interface AccountProviderProps {
+export interface AccountProviderProps {
   isAccountPage: boolean | undefined;
 }
 
@@ -27,13 +27,11 @@ const AccountProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     
     if (AccountPage.some((page) => currentPath.split('/').includes(page))) {
-      console.log('🙏🏻💘💘💘');
       setIsAccountPageContent(true);
     } else {
-      console.log('🙏🏻🙏🏻🙏🏻🙏🏻🙏🏻🙏🏻');
       setIsAccountPageContent(false);
     }
-  }, []);
+  }, [currentPath]);
 
   return (
     <AccountContext.Provider value={{ isAccountPage }}>

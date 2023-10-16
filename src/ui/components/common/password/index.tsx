@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Space } from '../../../../constants/size';
 import styled from 'styled-components';
 import { Color } from '../../../../constants/color';
@@ -47,10 +48,21 @@ const InputTextDiv = styled.input`
   }
 `;
 
-const PasswordInput = () => {
+interface PasswordInputProps {
+  onInputChange: (value: string) => void;
+}
+
+const PasswordInput = ({onInputChange}:PasswordInputProps) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setInputValue(value);
+    onInputChange(value); // call the callback function with the updated value
+  };
   return (
     <IconInputDiv>
-      <InputTextDiv type='password' placeholder='Please type your password'/>
+      <InputTextDiv type='password' placeholder='Please type your password' onChange={handleInputChange}/>
       <IconDiv>
         <PasswordEyeIcon />
       </IconDiv>

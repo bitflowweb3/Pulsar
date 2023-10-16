@@ -42,7 +42,9 @@ const DashboardMainContent = styled.div`
     gap: var(--space-l);
 
     &:first-child {
-      flex-grow: 1;
+      flex-basis: calc(100vw - 500px);
+      flex-shrink: 1;
+      flex-grow: 0;
     }
     &:last-child {
       flex-basis: 240px;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MainPageContainer } from '../../../styles/global';
 import {
   LoginContainer,
@@ -18,8 +18,48 @@ import IconInput from '../../components/common/input/iconInput';
 import { CheckBox } from '../../components/common/checkbox.tsx';
 import GoogleIcon from '../../components/common/svgicons/GoogleIcon';
 import PasswordInput from '../../components/common/password';
+import { postLoginEnvironment, setAccessToken } from '../../../services/auth';
+import { Notification } from '../../../utilities/notification';
+import { useRouter } from 'next/router';
 
+interface User {
+  email: string;
+  password: string;
+}
 const LoginPage = () => {
+  const [user, setUser] = useState<User>({ email: '', password: '' });
+  const router = useRouter();
+
+  const login = async () => {
+    try {
+      const response = await postLoginEnvironment({
+        user: user ? user.email : null,
+        password: user ? user.password : null,
+      });
+      if (response.status === 200) {
+        Notification.success({
+          message: 'Success',
+          description:
+          'Logined successfully'
+        })
+        setAccessToken('bearer' + '123123');
+        router.push('/dashboard');
+      }
+    } catch (error) {
+      console.log(error);
+      console.log(error);
+      Notification.error({
+        message: 'Error',
+        description: 'Login failed'
+      })
+    }
+  };
+
+  const getEmail = (value: string) =>
+    setUser((user) => ({ ...user, email: value }));
+  const getPassword = (value: string) =>
+    setUser((user) => ({ ...user, password: value }));
+
   return (
     <MainPageContainer>
       <LoginContainer>
@@ -34,11 +74,15 @@ const LoginPage = () => {
           <LoginMain>
             <EmailDiv>
               <label>Email</label>
-              <IconInput Icon={EmailIcon} placeText='Enter your email' />
+              <IconInput
+                onInputChange={getEmail}
+                Icon={EmailIcon}
+                placeText='Enter your email'
+              />
             </EmailDiv>
             <PasswordDiv>
               <label>Password</label>
-              <PasswordInput />
+              <PasswordInput onInputChange={getPassword} />
             </PasswordDiv>
             <CheckboxContainer>
               <div>
@@ -47,7 +91,9 @@ const LoginPage = () => {
               </div>
               <label>Forgot password</label>
             </CheckboxContainer>
-            <LoginButton className='button-primary'>Sign In</LoginButton>
+            <LoginButton className='button-primary' onClick={login}>
+              Sign In
+            </LoginButton>
             <SocialLoginButton>
               <GoogleIcon />
               <label>Sign in with Google</label>

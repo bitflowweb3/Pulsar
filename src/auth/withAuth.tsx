@@ -1,21 +1,34 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from './AuthProvider';
 import { useRouter } from 'next/router';
+import { getAccessToken } from '../services/auth';
 
 const withAuth = (WrappedComponent: React.ComponentType<any>) => {
   const WrapperCommponent: React.FC<any> = (props) => {
-    const auth = useAuth();
     const router = useRouter();
+    const auth = useAuth();
+    const [isAuthChecked, setAuthChecked] = useState<boolean | undefined>();
 
-    // useEffect(() => {
-    //   if (!auth?.isAuthenticated) {
-    //     router.push('/');
-    //   }
-    // }, [auth, router]);
+    useEffect(() => {
+      CheckAuthenticated().then((isAuth) => {
+        if (!isAuth) {
+          router.push('/login');
+        }
+      }).catch(err => {
+        console.log(err);
+      });
+    }, [router, isAuthChecked]);
 
-    if (!auth?.isAuthenticated) {
-        return <div>{`Don\'t have permission`}</div>;
-    }
+    const CheckAuthenticated = async () => {
+      if ((await getAccessToken()) === 'bearer123123') {
+        auth?.setAuthenticate({ authed: true })
+        setAuthChecked(true);
+        return true;
+      } else {
+        return false;
+      }
+    };
+    
     return <WrappedComponent {...props} />;
   };
   return WrapperCommponent;

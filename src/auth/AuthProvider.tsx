@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getAccessToken } from '../services/auth';
 
-interface AuthContextProps {
+export interface AuthContextProps {
   isAuthenticated: boolean | undefined;
+  setAuthenticate: ({ authed }: { authed: boolean }) => void;
 }
 
 const AuthContext = React.createContext<AuthContextProps | null>(null);
@@ -12,12 +14,20 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isAuthenticated, Authenticate] = useState<boolean | undefined>(
     undefined
   );
-  const [waitAuthChecked, AuthChecked] = useState<boolean>(true);
+  const setAuthenticate = ({ authed }: {authed: boolean}) => {
+    Authenticate(authed);
+  }
 
-  return waitAuthChecked ? (
-    <div>Splash Screen</div>
-  ) : (
-    <AuthContext.Provider value={{ isAuthenticated }}>
+  useEffect(() => {
+    CheckAuthenticated();
+  }, []);
+  const CheckAuthenticated = async () => {
+    if ((await getAccessToken()) === 'bearer123123') {
+      Authenticate(true);
+    }
+  };
+  return  (
+    <AuthContext.Provider value={{ isAuthenticated, setAuthenticate }}>
       {children}
     </AuthContext.Provider>
   );

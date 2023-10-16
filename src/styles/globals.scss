@@ -91,25 +91,28 @@ hr {
 
 h1 {
   font-size: 48px;
-  color: white;
+  color: white !important;
 }
 h2 {
   font-size: 24px;
-  color: white;
+  color: white !important;
 }
 h3 {
   font-size: 32px;
-  color: white;
+  color: white !important;
 }
 h4 {
   font-size: 20px;
-  color: white;
+  color: white !important;
 }
 h5 {
   font-size: 18px;
-  color: white;
+  color: white !important;
 }
 h6 {
   font-size: 16px;
-  color: white;
+  color: white !important;
+}
+.ant-notification-notice-icon {
+  line-height: 17px !important;
 }

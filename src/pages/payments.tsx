@@ -4,5 +4,5 @@ import withAuth from '../auth/withAuth';
 const Payments = () => {
   return <PaymentsPage />
 }
-// export default withAuth(DashboardPage);
-export default Payments;
+export default withAuth(Payments);
+// export default Payments;

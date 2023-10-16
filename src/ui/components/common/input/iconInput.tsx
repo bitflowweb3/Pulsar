@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Space } from '../../../../constants/size';
 import styled from 'styled-components';
 import { SvgIconProps } from '../SvgIcon';
@@ -44,14 +45,22 @@ const InputTextDiv = styled.input`
 interface IconInputProps {
   placeText: string;
   Icon: ({ stroke, strokeWidth }: SvgIconProps) => JSX.Element;
+  onInputChange: (value: string) => void;
 }
-const IconInput = ({ placeText, Icon }: IconInputProps) => {
+const IconInput = ({ placeText, Icon, onInputChange }: IconInputProps) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setInputValue(value);
+    onInputChange(value); // call the callback function with the updated value
+  };
   return (
     <IconInputDiv>
       <IconDiv>
         <Icon />
       </IconDiv>
-      <InputTextDiv placeholder={placeText} />
+      <InputTextDiv placeholder={placeText} value={inputValue} onChange={handleInputChange} />
     </IconInputDiv>
   );
 };

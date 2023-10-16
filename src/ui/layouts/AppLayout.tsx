@@ -1,25 +1,26 @@
 import React from 'react';
-import { AccountProvider } from './AccountProvider';
 import Header from './header';
 import Sidebar from './sidebar';
 import { ThemeProvider } from '@mui/material';
 import { pulsarTheme } from '../../theme';
+import { useAccount } from './AccountProvider';
+import { useAuth } from '../../auth/AuthProvider';
 
 interface AppLayoutProps {
   children: React.ReactNode;
 }
 
 const AppLayout = ({ children }: AppLayoutProps) => {
+  const account = useAccount();
+  const auth = useAuth();
   return (
-    <AccountProvider>
-      <ThemeProvider theme={pulsarTheme}>
-        <Header />
-        <section className='main-content'>
-          <Sidebar />
-          {children}
-        </section>
-      </ThemeProvider>
-    </AccountProvider>
+    <ThemeProvider theme={pulsarTheme}>
+      <Header account={account} auth={auth} />
+      <section className='main-content'>
+        <Sidebar account={account} auth={auth}/>
+        {children}
+      </section>
+    </ThemeProvider>
   );
 };
 export default AppLayout;

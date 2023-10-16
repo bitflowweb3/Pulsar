@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Space } from '../../../constants/size';
+import { BorderRadius, Padding, Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
 
 export const TopBar = styled.div`
@@ -35,3 +35,11 @@ export const AuthContent = styled.div`
   gap: 25px;
   align-items: center;
 `;
+export const LoginButton = styled.button`
+  color: ${Color.$white};
+  font-size: 16px;
+`;
+export const SignupButton = styled.button`
+  padding: ${Padding.xs} ${Padding.s};
+  border-radius: ${BorderRadius.xxxl};
+`

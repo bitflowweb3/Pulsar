@@ -4,5 +4,5 @@ import withAuth from '../../auth/withAuth';
 const ServersPage = () => {
   return <Servers />
 }
-// export default withAuth(ServersPage);
-export default ServersPage;
+export default withAuth(ServersPage);
+// export default ServersPage;

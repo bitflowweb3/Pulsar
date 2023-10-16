@@ -4,5 +4,5 @@ import withAuth from '../auth/withAuth';
 const Settings = () => {
   return <SettingsPage />
 }
-// export default withAuth(DashboardPage);
-export default Settings;
+export default withAuth(Settings);
+// export default Settings;

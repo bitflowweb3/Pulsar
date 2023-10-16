@@ -21,17 +21,27 @@ import SettingIcon from '../../../assets/icons/setting-icon.png';
 import MaximizeIcon from '../../../assets/icons/maximize-icon.png';
 import Switch from '@mui/material/Switch';
 import TabButtonGroup from '../../../ui/components/common/tabsgroup';
-import { useAccount } from '../AccountProvider';
+import { AccountProviderProps } from '../AccountProvider';
+import { AuthContextProps } from '../../../auth/AuthProvider';
 
-const Sidebar = () => {
-  const acount = useAccount();
+interface LayoutProps {
+  auth: AuthContextProps | null;
+  account: AccountProviderProps | null;
+}
+const Sidebar = ({ auth, account } : LayoutProps) => {
+
   const [isAccountPage, setIsAccountPage] = useState<boolean | undefined>(
     undefined
   );
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | undefined>(
+    undefined
+  );
   useEffect(() => {
-    setIsAccountPage(acount?.isAccountPage);
-  }, []);
-  return isAccountPage ? (
+    setIsAccountPage(account?.isAccountPage);
+    setIsAuthenticated(auth?.isAuthenticated);
+  }, [account, auth]);
+
+  return isAccountPage && isAuthenticated ? (
     <SidebarDiv>
       <TabButtonGroup />
       <ProContent>

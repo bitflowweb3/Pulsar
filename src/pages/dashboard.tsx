@@ -4,5 +4,5 @@ import withAuth from '../auth/withAuth';
 const DashboardPage = () => {
   return <Dashboard />
 }
-// export default withAuth(DashboardPage);
-export default DashboardPage;
+export default withAuth(DashboardPage);
+// export default DashboardPage;
