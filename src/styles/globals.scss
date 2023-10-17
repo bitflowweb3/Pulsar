@@ -116,3 +116,25 @@ h6 {
 .ant-notification-notice-icon {
   line-height: 17px !important;
 }
+.ant-dropdown-menu {
+  background-color: var(--color-primary);
+}
+.ant-dropdown-menu-item {
+  padding-left: var(--padding-l);
+  span {
+    font-size: 16px;
+    &:hover {
+      color: #8758FF;
+    }
+    &:active {
+      color: #8758FF;
+    }
+  }
+  &:hover {
+    background-color: var(--color-primary);
+    
+  }
+  &:active {
+    background-color: var(--color-primary);
+  }
+}
