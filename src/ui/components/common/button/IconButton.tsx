@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-export const IconButtonDiv = styled.div`
+export const IconButtonDiv = styled.button`
     display: flex;
-    flex: 1;
     flex-direction: row;
     gap: var(--padding-s);
     border-radius: 48px;

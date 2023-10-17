@@ -4,6 +4,8 @@ import { Color } from '../../../constants/color';
 export interface SvgIconProps {
     stroke?: string;
     strokeWidth?: string;
+    width?: number;
+    height?: number;
 }
 
 const SvgContainer = styled.div<SvgIconProps>`

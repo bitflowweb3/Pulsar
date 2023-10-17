@@ -1,14 +1,7 @@
-import React, {useEffect} from 'react';
-import withAuth from '../auth/withAuth';
-import Home from '../ui/pages/dashboard';
-import {useRouter} from 'next/router';
+import React from 'react';
+import Price from '../ui/pages/price';
 
 function HomePage() {
-  const router = useRouter();
-  useEffect(() => {
-    router.push('/dashboard')
-  }, []);
-  return <Home />;
+  return <Price />;
 }
-
-export default withAuth(HomePage);
+export default HomePage;

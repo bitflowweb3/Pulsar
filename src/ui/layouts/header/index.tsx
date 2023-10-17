@@ -16,6 +16,7 @@ import UserAvatar from '../../../assets/icons/girl.png';
 import AlarmIcon from '../../../assets/icons/alarm-icon.svg';
 import QustionIcon from '../../../assets/icons/question-icon.svg';
 import { AuthContextProps } from '../../../auth/AuthProvider';
+import Link from 'next/link';
 
 interface LayoutProps {
   auth: AuthContextProps | null;
@@ -31,6 +32,10 @@ const Header = ({ auth, account } : LayoutProps) => {
     setIsAccountPage(account?.isAccountPage);
     setIsLogined(auth?.isAuthenticated);
   }, [account, auth]);
+
+  const goToLogin = () => {
+
+  }
 
   return (
     <TopBar>
@@ -51,7 +56,7 @@ const Header = ({ auth, account } : LayoutProps) => {
       </LogoContent>
       {!isLogined ? (
         <AuthContent>
-          <LoginButton>Log in</LoginButton>
+          <Link href='/login'><LoginButton>Log in</LoginButton></Link>
           <SignupButton className='button-secondary'>Sign up</SignupButton>
         </AuthContent>
       ) : (

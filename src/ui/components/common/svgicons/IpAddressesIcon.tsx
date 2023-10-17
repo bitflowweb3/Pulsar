@@ -1,11 +1,16 @@
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
-const IpAddressesIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
+const IpAddressesIcon = ({
+  stroke,
+  strokeWidth,
+  width,
+  height,
+}: SvgIconProps) => {
   return (
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
-        width='20'
-        height='18'
+        width={width ?? 20}
+        height={height ?? 18}
         viewBox='0 0 20 18'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
