@@ -13,18 +13,26 @@ export const TopBar = styled.div`
 `;
 export const LogoContent = styled.div`
   padding: var(--padding-none) var(--padding-base);
+  height: 100%;
 `;
 export const LandingPageLogoContent = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   gap: ${Space.xl};
+  height: 100%;
 `;
 export const LandingNavbar = styled.div`
   display: flex;
-  align-items: flex-end;
-  gap: ${Space.l};
-  label {
+  height: 100%;
+  /* gap: ${Space.l}; */
+  a {
+    padding: ${Space.l};    
+    height: 100%;
+    &:hover {
+      /* background-color: ${Color.$black}; */
+      color: ${Color.$brand_600};
+    }
     font-size: 16px;
     color: ${Color.$white};
   }

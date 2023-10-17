@@ -22,7 +22,7 @@ interface LayoutProps {
   auth: AuthContextProps | null;
   account: AccountProviderProps | null;
 }
-const Header = ({ auth, account } : LayoutProps) => {
+const Header = ({ auth, account }: LayoutProps) => {
   const [isAccountPage, setIsAccountPage] = useState<boolean | undefined>(
     undefined
   );
@@ -33,10 +33,6 @@ const Header = ({ auth, account } : LayoutProps) => {
     setIsLogined(auth?.isAuthenticated);
   }, [account, auth]);
 
-  const goToLogin = () => {
-
-  }
-
   return (
     <TopBar>
       <LogoContent>
@@ -46,17 +42,19 @@ const Header = ({ auth, account } : LayoutProps) => {
           <LandingPageLogoContent>
             <Image src={LandingLogo} alt='landing-logo' />
             <LandingNavbar>
-              <label>Home</label>
-              <label>Products</label>
-              <label>Resources</label>
-              <label>Pricing</label>
+              <Link href='/price'>Home</Link>
+              <Link href='/price'>Products</Link>
+              <Link href='/price'>Resources</Link>
+              <Link href='/price'>Pricing</Link>
             </LandingNavbar>
           </LandingPageLogoContent>
         )}
       </LogoContent>
       {!isLogined ? (
         <AuthContent>
-          <Link href='/login'><LoginButton>Log in</LoginButton></Link>
+          <Link href='/login'>
+            <LoginButton>Log in</LoginButton>
+          </Link>
           <SignupButton className='button-secondary'>Sign up</SignupButton>
         </AuthContent>
       ) : (
