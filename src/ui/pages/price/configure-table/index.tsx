@@ -2,7 +2,6 @@ import React from 'react';
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import ServerCell from './server-cell';
 import { TrafficTableContainer, ContentDiv, ContentBorderDiv } from './styled';
-import { Hr } from '../../../layouts/sidebar/styled';
 import { Space } from '../../../../constants/size';
 
 interface ConfigureInfos {
@@ -122,6 +121,7 @@ const ConfigureTable = () => {
           <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: Space.base }}>
             <h3>Your Configurations</h3>
             <hr />
+            {/* @ts-ignore */}
             <DataGrid rows={rowsMin} columns={columnsMin} />
           </div>
         </TrafficTableContainer>
