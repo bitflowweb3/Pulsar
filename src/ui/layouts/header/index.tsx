@@ -64,7 +64,7 @@ const Header = ({ auth, account }: LayoutProps) => {
     <TopBar>
       <LogoContent>
         {isAccountPage ? (
-          <Image src={CompanyLogo} alt='Company Logo' />
+          <Link href='/price'><Image src={CompanyLogo} alt='Company Logo' /></Link>
         ) : (
           <LandingPageLogoContent>
             <Image src={LandingLogo} alt='landing-logo' />
