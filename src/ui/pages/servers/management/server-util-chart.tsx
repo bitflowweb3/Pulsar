@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import {
   BarElement,
@@ -134,7 +134,6 @@ const ServerUtilChart = () => {
     if (chartLoading) {
       const canvas = document.getElementById('chart') as HTMLCanvasElement;
       if (typeof document !== 'undefined') {
-        console.log('💥💥💥💥💥', canvas);
         if (canvas) {
           const ctx = canvas.getContext('2d');
           const gradient1 = ctx?.createLinearGradient(0, 0, 0, 300);
