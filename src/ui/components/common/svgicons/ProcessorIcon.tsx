@@ -1,11 +1,16 @@
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
-const ProcessorIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
+const ProcessorIcon = ({
+  stroke,
+  strokeWidth,
+  width,
+  height,
+}: SvgIconProps) => {
   return (
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
-        width='30'
-        height='30'
+        width={width ?? '30'}
+        height={height ?? '30'}
         viewBox='0 0 30 30'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
