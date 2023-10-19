@@ -136,7 +136,6 @@ const ServerUtilChart = () => {
       if (typeof document !== 'undefined') {
         console.log('💥💥💥💥💥', canvas);
         if (canvas) {
-          console.log('💪🏻😀💪🏻💪🏻');
           const ctx = canvas.getContext('2d');
           const gradient1 = ctx?.createLinearGradient(0, 0, 0, 300);
           gradient1?.addColorStop(0, 'rgba(114, 252, 169, 0.3)');
