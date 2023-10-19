@@ -13,10 +13,10 @@ const PageHeader = styled.div`
 const ServersMainContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
-  overflow-y: auto;
+  gap: var(--space-base);
   height: calc(100vh - 200px);
-
+  
+  overflow-y: auto;
   &::-webkit-scrollbar {
     width: 5px;
   }

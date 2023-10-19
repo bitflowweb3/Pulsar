@@ -1,8 +1,9 @@
-import ServerManagement from "../../ui/pages/servers/management";
+import withAuth from "../../auth/withAuth";
+import ServerManagement from "../../ui/pages/servers/management/management";
 
 const ServerManagementPage = () => {
     return (
         <ServerManagement />
     )
 }
-export default ServerManagementPage;
+export default withAuth(ServerManagementPage);
