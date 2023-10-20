@@ -2,7 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'assets.scss';
-@import '../ui/styles/ui.scss';
 
 :root {
   //colors
@@ -29,6 +28,7 @@
   --padding-xxs: 2px;
   --padding-xs: 4px;
   --padding-s: 8px;
+  --padding-sb: 12px;
   --padding-base: 16px;
   --padding-bl: 20px;
   --padding-l: 24px;

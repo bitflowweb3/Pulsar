@@ -1,6 +1,3 @@
-import TrafficPerServer from '../../components/cards/traffic-per-server';
-import UpcomingPayments from '../../components/cards/upcoming-payments';
-import TrafficChart from '../../components/charts/traffic-chart';
 import { MainPageContainer } from '../../../styles/global';
 import { PageHeader, PaymentsMainContent } from './styled';
 import PaymentAmount from '../../components/cards/payment-amount';

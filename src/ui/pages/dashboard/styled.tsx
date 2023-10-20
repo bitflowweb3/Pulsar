@@ -13,10 +13,11 @@ const DashboardMainContent = styled.div`
   display: flex;
   flex-direction: row;
   gap: var(--space-xl);
-  overflow-y: auto;
+  
   height: calc(100vh - 200px);
   padding-left: ${Space.sb};
 
+  overflow-y: auto;
   &::-webkit-scrollbar {
     width: 5px;
   }
@@ -42,19 +43,38 @@ const DashboardMainContent = styled.div`
     gap: var(--space-l);
 
     &:first-child {
-      flex-basis: calc(100vw - 500px);
+      flex-basis: calc(100vw - 615px);
       flex-shrink: 1;
       flex-grow: 0;
     }
     &:last-child {
-      flex-basis: 240px;
+      flex-basis: 360px;
       flex-grow: none;
     }
   }
   .dashboard-right-sidebar {
-    gap: var(--space-xxl);
+    overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-gray-400);
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neutral-400);
+  }
+
     position: sticky;
-    top: var(--space-s);
+    top: 0px;
     right: var(--space-base);
   }
 `;
