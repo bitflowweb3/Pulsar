@@ -11,7 +11,6 @@ import {
   Tooltip,
 } from 'chart.js';
 
-import 'antd/dist/antd.css';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -27,7 +26,7 @@ Chart.register(
 
 const antIcon = <LoadingOutlined style={{ fontSize: 80 }} spin />;
 
-const LineChart = () => {
+const ServerUtilChart = () => {
   const [chartLoading, setIsChartsLoaded] = useState<boolean | undefined>();
   const [gradientColor, setGradientColor] = useState<any | undefined>();
 
@@ -50,18 +49,8 @@ const LineChart = () => {
       {
         label: 'Traffic 1',
         data: [65, 59, 80, 45, 67, 89, 90, 45, 60, 68, 43, 70],
-        backgroundColor: gradientColor?.gradient1,
-        borderColor: '#FC9272',
-        borderWidth: 1,
-        stepped: false,
-        fill: true,
-        spanGaps: false,
-      },
-      {
-        label: 'Traffic 2',
-        data: [90, 45, 60, 68, 43, 70, 65, 59, 80, 45, 67, 89],
-        backgroundColor: gradientColor?.gradient2,
-        borderColor: '#0D99FF',
+        backgroundColor: gradientColor,
+        borderColor: '#72FCA9',
         borderWidth: 1,
         stepped: false,
         fill: true,
@@ -69,7 +58,9 @@ const LineChart = () => {
       },
     ],
   };
-  const trafficChartLine = (
+
+  const utilChart = (
+    // () => (
     <Line
       id='chart'
       data={data}
@@ -98,6 +89,7 @@ const LineChart = () => {
             min: 0, // Set the minimum value of the y-axis
             max: 100,
             beginAtZero: true,
+
             grid: {
               tickLength: 0,
               color: 'white',
@@ -106,9 +98,17 @@ const LineChart = () => {
             },
             ticks: {
               color: '#969696',
-              padding: 8,
+              count: 5,
+              padding: 4,
               callback: function (value, index, ticks) {
-                return value + 'G';
+                {
+                  /* @ts-ignore */
+                }
+                // if ( value % 20 === 0) { // Set the step size as per your requirement
+                return value;
+                // } else {
+                //   return '';
+                // }
               },
             },
             border: {
@@ -129,7 +129,7 @@ const LineChart = () => {
         },
       }}
     />
-  );
+);
   useEffect(() => {
     if (chartLoading) {
       const canvas = document.getElementById('chart') as HTMLCanvasElement;
@@ -137,14 +137,9 @@ const LineChart = () => {
         if (canvas) {
           const ctx = canvas.getContext('2d');
           const gradient1 = ctx?.createLinearGradient(0, 0, 0, 300);
-          gradient1?.addColorStop(0, 'rgba(255, 146, 114, 0.4)');
-          gradient1?.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-          const gradient2 = ctx?.createLinearGradient(0, 0, 0, 300);
-          gradient2?.addColorStop(0, 'rgba(13, 153, 255, 0.4)');
-          gradient2?.addColorStop(0.8, 'rgba(0, 0, 0, 0)');
-
-          setGradientColor({ gradient1, gradient2 });
+          gradient1?.addColorStop(0, 'rgba(114, 252, 169, 0.3)');
+          gradient1?.addColorStop(0.7, 'rgba(0, 0, 0, 0)');
+          setGradientColor(gradient1);
         }
       }
     }
@@ -181,23 +176,22 @@ const LineChart = () => {
 
   return (
     <>
-      <div style={{ height: '250px' }}>
+      <div
+      style={{ height: '100%' }}
+      >
         {chartLoading ? (
-          trafficChartLine
+          utilChart
         ) : (
           <div
-              style={{
-                height: '250px',
+            style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              alignSelf: 'center',
-              alignContent: 'center',
               justifyContent: 'center',
-              justifySelf: 'center',
+              alignContent: 'center',
             }}
           >
-            <Spin indicator={antIcon} style={{color: 'white'}}/>
+            <Spin indicator={antIcon} />
           </div>
         )}
       </div>
@@ -205,4 +199,4 @@ const LineChart = () => {
   );
 };
 
-export default LineChart;
+export default ServerUtilChart;

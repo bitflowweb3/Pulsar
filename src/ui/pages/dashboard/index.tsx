@@ -1,9 +1,10 @@
-import TrafficPerServer from '../../../ui/components/cards/traffic-per-server';
-import UpcomingPayments from '../../../ui/components/cards/upcoming-payments';
 import TrafficChart from '../../../ui/components/charts/traffic-chart';
 import TrafficTable from '../../../ui/components/lists/traffic-table';
 import { MainPageContainer } from '../../../styles/global';
 import { PageHeader, DashboardMainContent } from './styled';
+import BillingCard from './upcoming-payments';
+import IpSummary from './ip-summary';
+import BandwidthCommit from './bandwidth-commit';
 
 export default function DashboardPage() {
   return (
@@ -20,8 +21,9 @@ export default function DashboardPage() {
           <TrafficTable isminimized={true} />
         </section>
         <section className='sub-content dashboard-right-sidebar'>
-          <TrafficPerServer />
-          <UpcomingPayments />
+          <BillingCard />
+          <IpSummary />
+          <BandwidthCommit />
         </section>
       </DashboardMainContent>
     </MainPageContainer>

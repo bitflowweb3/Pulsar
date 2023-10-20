@@ -38,18 +38,19 @@ const PeriodButtonGroupDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: var(--space-s);
+  gap: var(--space-xs);
   height: 36px;
   border-radius: var(--padding-l);
   padding: var(--padding-xs) var(--padding-s);
   background-color: var(--color-neutral-primary);
   & > .active-button {
     border-radius: 22px;
-    padding: var(--padding-none) var(--padding-base);
+    padding: var(--padding-none) var(--padding-sb);
     background-color: var(--color-pink-600);
   }
   & > button {
     color: white;
+    padding: var(--padding-none) var(--padding-sb);
     font-size: 12px;
   }
 `;

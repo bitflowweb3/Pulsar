@@ -47,7 +47,6 @@ const LoginPage = () => {
       }
     } catch (error) {
       console.log(error);
-      console.log(error);
       Notification.error({
         message: 'Error',
         description: 'Login failed'
