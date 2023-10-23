@@ -14,6 +14,7 @@ import BandwidthCommit from './bandwidth-commit';
 import ConfigureTable from './configure-table';
 import ConfigureSupport from './support';
 import PlanPrice from './plan-price';
+import Footer from '../../components/footer';
 
 const PricePage = () => {
   return (
@@ -54,6 +55,7 @@ const PricePage = () => {
           <PlanPrice />
         </ConfigureInfoBody>
       </SubContent>
+      <Footer />
     </PricePageContent>
   );
 };
