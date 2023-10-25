@@ -14,6 +14,8 @@ import {
 import 'antd/dist/antd.css';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
+import { DatePeriod } from '../../../../types/datePeriod.module';
+import { getLabels } from '../../../../utilities/getLabels';
 
 Chart.register(
   CategoryScale,
@@ -27,29 +29,22 @@ Chart.register(
 
 const antIcon = <LoadingOutlined style={{ fontSize: 80 }} spin />;
 
-const LineChart = () => {
+interface LineChartProps {
+  trafficData: { incoming: number[], outgoing: number[] }
+  period: DatePeriod,
+}
+
+const LineChart = ({ trafficData, period }: LineChartProps) => {
   const [chartLoading, setIsChartsLoaded] = useState<boolean | undefined>();
   const [gradientColor, setGradientColor] = useState<any | undefined>();
+  const [labels, setLabels] = useState<string[] | undefined>();
 
   const data = {
-    labels: [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ],
+    labels: labels,
     datasets: [
       {
         label: 'Traffic 1',
-        data: [65, 59, 80, 45, 67, 89, 90, 45, 60, 68, 43, 70],
+        data: trafficData.incoming,
         backgroundColor: gradientColor?.gradient1,
         borderColor: '#FC9272',
         borderWidth: 1,
@@ -59,7 +54,7 @@ const LineChart = () => {
       },
       {
         label: 'Traffic 2',
-        data: [90, 45, 60, 68, 43, 70, 65, 59, 80, 45, 67, 89],
+        data: trafficData.outgoing,
         backgroundColor: gradientColor?.gradient2,
         borderColor: '#0D99FF',
         borderWidth: 1,
@@ -69,6 +64,7 @@ const LineChart = () => {
       },
     ],
   };
+
   const trafficChartLine = (
     <Line
       id='chart'
@@ -82,7 +78,7 @@ const LineChart = () => {
         },
         scales: {
           x: {
-            grid: {
+              grid: {
               tickLength: 0,
             },
             ticks: {
@@ -130,6 +126,8 @@ const LineChart = () => {
       }}
     />
   );
+
+  // Get canvas context and set the gradient
   useEffect(() => {
     if (chartLoading) {
       const canvas = document.getElementById('chart') as HTMLCanvasElement;
@@ -148,8 +146,25 @@ const LineChart = () => {
         }
       }
     }
-  }, [chartLoading]);
+  }, [chartLoading, period]);
 
+  // Change the Chart x-axios labels
+  useEffect(() => {
+    let timeoutId: any;
+
+    function handleResize() {
+      setIsChartsLoaded(false); // Set loading to true when resizing starts
+
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setIsChartsLoaded(true); // Set loading to false after resizing is complete
+      }, 500); // Adjust the delay time as needed
+    }
+    setLabels(getLabels(period));
+    handleResize();
+  }, [period]);
+
+  // Initial Loading
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsChartsLoaded(true);
@@ -160,6 +175,7 @@ const LineChart = () => {
     };
   }, []);
 
+  // Resize Loading
   useEffect(() => {
     let timeoutId: any;
 

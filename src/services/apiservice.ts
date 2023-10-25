@@ -3,6 +3,7 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios';
+import { DatePeriod } from '../types/datePeriod.module';
 // import router from 'next/router';
 // import dotenv from 'dotenv'
 
@@ -49,6 +50,16 @@ export const getConfig = (accessToken?: string) => ({
 const getHello = async (): Promise<any> => instance.get(`/hello`);
 const getUser = async (accessToken?: string): Promise<string> =>
   instance.get('/auth/user', getConfig(accessToken));
+const getTrafficData = async (period: DatePeriod, accessToken?: string): Promise<any> => 
+  instance.get('/dashboard/traffic/data', {
+    ...getConfig(accessToken),
+    params: {
+      period
+    },
+  });
+
+
+
 
 const apiService = {
   api: {
@@ -56,6 +67,7 @@ const apiService = {
   },
   secureApi: (accessToken?: string) => ({
     getUser: () => getUser(accessToken),
+    getTrafficData: (period : DatePeriod) => getTrafficData(period, accessToken),
   }),
 };
 export default apiService;
