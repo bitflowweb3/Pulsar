@@ -1,11 +1,11 @@
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
-const TrashIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
+const TrashIcon = ({ stroke, strokeWidth, width, height }: SvgIconProps) => {
   return (
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
-        width='18'
-        height='20'
+        width={width??'18'}
+        height={height??'20'}
         viewBox='0 0 18 20'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'

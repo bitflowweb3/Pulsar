@@ -41,6 +41,10 @@ export enum Color  {
 
     //erro colors
 
+    $error_400 = '#ED4C4D',
+    $error_500 = '#f04438',
+    $error_700 = '#b32318',
+
     //success colors
 
     $success_300 = '#50D1B2',
