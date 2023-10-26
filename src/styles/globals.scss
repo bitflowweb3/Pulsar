@@ -16,6 +16,7 @@
   --color-gray-400: #8b8b93;
   --color-gray-300: #d0d5dd;
   --color-gray-200: #969696;
+  --color-gray-600: #475467;
   --color-gray-icon: #969696;
   --color-gray-100: #7d7d7d;
   --color-brown-400: #ec8c56;
@@ -66,11 +67,18 @@
 .button-primary {
   background-color: var(--color-pink-600);
   color: white;
+  border: none !important;
 }
 
 .button-secondary {
   background-color: var(--color-neutral-400);
   border: solid 1px var(--color-pink-700);
+  color: white;
+}
+
+.button-card {
+  background-color: var(--color-neutral-400);
+  border: solid 1px var(--color-gray-600);
   color: white;
 }
 
@@ -113,9 +121,13 @@ h6 {
   font-size: 16px;
   color: white !important;
 }
+
+//customize notification
 .ant-notification-notice-icon {
   line-height: 17px !important;
 }
+
+// customize auth-content
 .ant-dropdown-menu {
   background-color: var(--color-primary);
 }
@@ -137,4 +149,17 @@ h6 {
   &:active {
     background-color: var(--color-primary);
   }
+}
+
+//customize modal
+.ant-modal-wrap {
+  backdrop-filter: blur(6px);
+  background-color: rgba(150,150,150, 0.1);
+}
+
+.ant-modal-content {
+  border-radius: 16px;
+  background-color: #1F2128;
+  box-shadow: 0 0 10px rgba(150, 150, 150, 0.1);
+  // height: 500px;
 }
