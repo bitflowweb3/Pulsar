@@ -28,7 +28,7 @@ export default function handler(
       data.outgoing = [
         15, 36, 67, 89, 14, 45, 14, 46, 45, 60, 68, 43, 70, 65, 59,
       ];
-      res.status(200).json(data);
+      
       break;
     case DatePeriod.hour:
       data.incoming = [
@@ -37,7 +37,6 @@ export default function handler(
       data.outgoing = [
         80, 45, 67,  14, 45, 14, 46, 68, 43, 70, 65, 59, 
       ];
-      res.status(200).json(data);
       break;
     case DatePeriod.day:
       data.incoming = [
@@ -46,7 +45,6 @@ export default function handler(
       data.outgoing = [
         45, 67, 89, 59, 80, 90, 45, 89, 90, 45, 70, 65, 
       ];
-      res.status(200).json(data);
       break;
     case DatePeriod.month:
       data.incoming = [
@@ -55,7 +53,6 @@ export default function handler(
       data.outgoing = [
         45, 67, 89, 90, 45, 45, 60, 68, 43, 70, 89, 90, 65, 59, 80, 
       ];
-      res.status(200).json(data);
       break;
     case DatePeriod.year:
       data.incoming = [
@@ -64,12 +61,10 @@ export default function handler(
       data.outgoing = [
         60, 68, 43, 70, 65, 59, 80, 45, 67, 89, 90, 45,
       ];
-      res.status(200).json(data);
       break;
     case DatePeriod.all:
       data.incoming = [65, 59, 80];
       data.outgoing = [60, 90, 45];
-      res.status(200).json(data);
       break;
     default:
       data.incoming = [
@@ -78,7 +73,6 @@ export default function handler(
       data.outgoing = [
         60, 68,  45, 67, 89, 90, 45,43, 70, 65, 59, 80,
       ];
-      res.status(200).json(data);
       break;
   }
 
