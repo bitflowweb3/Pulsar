@@ -11,7 +11,7 @@ const CpuCell = ({ percentValue }: CpuCellProps) => {
       <BorderLinearProgress
         variant='determinate'
         value={percentValue}
-        style={{ width: '100px', height: 6 }}
+        style={{ flex: '1 0 50px', height: 6 }}
       />
       <label>{`${percentValue}%`}</label>
     </CpuCellDiv>

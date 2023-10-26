@@ -9,6 +9,7 @@ interface TrafficTableContainerProps {
   isminimized: string;
 }
 const TrafficTableContainer = styled.div<TrafficTableContainerProps>`
+  flex: 1;
   background-color: var(--color-primary);
   border-radius: var(--space-l);
   padding: var(--space-s) var(--space-base);
@@ -56,10 +57,11 @@ const CpuCellDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: ${Space.base};
+  width: 100%;
 
   label {
     color: white;
-    width: 20px;
+    width: 30px;
   }
 `;
 

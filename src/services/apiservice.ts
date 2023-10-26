@@ -3,10 +3,15 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios';
+import { DatePeriod } from '../types/datePeriod.module';
 // import router from 'next/router';
 // import dotenv from 'dotenv'
 
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+let baseURL;
+
+if (typeof window !== "undefined") {
+  baseURL = (process.env.NODE_ENV === 'production') ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE_URL;
+} else baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 const instance = axios.create({ baseURL });
 
 // instance.interceptors.request.use(
@@ -49,6 +54,16 @@ export const getConfig = (accessToken?: string) => ({
 const getHello = async (): Promise<any> => instance.get(`/hello`);
 const getUser = async (accessToken?: string): Promise<string> =>
   instance.get('/auth/user', getConfig(accessToken));
+const getTrafficData = async (period: DatePeriod, accessToken?: string): Promise<any> => 
+  instance.get('/dashboard/traffic/data', {
+    ...getConfig(accessToken),
+    params: {
+      period
+    },
+  });
+
+const getServerList = async (accessToken?: string): Promise<any> => 
+  instance.get('/server/all', { ...getConfig(accessToken) })
 
 const apiService = {
   api: {
@@ -56,6 +71,8 @@ const apiService = {
   },
   secureApi: (accessToken?: string) => ({
     getUser: () => getUser(accessToken),
+    getTrafficData: (period: DatePeriod) => getTrafficData(period, accessToken),
+    getServerList: () => getServerList(accessToken),
   }),
 };
 export default apiService;

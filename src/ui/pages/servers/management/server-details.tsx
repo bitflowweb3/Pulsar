@@ -121,7 +121,7 @@ export const IconDiv = styled.div`
   margin-top: ${Space.xs};
 `;
 
-const CardButton = styled.button`
+export const CardButton = styled.button`
   border-radius: ${BorderRadius.xxl};
   border: solid 1px ${Color.$gray_600};
   padding: ${Space.s} ${Space.base};

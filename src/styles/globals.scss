@@ -2,6 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'assets.scss';
+@import 'custom.scss';
 
 :root {
   //colors
@@ -16,6 +17,7 @@
   --color-gray-400: #8b8b93;
   --color-gray-300: #d0d5dd;
   --color-gray-200: #969696;
+  --color-gray-600: #475467;
   --color-gray-icon: #969696;
   --color-gray-100: #7d7d7d;
   --color-brown-400: #ec8c56;
@@ -66,11 +68,18 @@
 .button-primary {
   background-color: var(--color-pink-600);
   color: white;
+  border: none !important;
 }
 
 .button-secondary {
   background-color: var(--color-neutral-400);
   border: solid 1px var(--color-pink-700);
+  color: white;
+}
+
+.button-card {
+  background-color: var(--color-neutral-400);
+  border: solid 1px var(--color-gray-600);
   color: white;
 }
 
@@ -113,28 +122,4 @@ h6 {
   font-size: 16px;
   color: white !important;
 }
-.ant-notification-notice-icon {
-  line-height: 17px !important;
-}
-.ant-dropdown-menu {
-  background-color: var(--color-primary);
-}
-.ant-dropdown-menu-item {
-  padding-left: var(--padding-l);
-  span {
-    font-size: 16px;
-    &:hover {
-      color: #8758FF;
-    }
-    &:active {
-      color: #8758FF;
-    }
-  }
-  &:hover {
-    background-color: var(--color-primary);
-    
-  }
-  &:active {
-    background-color: var(--color-primary);
-  }
-}
+

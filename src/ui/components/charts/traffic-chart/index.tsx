@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PeriodButtonGroup from './button-group';
 import LineChart from './server-chart';
 import {
@@ -10,7 +10,27 @@ import {
   Divider,
   Footer,
 } from './styled';
+import apiService from '../../../../services/apiservice';
+import { DatePeriod } from '../../../../types/datePeriod.module';
+
+type TrafficData = { incoming: number[], outgoing: number[] };
+
 const TrafficChart = () => {
+
+  const [period, setPeriod] = useState<DatePeriod>(DatePeriod.year);
+  const [trafficData, setTrafficData] = useState<TrafficData | undefined>();
+
+  useEffect(() => {
+    const getData = async () => {
+      apiService.secureApi('pulsar').getTrafficData(period).then(
+        (res) => {
+          setTrafficData(res.data);
+        }
+      ).catch(err => console.log(err));
+    }
+    getData();
+  }, [period])
+
   return (
     <TrafficChartContainer>
       <TrafficChartHeader>
@@ -21,12 +41,12 @@ const TrafficChart = () => {
           </h4>
         </HeaderTextDiv>
         <HeaderDateDiv>
-          <PeriodButtonGroup />
+          <PeriodButtonGroup setPeriod={setPeriod} />
           <MonthButton className='button-secondary'>January, 2023</MonthButton>
         </HeaderDateDiv>
       </TrafficChartHeader>
       <Divider />
-      <LineChart />
+      <LineChart period={period} trafficData={trafficData??{incoming:[], outgoing: []}}/>
       <Footer>
         <span>Traffic</span>
         <Divider />

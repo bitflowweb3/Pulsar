@@ -1,19 +1,19 @@
 type IpAddress = {
-    ip: number;
+    ip: string;
 }
 
-export type Server = {
+export type ServerType = {
     id: number;
     type: string;
-    status: 'ON' | 'OFF';
-    ipAddresses: Array<IpAddress>;
+    status: boolean;
+    ipAddresses?: Array<IpAddress>;
     location: string;
     os: string;
-    cpuUtilization: string;
-    ramUtilization: string;
-    diskUtilization: string;
-    bandwidth: string;
-    incomingTraffic: string;
-    outcomingTraffic: string;
-    date: string;
+    cpuUtilization?: number;
+    ramUtilization?: number;
+    diskUtilization?: number;
+    bandwidth?: number;
+    incomingTraffic?: number;
+    outcomingTraffic?: number;
+    date?: string;
 }

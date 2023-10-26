@@ -6,7 +6,7 @@ import {
   HeaderDateDiv,
   MonthButton,
 } from '../../../components/charts/traffic-chart/styled';
-import PeriodButtonGroup from '../../../components/charts/traffic-chart/button-group';
+import PeriodButtonGroup from './button-group';
 import { Color } from '../../../../constants/color';
 import { BorderRadius, Padding, Space } from '../../../../constants/size';
 import ServerUtilChart from './server-util-chart';
