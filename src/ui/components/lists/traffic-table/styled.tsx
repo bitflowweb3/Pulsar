@@ -9,6 +9,7 @@ interface TrafficTableContainerProps {
   isminimized: string;
 }
 const TrafficTableContainer = styled.div<TrafficTableContainerProps>`
+  flex: 1;
   background-color: var(--color-primary);
   border-radius: var(--space-l);
   padding: var(--space-s) var(--space-base);

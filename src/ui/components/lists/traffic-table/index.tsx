@@ -305,7 +305,7 @@ const TrafficTable = ({ isminimized }: TrafficTableProps) => {
 
   return (
     <TrafficTableContainer isminimized={isminimized.toString()}>
-      <div style={{ height: 1000, width: '100%' }}>
+      <div style={{ height: '100%',  width: '100%' }}>
         {isminimized ? (
           /* @ts-ignore */
           <DataGrid rows={serverListRowMins} columns={columnsMin} />
