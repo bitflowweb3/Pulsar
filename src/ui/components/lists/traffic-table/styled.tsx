@@ -57,10 +57,11 @@ const CpuCellDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: ${Space.base};
+  width: 100%;
 
   label {
     color: white;
-    width: 20px;
+    width: 30px;
   }
 `;
 

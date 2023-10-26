@@ -4,6 +4,7 @@ export const SidebarDiv = styled.div`
     display: flex;
     flex-direction: column;
     width: 256px;
+    height: calc(100vh - 60px);
     padding: var(--padding-l);
     background-color: var(--color-primary);
     justify-content: space-between;

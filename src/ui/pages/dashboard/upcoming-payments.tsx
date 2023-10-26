@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { StyledCard } from '../../components/cards/card-style';
 import ChartBarIcon from '../../components/common/svgicons/ChartBarIcon';
@@ -6,8 +6,18 @@ import { Color } from '../../../constants/color';
 import { Space } from '../../../constants/size';
 import PaymentsIcon from '../../components/common/svgicons/PaymentsIcon';
 import { IconCardButton } from '../servers/management/server-details';
+import MakePaymentModal from '../../components/modals/make-payment-modal';
 
 const UpcommingPayments = () => {
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   return (
     <StyledCard>
       <Header>
@@ -50,10 +60,11 @@ const UpcommingPayments = () => {
           <label>$6835.00</label>
         </Info>
       </Body>
-      <ChangeBillingModelButton className='button-primary'>
-              <PaymentsIcon stroke={Color.$white} />
+      <ChangeBillingModelButton className='button-primary' onClick={openModal}>
+        <PaymentsIcon stroke={Color.$white} />
         Make Payment
       </ChangeBillingModelButton>
+      <MakePaymentModal isOpen={isModalOpen} closeModal={closeModal} />
     </StyledCard>
   );
 };

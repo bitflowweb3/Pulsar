@@ -74,9 +74,6 @@ export default function DropdownMenu(props: any) {
     setModalOpen(false);
   };
 
-  useEffect(() => {
-  }, [isModalOpen]);
-
   return (
     <>
       <Menu

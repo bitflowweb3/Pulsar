@@ -2,7 +2,7 @@ import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
 const WalletLogoText = ({ stroke, strokeWidth }: SvgIconProps) => {
   return (
-    <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
+    // <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='164'
         height='20'
@@ -15,7 +15,7 @@ const WalletLogoText = ({ stroke, strokeWidth }: SvgIconProps) => {
           fill='white'
         />
       </svg>
-    </SvgContainer>
+    // </SvgContainer>
   );
 };
 export default WalletLogoText;
