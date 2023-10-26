@@ -2,6 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'assets.scss';
+@import 'custom.scss';
 
 :root {
   //colors
@@ -122,44 +123,3 @@ h6 {
   color: white !important;
 }
 
-//customize notification
-.ant-notification-notice-icon {
-  line-height: 17px !important;
-}
-
-// customize auth-content
-.ant-dropdown-menu {
-  background-color: var(--color-primary);
-}
-.ant-dropdown-menu-item {
-  padding-left: var(--padding-l);
-  span {
-    font-size: 16px;
-    &:hover {
-      color: #8758FF;
-    }
-    &:active {
-      color: #8758FF;
-    }
-  }
-  &:hover {
-    background-color: var(--color-primary);
-    
-  }
-  &:active {
-    background-color: var(--color-primary);
-  }
-}
-
-//customize modal
-.ant-modal-wrap {
-  backdrop-filter: blur(6px);
-  background-color: rgba(150,150,150, 0.1);
-}
-
-.ant-modal-content {
-  border-radius: 16px;
-  background-color: #1F2128;
-  box-shadow: 0 0 10px rgba(150, 150, 150, 0.1);
-  // height: 500px;
-}
