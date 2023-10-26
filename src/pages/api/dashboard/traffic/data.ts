@@ -16,7 +16,8 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<TrafficData>
 ) {
-  const period = Number(req.query?.period) ?? DatePeriod.year;
+  // const period = Number(req.query?.period) ?? DatePeriod.year;
+  const period:Number = 1;
 
   
   switch (period) {
