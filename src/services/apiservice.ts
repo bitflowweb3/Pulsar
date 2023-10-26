@@ -7,7 +7,7 @@ import { DatePeriod } from '../types/datePeriod.module';
 // import router from 'next/router';
 // import dotenv from 'dotenv'
 
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const baseURL = (process.env.NODE_ENV === 'production') ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE_URL;
 const instance = axios.create({ baseURL });
 
 // instance.interceptors.request.use(
