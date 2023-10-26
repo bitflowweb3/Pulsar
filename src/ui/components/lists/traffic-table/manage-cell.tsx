@@ -16,12 +16,13 @@ const ManageCell = ({ status }: ManageCellProps) => {
   
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
-    ToggleDropDown(!dropDownStatus)
+    ToggleDropDown(true) 
   };
   return (
     <ManageDropDown>
       <ManageCellButton
         onClick={handleClick}
+        onBlur={() => ToggleDropDown(anchorEl ? true : false)}
       >
         <label>Controls</label>
         <Image src={dropDownStatus ? ArrowUp : ArrowDown} alt='arrow-up-icon' />

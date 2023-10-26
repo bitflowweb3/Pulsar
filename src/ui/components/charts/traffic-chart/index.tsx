@@ -31,8 +31,6 @@ const TrafficChart = () => {
     getData();
   }, [period])
 
-  
-
   return (
     <TrafficChartContainer>
       <TrafficChartHeader>
