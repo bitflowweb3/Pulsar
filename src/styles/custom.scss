@@ -1,0 +1,90 @@
+//customize notification
+.ant-notification-notice-icon {
+    line-height: 17px !important;
+  }
+  
+  // customize auth-content
+  .ant-dropdown-menu {
+    background-color: var(--color-primary);
+  }
+  .ant-dropdown-menu-item {
+    padding-left: var(--padding-l);
+    span {
+      font-size: 16px;
+      &:hover {
+        color: #8758FF;
+      }
+      &:active {
+        color: #8758FF;
+      }
+    }
+    &:hover {
+      background-color: var(--color-primary);
+      
+    }
+    &:active {
+      background-color: var(--color-primary);
+    }
+  }
+  
+  //customize modal
+  .ant-modal-wrap {
+    backdrop-filter: blur(6px);
+    background-color: rgba(150,150,150, 0.1);
+  }
+  
+  .ant-modal-content {
+    border-radius: 16px;
+    background-color: #1F2128;
+    box-shadow: 0 0 10px rgba(150, 150, 150, 0.1);
+    // height: 500px;
+  }
+
+  //customize antd-tabs
+  .ant-tabs.ant-tabs-top.ant-tabs-card {
+    background-color: #292B33;
+    border-radius: 14px 14px 14px 14px;
+    border: solid 1px #313442;
+  }
+  .ant-tabs-nav-list {
+    width: 100%;
+    border-bottom: solid 1px #313442;
+  }
+  .ant-tabs-tab {
+    flex: 1;
+    border-radius: 14px 14px 0 0 !important;
+    border: none !important;
+    background-color: #292B33 !important;
+    display: flex;
+    justify-content: center;
+    padding: 4px !important;
+  }
+  .ant-tabs-tab-active {
+    background-color: var(--color-pink-brand) !important;
+  }
+  
+  //customize dashboard-toggle-button
+  .MuiSwitch-thumb {
+    background-color: var(--color-pink-brand) !important;
+  }
+  .MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+    background-color: #151416 !important;
+  }
+  .MuiSwitch-track {
+    background-color: #151416 !important;
+  }
+  
+  //customize table-pagination
+  .MuiDataGrid-selectedRowCount {
+    color: white;
+  }
+  .MuiSelect-select {
+    color: white !important;  
+  }
+  .MuiTablePagination-input svg {
+    stroke: white;
+  }
+  .MuiIconButton-sizeMedium svg {
+    stroke: white;
+  }
+  

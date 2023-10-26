@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PeriodButtonGroupDiv } from './styled';
+import { PeriodButtonGroupDiv } from '../../../components/charts/traffic-chart/styled';
 import { DatePeriod } from '../../../../types/datePeriod.module';
 
 const setPeriodValue = (index: number):DatePeriod => {
@@ -25,7 +25,8 @@ interface PeriodButtonGroupProps {
   setPeriod: (period: any) => void;
 };
 
-const PeriodButtonGroup = ({setPeriod}: PeriodButtonGroupProps) => {
+const PeriodButtonGroup = () => {
+// const PeriodButtonGroup = ({setPeriod}: PeriodButtonGroupProps) => {
   const durationLabels: string[] = [
     '15 Mins',
     '1 Hour',
@@ -38,7 +39,7 @@ const PeriodButtonGroup = ({setPeriod}: PeriodButtonGroupProps) => {
 
   const handleClick = (index: number) => {
     setActiveButton(index);
-    setPeriod(setPeriodValue(index));
+    // setPeriod(setPeriodValue(index));
   };
   return (
     <PeriodButtonGroupDiv>

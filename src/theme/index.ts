@@ -92,27 +92,31 @@ export const pulsarTheme = createTheme({
             border: 'solid 1px #475467 !important',
             backgroundColor: '#1F2128 !important',
             color: '#7B7B85',
-            // padding: '4px 8px',
-            // paddingLeft: '12px',
-            // paddingRight: '12px',
           },
           '& .MuiPaper-root.MuiPopover-paper.MuiMenu-paper': {
             borderRadius: '16px !important',
           },
           '& .MuiButtonBase-root.MuiMenuItem-root:hover': {
-            // backgroundColor: '#313442 !important',
-            backgroundColor: '#151416 !important',
+            borderRadius: '24px',
+            backgroundColor: '#313442',
+          },
+          '& .MuiButtonBase-root.MuiMenuItem-root:hover label': {
+            color: 'white',
+          },
+          '& .MuiButtonBase-root.MuiMenuItem-root:hover svg > path': {
+            stroke: 'white',
+            strokeWidth: '2',
+          },
+          '& .MuiButtonBase-root.MuiMenuItem-root:hover #power-cycle label': {
+            color: 'red',
+            fontWeight: '600',
+          },
+          '& .MuiButtonBase-root.MuiMenuItem-root:hover #power-cycle svg > path': {
+            stroke: 'red',
+            strokeWidth: '2',
           },
           '& .MuiButtonBase-root.MuiMenuItem-root': {
-            fontSize: '0.9em',
-            dispaly: 'flex',
-            flexDirection: 'row',
-            gap: '8px',
-            alignItems: 'center',
-            '&:nth-child(6)': {
-              marginTop: '8px',
-              color: '#ED4C4D',
-            },
+            margin: '2px 12px',
           },
         },
       },

@@ -8,7 +8,7 @@ export default function ServersPage() {
     <MainPageContainer>
       <PageHeader>
         <h3>
-          <strong>Servers</strong>
+          <strong>IP Addresses</strong>
         </h3>
         <h6>January 1-30, 2023</h6>
       </PageHeader>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import ArrowUp from '../../../../assets/icons/arrow-up.svg';
 import ArrowDown from '../../../../assets/icons/arrow-down.svg';
 import { useState } from 'react';
-import DropdownMenu from '../../common/dropmenu';
+import DropdownMenu from './dropmenu';
 
 
 interface ManageCellProps {
@@ -16,12 +16,13 @@ const ManageCell = ({ status }: ManageCellProps) => {
   
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
-    ToggleDropDown(!dropDownStatus)
+    ToggleDropDown(true) 
   };
   return (
     <ManageDropDown>
       <ManageCellButton
         onClick={handleClick}
+        onBlur={() => ToggleDropDown(anchorEl ? true : false)}
       >
         <label>Controls</label>
         <Image src={dropDownStatus ? ArrowUp : ArrowDown} alt='arrow-up-icon' />
