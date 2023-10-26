@@ -16,9 +16,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<TrafficData>
 ) {
-  // const period = Number(req.query?.period) ?? DatePeriod.year;
-  const period:Number = 1;
-
+  const period = Number(req.query?.period) ?? DatePeriod.year;
   
   switch (period) {
     case DatePeriod.quater:
