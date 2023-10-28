@@ -7,8 +7,12 @@ import TerminalIcon from '../../../components/common/svgicons/TerminalIcon';
 import ArrowDownIcon from '../../../components/common/svgicons/ArrowDownIcon';
 import AlertOctagonIcon from '../../../components/common/svgicons/AlertOctagon';
 import PowerCycleIcon from '../../../components/common/svgicons/PowerCycleIcon';
+import StatusContext from '../../../components/common/status';
+import { StatusType } from '../../../../types/status.module';
 
-const ServerDetails = () => {
+
+const ServerDetails = ({serverId}: {serverId: number}) => {
+
   return (
     <ServerDetailsDiv>
       <Header>
@@ -17,7 +21,7 @@ const ServerDetails = () => {
             <ServersIcon stroke='#fff' />
           </IconDiv>
           <h2>Server Details</h2>
-          <label>Powered On</label>
+          <StatusContext status={StatusType.on} label='Powered On' />
         </Title>
         <HeaderButtonGroup>
           <IconCardButton>
@@ -109,10 +113,7 @@ export const Title = styled.div`
   display: flex;
   flex-direction: row;
   gap: ${Space.s};
-  align-items: flex-start;
-  label {
-    color: white;
-  }
+  align-items: center;
   h2 {
     /* line-height: 0; */
   }

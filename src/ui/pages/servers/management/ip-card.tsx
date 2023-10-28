@@ -7,6 +7,8 @@ import { Space } from '../../../../constants/size';
 import { IconCardButton } from './server-details';
 import PaymentsIcon from '../../../components/common/svgicons/PaymentsIcon';
 import IpAddressesIcon from '../../../components/common/svgicons/IpAddressesIcon';
+import StatusContext from '../../../components/common/status';
+import { StatusType } from '../../../../types/status.module';
 
 const IpCard = () => {
   return (
@@ -19,57 +21,65 @@ const IpCard = () => {
       <Body>
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
         <hr />
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
         <hr />
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext
+            status={StatusType.on}
+            label='Active'
+            type={false}
+          />{' '}
         </Info>
         <hr />
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
         <hr />
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext
+            status={StatusType.on}
+            label='Active'
+            type={false}
+          />{' '}
         </Info>
         <hr />
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
         <hr />
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
         <hr />
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
         <hr />
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
         <hr />
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
         <hr />
         <Info>
           <label>192.168.1.9</label>
-          <label>Active</label>
+          <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
       </Body>
       <hr />

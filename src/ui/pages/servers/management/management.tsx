@@ -1,3 +1,4 @@
+import React, {useEffect, useState} from 'react'
 import { MainPageContainer } from '../../../../styles/global';
 import { PageHeader } from '../styled';
 import styled from 'styled-components';
@@ -8,8 +9,17 @@ import ServerDetails from './server-details';
 import ServerUtilization from './server-utilization';
 import BillingCard from './billing-card';
 import IpCard from './ip-card';
+import { useRouter } from 'next/router';
 
 export default function ServersPage() {
+  const router = useRouter();
+  const [serverId, setServerId] = useState<number>(1)
+
+  useEffect(() => {
+    const id = router.query.id ?? 1;
+    setServerId(Number(id));
+  }, [router])
+
   return (
     <MainPageContainer>
       <PageHeader>
@@ -23,7 +33,7 @@ export default function ServersPage() {
       </PageHeader>
       <ServersMainContent>
         <Main>
-          <ServerDetails />
+          <ServerDetails serverId={ serverId } />
           <ServerUtilization />
         </Main>
         <RightSidebar>

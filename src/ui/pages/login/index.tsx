@@ -15,7 +15,7 @@ import {
 import LoginLogoIcon from '../../components/common/svgicons/LoginLogoIcon';
 import EmailIcon from '../../components/common/svgicons/EmailIcon';
 import IconInput from '../../components/common/input/iconInput';
-import { CheckBox } from '../../components/common/checkbox.tsx';
+import { CheckBox } from '../../components/common/checkbox';
 import GoogleIcon from '../../components/common/svgicons/GoogleIcon';
 import PasswordInput from '../../components/common/password';
 import { postLoginEnvironment, setAccessToken } from '../../../services/auth';
