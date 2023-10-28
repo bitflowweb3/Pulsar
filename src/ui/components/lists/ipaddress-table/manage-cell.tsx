@@ -23,8 +23,7 @@ const ManageCell = ({ status }: ManageCellProps) => {
       <ManageCellButton
         onClick={handleClick}
       >
-        <label>Controls</label>
-        <Image src={dropDownStatus ? ArrowUp : ArrowDown} alt='arrow-up-icon' />
+        <label>&bull;&bull;&bull;</label>
       </ManageCellButton>
       <DropdownMenu anchorEl={anchorEl} setAnchorEl={setAnchorEl} />
     </ManageDropDown>
