@@ -51,3 +51,9 @@ export const SignupButton = styled.button`
   padding: ${Padding.xs} ${Padding.s};
   border-radius: ${BorderRadius.xxxl};
 `
+export const HeaderTab = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
