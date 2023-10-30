@@ -52,7 +52,7 @@ interface PasswordInputProps {
   onInputChange: (value: string) => void;
 }
 
-const PasswordInput = ({onInputChange}:PasswordInputProps) => {
+const PasswordInput = ({ onInputChange }: PasswordInputProps) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,9 +62,13 @@ const PasswordInput = ({onInputChange}:PasswordInputProps) => {
   };
   return (
     <IconInputDiv>
-      <InputTextDiv type='password' placeholder='Please type your password' onChange={handleInputChange}/>
+      <InputTextDiv
+        type='password'
+        placeholder='Please type your password'
+        onChange={handleInputChange}
+      />
       <IconDiv>
-        <PasswordEyeIcon />
+        <PasswordEyeIcon stroke={Color.$white} />
       </IconDiv>
     </IconInputDiv>
   );

@@ -58,7 +58,7 @@ const IconInput = ({ placeText, Icon, onInputChange }: IconInputProps) => {
   return (
     <IconInputDiv>
       <IconDiv>
-        <Icon />
+        <Icon stroke={Color.$white } />
       </IconDiv>
       <InputTextDiv placeholder={placeText} value={inputValue} onChange={handleInputChange} />
     </IconInputDiv>
