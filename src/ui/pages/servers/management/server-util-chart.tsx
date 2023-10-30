@@ -26,7 +26,7 @@ Chart.register(
 
 const antIcon = <LoadingOutlined style={{ fontSize: 80 }} spin />;
 
-const ServerUtilChart = () => {
+const ServerUtilChart = ({isBandwidth} : {isBandwidth?: boolean}) => {
   const [chartLoading, setIsChartsLoaded] = useState<boolean | undefined>();
   const [gradientColor, setGradientColor] = useState<any | undefined>();
 
@@ -45,18 +45,40 @@ const ServerUtilChart = () => {
       'Nov',
       'Dec',
     ],
-    datasets: [
+    datasets: isBandwidth ? [
       {
-        label: 'Traffic 1',
+        label: 'Bandwidth-Incoming',
         data: [65, 59, 80, 45, 67, 89, 90, 45, 60, 68, 43, 70],
-        backgroundColor: gradientColor,
+        backgroundColor: gradientColor?.gradient1,
+        borderColor: '#F17F7F',
+        borderWidth: 1,
+        stepped: false,
+        fill: true,
+        spanGaps: false,
+      },
+      {
+        label: 'Bandwidth-Outgoing',
+        data: [45, 20, 25, 30, 35, 59, 29, 36, 58, 68, 43, 70],
+        backgroundColor: gradientColor?.gradient2,
+        borderColor: '#72B1FC',
+        borderWidth: 1,
+        stepped: false,
+        fill: true,
+        spanGaps: false,
+      },
+    ] : [
+      {
+        label: 'server-management',
+        data: [65, 59, 80, 45, 67, 89, 90, 45, 60, 68, 43, 70],
+        backgroundColor: gradientColor?.gradient1,
         borderColor: '#72FCA9',
         borderWidth: 1,
         stepped: false,
         fill: true,
         spanGaps: false,
       },
-    ],
+    ] 
+    ,
   };
 
   const utilChart = (
@@ -137,9 +159,21 @@ const ServerUtilChart = () => {
         if (canvas) {
           const ctx = canvas.getContext('2d');
           const gradient1 = ctx?.createLinearGradient(0, 0, 0, 300);
-          gradient1?.addColorStop(0, 'rgba(114, 252, 169, 0.3)');
+          if (isBandwidth) {
+            gradient1?.addColorStop(0, 'rgba(241, 127, 127, 0.3)');
           gradient1?.addColorStop(0.7, 'rgba(0, 0, 0, 0)');
-          setGradientColor(gradient1);
+          const gradient2 = ctx?.createLinearGradient(0, 0, 0, 300);
+          gradient2?.addColorStop(0, 'rgba(114, 177, 252, 0.6)');
+            gradient2?.addColorStop(0.7, 'rgba(0, 0, 0, 0)');
+            setGradientColor({gradient1, gradient2});
+          }
+          else {
+            gradient1?.addColorStop(0, 'rgba(114, 252, 169, 0.3)');
+          gradient1?.addColorStop(0.7, 'rgba(0, 0, 0, 0)');
+          setGradientColor({gradient1});
+           }
+
+          
         }
       }
     }
