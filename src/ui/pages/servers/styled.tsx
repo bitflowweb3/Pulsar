@@ -1,6 +1,7 @@
 import { Color } from '../../../constants/color';
 import { Space } from '../../../constants/size';
 import styled from 'styled-components';
+import { IconCardButton } from './management/server-details';
 
 const PageHeader = styled.div`
   padding: ${Space.none} ${Space.sb};
@@ -58,8 +59,9 @@ const ServersHeader = styled.div`
   }
 `
 
-const BuyServerButton = styled.button`
+const BuyServerButton = styled(IconCardButton)`
   height: 36px;
+  border: none !important;
   border-radius: var(--space-bl);
   padding: var(--padding-none) var(--padding-bl);
 `;

@@ -65,6 +65,10 @@
   // }
 }
 
+button {
+  cursor: pointer;
+}
+
 .button-primary {
   background-color: var(--color-pink-600);
   color: white;

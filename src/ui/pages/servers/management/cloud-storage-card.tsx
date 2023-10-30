@@ -10,14 +10,15 @@ import IpAddressesIcon from '../../../components/common/svgicons/IpAddressesIcon
 import StatusContext from '../../../components/common/status';
 import { StatusType } from '../../../../types/status.module';
 import EditIcon from '../../../components/common/svgicons/EditIcon';
+import CloudStorageIcon from '../../../components/common/svgicons/CloudStorageIcon';
 
-const IpCard = () => {
+const CloudStorageCard = () => {
   return (
     <StyledCard>
       <Header>
         <LabelDiv>
-          <IpAddressesIcon stroke={Color.$white} />
-          <label>Ip Addresses</label>
+          <CloudStorageIcon stroke={Color.$white} />
+          <label>Cloud Storage</label>
         </LabelDiv>
         <ChangeBillingModelButton>
           <EditIcon stroke='white' />
@@ -92,7 +93,7 @@ const IpCard = () => {
     </StyledCard>
   );
 };
-export default IpCard;
+export default CloudStorageCard;
 
 const Header = styled.div`
   display: flex;

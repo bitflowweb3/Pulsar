@@ -30,7 +30,7 @@ export default function handler(
               id: 2,
               type: 'd1.c2.medium',
               status: true,
-              ipAddresses: [{ ip: '192.168.1.24' }, { ip: '192.168.1.23' }],
+              ipAddresses: [{ ip: '192.168.1.36' }, { ip: '192.168.1.37' }, { ip: '192.168.1.88' }],
               location: 'Phoenix',
               os: 'Ubuntu',
               cpuUtilization: 20,
