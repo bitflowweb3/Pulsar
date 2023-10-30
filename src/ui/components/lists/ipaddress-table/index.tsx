@@ -47,7 +47,7 @@ const columnsMin: GridColDef<Server>[] = [
   },
   {
     field: 'manage',
-    headerName: 'Manage',
+    headerName: 'Actions',
     width: 110,
     flex: 1,
     renderCell: (params: GridRenderCellParams<Server>) => (

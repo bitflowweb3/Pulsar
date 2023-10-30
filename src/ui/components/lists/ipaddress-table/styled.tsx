@@ -69,10 +69,10 @@ const ManageCellButton = styled.button`
   align-items: center;
   gap: ${Space.s};
   border-radius: ${BorderRadius.l};
-  border: solid 1px ${Color.$gray_dark};
+  /* border: solid 1px ${Color.$gray_dark}; */
   padding: ${Space.xs} 12px;
   label {
-    color: white;
+    color: #8A8A98;
     font-weight: 300;
   }
 `;
