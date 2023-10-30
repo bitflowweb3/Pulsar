@@ -9,13 +9,20 @@ import PaymentsIcon from '../../../components/common/svgicons/PaymentsIcon';
 import IpAddressesIcon from '../../../components/common/svgicons/IpAddressesIcon';
 import StatusContext from '../../../components/common/status';
 import { StatusType } from '../../../../types/status.module';
+import EditIcon from '../../../components/common/svgicons/EditIcon';
 
 const IpCard = () => {
   return (
-    <StyledCard style={{ flex: 1, maxHeight: 'calc(100% - 324px)' }}>
+    <StyledCard>
       <Header>
-        <IpAddressesIcon stroke={Color.$white} />
-        <label>Ip Addresses</label>
+        <LabelDiv>
+          <IpAddressesIcon stroke={Color.$white} />
+          <label>Ip Addresses</label>
+        </LabelDiv>
+        <ChangeBillingModelButton>
+          <EditIcon stroke='white' />
+          Configure
+        </ChangeBillingModelButton>
       </Header>
       <hr />
       <Body>
@@ -82,17 +89,18 @@ const IpCard = () => {
           <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
       </Body>
-      <hr />
-      <ChangeBillingModelButton>
-        <PaymentsIcon />
-        Change Billing Model
-      </ChangeBillingModelButton>
     </StyledCard>
   );
 };
 export default IpCard;
 
 const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+const LabelDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -110,7 +118,7 @@ const Body = styled.div`
 
   overflow-y: auto;
   padding-right: ${Space.s};
-  /* max-height: 180px; */
+  max-height: 150px;
 
   &::-webkit-scrollbar {
     width: 5px;
