@@ -82,12 +82,12 @@ export default function DropdownMenu(props: any) {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link href={{ pathname: '/servers/management', query: {id: selectedId}}}>
+          {/* <Link> */}
             <MenuItemDiv>
               <AssignedIcon width={18} height={18} />
               <label>Assign</label>
             </MenuItemDiv>
-          </Link>
+          {/* </Link> */}
         </MenuItem>
         <Hr
           style={{

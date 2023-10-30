@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAccessToken } from '../services/auth';
+import { useRouter } from 'next/router';
 
 export interface AuthContextProps {
   isAuthenticated: boolean | undefined;
@@ -17,14 +18,15 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const setAuthenticate = ({ authed }: {authed: boolean}) => {
     Authenticate(authed);
   }
+  const router = useRouter()
 
   useEffect(() => {
     CheckAuthenticated();
-  }, []);
+  }, [router]);
   const CheckAuthenticated = async () => {
     if ((await getAccessToken()) === 'bearer123123') {
       Authenticate(true);
-    }
+    } else Authenticate(false);
   };
   return  (
     <AuthContext.Provider value={{ isAuthenticated, setAuthenticate }}>

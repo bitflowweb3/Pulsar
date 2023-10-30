@@ -35,7 +35,7 @@ const Header = ({ auth, account }: LayoutProps) => {
   const [isAccountPage, setIsAccountPage] = useState<boolean | undefined>(
     undefined
   );
-  const [isLogined, setIsLogined] = useState<boolean | undefined>(undefined);
+  const [isLogined, setIsLogined] = useState<boolean | undefined>();
 
   useEffect(() => {
     setIsAccountPage(account?.isAccountPage);
@@ -70,7 +70,6 @@ const Header = ({ auth, account }: LayoutProps) => {
             <Image src={LandingLogo} alt='landing-logo' />
             <LandingNavbar>
               <Link href='/price'>Home</Link>
-
               <Dropdown menu={{ items }} trigger={['hover']}>
                 <Link href='/price'>
                   Products&nbsp;&nbsp;
@@ -92,14 +91,7 @@ const Header = ({ auth, account }: LayoutProps) => {
           </LandingPageLogoContent>
         )}
       </LogoContent>
-      {!isLogined ? (
-        <AuthContent>
-          <Link href='/login'>
-            <LoginButton>Log in</LoginButton>
-          </Link>
-          <SignupButton className='button-primary'>Sign up</SignupButton>
-        </AuthContent>
-      ) : (
+      {isLogined ? (
         <AuthContent>
           <Image src={AlarmIcon} className='icon alarm-icon' alt='alarm' />
           <Image
@@ -112,7 +104,13 @@ const Header = ({ auth, account }: LayoutProps) => {
                 <Image src={UserAvatar} className='icon user-avatar' alt='user' />
                 </Link>
               </Dropdown>
-          
+        </AuthContent>
+      ): (
+        <AuthContent>
+          <Link href='/login'>
+            <LoginButton>Log in</LoginButton>
+          </Link>
+          <SignupButton className='button-primary'>Sign up</SignupButton>
         </AuthContent>
       )}
     </TopBar>
