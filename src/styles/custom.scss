@@ -7,6 +7,9 @@
   .ant-dropdown-menu {
     background-color: var(--color-primary);
   }
+  .ant-dropdown-placement-bottomLeft {
+    top: 60px !important;
+  }
   .ant-dropdown-menu-item {
     padding-left: var(--padding-l);
     span {
