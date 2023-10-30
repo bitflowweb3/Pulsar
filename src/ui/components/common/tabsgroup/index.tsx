@@ -8,6 +8,7 @@ import SettingsIcon from '../svgicons/SettingsIcon';
 import IpAddressesIcon from '../svgicons/IpAddressesIcon';
 import { Color } from '../../../../constants/color';
 import Link from 'next/link';
+import CloudStorageIcon from '../svgicons/CloudStorageIcon';
 
 const StyledLink = styled(Link)`
   display: flex;
@@ -31,6 +32,7 @@ const TabButtonNone = styled.button`
   flex-direction: row;
   gap: var(--padding-s);
   padding: var(--padding-s) var(--padding-base);
+  border-radius: 48px;
 
   & > span {
     color: var(--color-gray-400);
@@ -64,6 +66,13 @@ const pages = [
     route: 'ipaddresses',
     link: '/ipaddresses',
   },
+  {
+    name: 'Cloud Storage',
+    icon: CloudStorageIcon,
+    route: 'cloudstorage',
+    link: '/cloudstorage',
+  },
+
   {
     name: 'Payments',
     icon: PaymentsIcon,
