@@ -95,6 +95,7 @@ export const pulsarTheme = createTheme({
           },
           '& .MuiPaper-root.MuiPopover-paper.MuiMenu-paper': {
             borderRadius: '16px !important',
+            minWidth: '200px !important'
           },
           '& .MuiButtonBase-root.MuiMenuItem-root:hover': {
             borderRadius: '24px',

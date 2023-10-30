@@ -4,13 +4,15 @@ import ServerCell from './server-cell';
 import StatusCell from './status-cell';
 import ManageCell from './manage-cell';
 import { TrafficTableContainer } from './styled';
+import { StatusType } from '../../../../types/status.module';
+import StatusContext from '../../common/status';
 
 interface Server {
   id: number;
   ipaddress: string;
   location: string;
   dateAllocated: string;
-  status: boolean;
+  status: StatusType;
   assinedTo: {
     serverAddress: string;
     serverType: string;
@@ -27,7 +29,20 @@ const columnsMin: GridColDef<Server>[] = [
     headerName: 'Status',
     width: 70,
     renderCell: (params: GridRenderCellParams<Server>) => (
-      <StatusCell status={params.value as boolean} />
+      <StatusContext
+        status={params.value as StatusType}
+        label={
+          params.value === StatusType.assigned
+            ? 'Assigned'
+            : params.value === StatusType.unassigned
+            ? 'Unassigned'
+            : params.value === StatusType.provisioning
+            ? 'Provisioning...'
+            : params.value === StatusType.error
+            ? 'Failed'
+            : 'Failed'
+        }
+      />
     ),
     flex: 1,
   },
@@ -62,9 +77,10 @@ const rowsMin = [
     ipaddress: '192.168.1.24',
     location: 'Phoenix',
     dateAllocated: '17 Oct, 2022',
-    status: true,
+    status: StatusType.provisioning,
     assignedTo: {
-      serverAddress: '192.168.1.24', serverType: 'd1.c1.large'
+      serverAddress: '192.168.1.24',
+      serverType: 'd1.c1.large',
     },
     manage: true,
   },
@@ -73,9 +89,10 @@ const rowsMin = [
     ipaddress: '192.168.1.24',
     location: 'Phoenix',
     dateAllocated: '17 Oct, 2022',
-    status: true,
+    status: StatusType.assigned,
     assignedTo: {
-      serverAddress: '192.168.1.24', serverType: 'd1.c1.large'
+      serverAddress: '192.168.1.24',
+      serverType: 'd1.c1.large',
     },
     manage: true,
   },
@@ -84,22 +101,21 @@ const rowsMin = [
     ipaddress: '192.168.1.24',
     location: 'Phoenix',
     dateAllocated: '17 Oct, 2022',
-    status: false,
+    status: StatusType.error,
     assignedTo: {
-      serverAddress: '192.168.1.24', serverType: 'd1.c1.large'
+      serverAddress: '192.168.1.24',
+      serverType: 'd1.c1.large',
     },
     manage: true,
   },
-  
 ];
 
 const IpAddressesTable = () => {
   return (
     <TrafficTableContainer>
       <div style={{ height: 1000, width: '100%' }}>
-          {/* @ts-ignore */ }
-          <DataGrid rows={rowsMin} columns={columnsMin} />
-
+        {/* @ts-ignore */}
+        <DataGrid rows={rowsMin} columns={columnsMin} />
       </div>
     </TrafficTableContainer>
   );

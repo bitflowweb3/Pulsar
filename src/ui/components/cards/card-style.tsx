@@ -8,5 +8,5 @@ export const StyledCard = styled.div`
     background-color: ${Color.$neutral_foreground};;
     display: flex;
     flex-direction: column;
-    gap: ${Space.base};
+    gap: ${Space.base} ${Space.s};
 `

@@ -97,7 +97,7 @@ const Header = ({ auth, account }: LayoutProps) => {
           <Link href='/login'>
             <LoginButton>Log in</LoginButton>
           </Link>
-          <SignupButton className='button-secondary'>Sign up</SignupButton>
+          <SignupButton className='button-primary'>Sign up</SignupButton>
         </AuthContent>
       ) : (
         <AuthContent>

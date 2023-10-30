@@ -7,6 +7,7 @@ export const fetchServerList = createAsyncThunk('server/all', async () => {
   const res = await apiService.secureApi(accessToken).getServerList();
   return res.data;
 });
+
 export const fetchServerDetails = createAsyncThunk(
   'server/details',
   async (id: Number) => {
@@ -43,4 +44,3 @@ const serverSlice = createSlice({
 });
 
 export default serverSlice.reducer;
-

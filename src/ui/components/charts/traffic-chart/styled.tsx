@@ -51,7 +51,17 @@ const PeriodButtonGroupDiv = styled.div`
   & > button {
     color: white;
     padding: var(--padding-none) var(--padding-sb);
+    border-radius: 22px;
     font-size: 12px;
+    &:hover {
+      background-color: var(--color-bg-primary);
+    }
+    &:active {
+      background-color: var(--color-pink-600);
+    }
+    &:focus {
+      background-color: var(--color-pink-600);
+    }
   }
 `;
 
@@ -88,6 +98,7 @@ const Footer = styled.footer`
     }
   }
 `;
+
 export {
   TrafficChartContainer,
   TrafficChartHeader,
@@ -95,6 +106,6 @@ export {
   HeaderDateDiv,
   MonthButton,
   PeriodButtonGroupDiv,
-    Divider,
-    Footer,
+  Divider,
+  Footer,
 };

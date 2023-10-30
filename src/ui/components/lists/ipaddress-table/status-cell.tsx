@@ -1,7 +1,8 @@
+import { StatusType } from '../../../../types/status.module';
 import { StatusCellDiv, CircleIconDiv } from './styled';
 
 interface StatusCellProps {
-  status: boolean;
+  status: StatusType;
 }
 
 const StatusCell = ({ status }: StatusCellProps) => {

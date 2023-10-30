@@ -5,7 +5,7 @@ import { Color } from '../../../../constants/color';
 import ServersIcon from '../../../components/common/svgicons/ServersIcon';
 import TerminalIcon from '../../../components/common/svgicons/TerminalIcon';
 import ArrowDownIcon from '../../../components/common/svgicons/ArrowDownIcon';
-import AlertOctagonIcon from '../../../components/common/svgicons/AlertOctagon';
+import AlertOctagonIcon from '../../../components/common/svgicons/AlertCircle';
 import PowerCycleIcon from '../../../components/common/svgicons/PowerCycleIcon';
 import StatusContext from '../../../components/common/status';
 import { StatusType } from '../../../../types/status.module';
@@ -148,7 +148,7 @@ export const Title = styled.div`
   h2 {
     /* line-height: 0; */
   }
-`;
+`; 
 export const IconDiv = styled.div`
   margin-top: ${Space.xs};
 `;
