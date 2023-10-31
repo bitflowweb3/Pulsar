@@ -1,7 +1,12 @@
+import React, {useState, useEffect} from 'react'
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
 const TerminalIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
-  return (
+  const [isClient, setClientSide] = useState<boolean | undefined>();
+  useEffect(() => {
+    setClientSide(true)
+  }, [])
+  return ( !isClient ? null :
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='16'
@@ -13,9 +18,9 @@ const TerminalIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
         <path
           d='M1.33301 11.1666L6.33301 6.16663L1.33301 1.16663M7.99967 12.8333H14.6663'
           stroke='white'
-          stroke-width='1.67'
-          stroke-linecap='round'
-          stroke-linejoin='round'
+          strokeWidth='1.67'
+          strokeLinecap='round'
+          strokeLinejoin='round'
         />
       </svg>
     </SvgContainer>

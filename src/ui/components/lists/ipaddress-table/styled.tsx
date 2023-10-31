@@ -39,7 +39,8 @@ const StatusCellDiv = styled.div<StatusCellDivProps>`
   padding: ${Space.xs} ${Space.s};
   border-radius: ${Space.l};
   width: ${Space.xxxl};
-  color: ${(props) => (props.condition == 'true' ? Color.$green_dark : Color.$red_light)};
+  color: ${(props) =>
+    props.condition == 'true' ? Color.$green_dark : Color.$red_light};
 `;
 
 const CircleIconDiv = styled.div<StatusCellDivProps>`
@@ -69,10 +70,10 @@ const ManageCellButton = styled.button`
   align-items: center;
   gap: ${Space.s};
   border-radius: ${BorderRadius.l};
-  border: solid 1px ${Color.$gray_dark};
+  /* border: solid 1px ${Color.$gray_dark}; */
   padding: ${Space.xs} 12px;
   label {
-    color: white;
+    color: #8A8A98;
     font-weight: 300;
   }
 `;

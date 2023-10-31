@@ -41,7 +41,7 @@ const YourCards = () => {
       <MainBox>
         {cardInfos.map(({id, logo: Logo, bgColor}) => 
         (
-          <CreditCardModel key={id} bgColor={bgColor}>
+          <CreditCardModel key={id} $bgcolor={bgColor}>
           <CreditNumber>
               <NumberDiv>
                 <Logo /> 

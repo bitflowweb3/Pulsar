@@ -1,7 +1,12 @@
+import React, {useState, useEffect} from 'react'
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
 const CryptoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
-  return (
+  const [isClient, setClientSide] = useState<boolean | undefined>();
+  useEffect(() => {
+    setClientSide(true)
+  }, [])
+  return ( !isClient ? null :
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='58'
@@ -31,8 +36,8 @@ const CryptoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
           fill='white'
         />
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M12.3789 18.8588L29.1574 8.69995L45.8694 18.8899V39.2309L29.0834 49.4209L12.3345 39.2232V18.8588H12.3789ZM29.1574 10.7768L14.0515 19.9245V38.2197L29.1574 47.3674L44.1967 38.2197V19.9245L29.1574 10.7768Z'
           fill='white'
         />

@@ -4,7 +4,7 @@ import { Modal } from 'antd';
 import { ModalProps } from '../../../../types/modalProps.module';
 import { BorderRadius, Padding, Space } from '../../../../constants/size';
 import { Color } from '../../../../constants/color';
-import AlertOctagonIcon from '../../common/svgicons/AlertOctagon';
+import AlertOctagonIcon from '../../common/svgicons/AlertCircle';
 import InputComponent from '../../common/input/input';
 import { CardButton } from '../../../pages/servers/management/server-details';
 

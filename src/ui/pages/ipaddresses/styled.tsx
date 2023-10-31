@@ -1,6 +1,7 @@
 import { Color } from '../../../constants/color';
 import { Space } from '../../../constants/size';
 import styled from 'styled-components';
+import { IconCardButton } from '../servers/management/server-details';
 
 const PageHeader = styled.div`
   padding: ${Space.none} ${Space.sb};
@@ -58,9 +59,10 @@ const IPAddressesHeader = styled.div`
   }
 `
 
-const IPAllocateButton = styled.button`
+const IPAllocateButton = styled(IconCardButton)`
   height: 36px;
   border-radius: var(--space-bl);
+  border: none !important;
   padding: var(--padding-none) var(--padding-bl);
 `;
 

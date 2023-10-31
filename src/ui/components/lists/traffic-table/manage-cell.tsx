@@ -1,16 +1,14 @@
 import React from 'react'
 import { ManageCellButton, ManageDropDown } from './styled';
-import Image from 'next/image';
-import ArrowUp from '../../../../assets/icons/arrow-up.svg';
-import ArrowDown from '../../../../assets/icons/arrow-down.svg';
 import { useState } from 'react';
 import DropdownMenu from './dropmenu';
 
 
 interface ManageCellProps {
   status: boolean;
+  seletedId: number;
 }
-const ManageCell = ({ status }: ManageCellProps) => {
+const ManageCell = ({ status, seletedId }: ManageCellProps) => {
   const [dropDownStatus, ToggleDropDown] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   
@@ -24,10 +22,9 @@ const ManageCell = ({ status }: ManageCellProps) => {
         onClick={handleClick}
         onBlur={() => ToggleDropDown(anchorEl ? true : false)}
       >
-        <label>Controls</label>
-        <Image src={dropDownStatus ? ArrowUp : ArrowDown} alt='arrow-up-icon' />
+        <label>&bull;&bull;&bull;</label>
       </ManageCellButton>
-      <DropdownMenu anchorEl={anchorEl} setAnchorEl={setAnchorEl} />
+      <DropdownMenu anchorEl={anchorEl} selectedId={seletedId} setAnchorEl={setAnchorEl} />
     </ManageDropDown>
   );
 };

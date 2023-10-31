@@ -11,6 +11,7 @@ const AccountPage = [
   'dashboard',
   'servers',
   'ipaddresses',
+  'cloudstorage',
   'payments',
   'settings',
 ];

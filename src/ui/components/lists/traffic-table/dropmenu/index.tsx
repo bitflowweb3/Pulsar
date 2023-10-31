@@ -57,7 +57,7 @@ const MenuItemDiv = styled.div`
 `;
 
 export default function DropdownMenu(props: any) {
-  const { anchorEl, setAnchorEl } = props;
+  const { anchorEl, setAnchorEl, selectedId } = props;
   const open = Boolean(anchorEl);
 
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
@@ -86,7 +86,8 @@ export default function DropdownMenu(props: any) {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link href='/servers/management'>
+          <Link href={{ pathname: '/servers/management', query: {id: selectedId}}}>
+          {/* <Link href='/servers/management' as={`/servers/management?id=${selectedId}`}> */}
             <MenuItemDiv>
               <ServersIcon width={18} height={18} />
               <label>Manage Server</label>

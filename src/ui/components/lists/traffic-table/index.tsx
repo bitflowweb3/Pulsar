@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import ServerCell from './server-cell';
-import StatusCell from './status-cell';
 import CpuCell from './cpu-cell';
 import ManageCell from './manage-cell';
 import { TrafficTableContainer } from './styled';
 import { fetchServerList } from '../../../../redux/slices/servers';
 import { ServerType } from '../../../../types/server.module';
+import StatusContext from '../../common/status';
+import { StatusType } from '../../../../types/status.module';
 
 interface Server {
   id: number | undefined;
@@ -26,256 +27,40 @@ interface Server {
   manage: boolean | undefined;
 }
 
-const columnsMin: GridColDef<Server>[] = [
-  {
-    field: 'servers',
-    headerName: 'Servers',
-    width: 100,
-    renderCell: (params: GridRenderCellParams<Server>) => {
-      return (
-        <ServerCell
-          serverAddress={params.value.serverAddress as string}
-          serverType={params.value.serverType as string}
-        />
-      );
-    },
-    flex: 1,
-  },
-  {
-    field: 'status',
-    headerName: 'Status',
-    width: 70,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <StatusCell status={params.value as boolean} />
-    ),
-    flex: 0.7,
-  },
-  { field: 'location', headerName: 'Location', width: 70, flex: 0.7 },
-  { field: 'os', headerName: 'OS', width: 70, flex: 0.7 },
-  {
-    field: 'cpu',
-    headerName: 'CPU Utilization',
-    width: 200,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <CpuCell percentValue={params.value as number} />
-    ),
-    flex: 1,
-  },
-  {
-    field: 'ram',
-    headerName: 'RAM Utilization',
-    width: 130,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <CpuCell percentValue={params.value as number} />
-    ),
-    flex: 1,
-  },
-  {
-    field: 'disk',
-    headerName: 'Disk Utilization',
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <CpuCell percentValue={params.value as number} />
-    ),
-    width: 130,
-    flex: 1,
-  },
-  {
-    field: 'bandwidth',
-    headerName: 'BandWidth Utilization',
-    width: 150,
-    flex: 1,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <CpuCell percentValue={params.value as number} />
-    ),
-  },
-    {
-    field: 'manage',
-    headerName: 'Manage',
-    width: 90,
-    flex: 0.8,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <ManageCell status={params.value as boolean} />
-    ),
-  },
-];
-const columnsMax: GridColDef<Server>[] = [
-  {
-    field: 'servers',
-    headerName: 'Servers',
-    width: 100,
-    renderCell: (params: GridRenderCellParams<Server>) => {
-      return (
-        <ServerCell
-          serverAddress={params.value.serverAddress as string}
-          serverType={params.value.serverType as string}
-        />
-      );
-    },
-    flex: 1,
-  },
-  {
-    field: 'status',
-    headerName: 'Status',
-    width: 70,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <StatusCell status={params.value as boolean} />
-    ),
-    flex: 1,
-  },
-  { field: 'location', headerName: 'Location', width: 70, flex: 1 },
-  { field: 'os', headerName: 'CPU Utilization', width: 110, flex: 1 },
-  {
-    field: 'cpu',
-    headerName: 'RAM Utilization',
-    width: 110,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <CpuCell percentValue={params.value as number} />
-    ),
-    flex: 1,
-  },
-  {
-    field: 'disk',
-    headerName: 'Disk Utilization',
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <CpuCell percentValue={params.value as number} />
-    ),
-    width: 110,
-    flex: 1,
-  },
-  {
-    field: 'bandwidth',
-    headerName: 'BandWidth Utilization',
-    width: 150,
-    flex: 1,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <CpuCell percentValue={params.value as number} />
-    ),
-  },
-  {
-    field: 'incoming',
-    headerName: 'Incoming Traffic',
-    width: 150,
-    flex: 1,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <CpuCell percentValue={params.value as number} />
-    ),
-  },
-  {
-    field: 'outgoing',
-    headerName: 'Outgoing Traffic',
-    width: 150,
-    flex: 1,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <CpuCell percentValue={params.value as number} />
-    ),
-  },
-  {
-    field: 'manage',
-    headerName: 'Manage',
-    width: 110,
-    flex: 1,
-    renderCell: (params: GridRenderCellParams<Server>) => (
-      <ManageCell status={params.value as boolean} />
-    ),
-  },
-];
-const rowsMin = [
-  {
-    id: 1,
-    servers: { serverAddress: '192.168.1.24', serverType: 'd1.c1.large' },
-    status: true,
-    location: 'Phoenix',
-    os: 'Ubuntu',
-    cpu: 10,
-    disk: 80,
-    bandwidth: 60,
-    manage: false,
-  },
-  {
-    id: 2,
-    servers: { serverAddress: '192.168.1.23', serverType: 'd1.c2.medium' },
-    status: false,
-    location: 'Phoenix',
-    os: 'Ubuntu',
-    cpu: 10,
-    disk: 30,
-    bandwidth: 20,
-    manage: true,
-  },
-  {
-    id: 3,
-    servers: { serverAddress: '192.168.1.22', serverType: 'd2.c1.medium' },
-    status: true,
-    location: 'Phoenix',
-    os: 'Ubuntu',
-    cpu: 30,
-    disk: 70,
-    bandwidth: 50,
-    manage: true,
-  },
-];
-const rowsMax = [
-  {
-    id: 1,
-    servers: { serverAddress: '192.168.1.24', serverType: 'd1.c1.large' },
-    status: true,
-    location: 'Phoenix',
-    os: 'Ubuntu',
-    cpu: 10,
-    disk: 80,
-    bandwidth: 60,
-    incoming: 50,
-    outgoing: 30,
-    manage: false,
-  },
-  {
-    id: 2,
-    servers: { serverAddress: '192.168.1.23', serverType: 'd1.c2.medium' },
-    status: false,
-    location: 'Phoenix',
-    os: 'Ubuntu',
-    cpu: 10,
-    disk: 30,
-    bandwidth: 20,
-    incoming: 50,
-    outgoing: 30,
-    manage: true,
-  },
-  {
-    id: 3,
-    servers: { serverAddress: '192.168.1.22', serverType: 'd2.c1.medium' },
-    status: true,
-    location: 'Phoenix',
-    os: 'Ubuntu',
-    cpu: 30,
-    disk: 70,
-    bandwidth: 50,
-    incoming: 50,
-    outgoing: 30,
-    manage: true,
-  },
-];
-
 interface TrafficTableProps {
   isminimized: boolean;
 }
 const TrafficTable = ({ isminimized }: TrafficTableProps) => {
   // @ts-ignore
-  const serverList: ServerType[] = useSelector((state) => state.server.serverList);
+  const serverList: ServerType[] = useSelector(
+    // @ts-ignore
+    (state) => state.server.serverList
+  );
   const dispatch = useDispatch();
-  const [serverListRowMins, setServerListRowMins] = useState<Server[] | undefined>([]);
-  const [serverListRowMaxs, setServerListRowMaxs] = useState<Server[] | undefined>([]);
+  const [serverListRowMins, setServerListRowMins] = useState<
+    Server[] | undefined
+  >([]);
+  const [serverListRowMaxs, setServerListRowMaxs] = useState<
+    Server[] | undefined
+  >([]);
+  const [selectedRowId, setSelectedRowId] = useState<number[]>([]);
 
-  
+  const handleSelectionModelChange = (selectionModel: any) => {
+    setSelectedRowId(selectionModel);
+  };
+
   useEffect(() => {
     // @ts-ignore
     dispatch(fetchServerList());
   }, []);
 
   useEffect(() => {
-    const rowMins: Server[] =  serverList?.map((item) => ({
+    const rowMins: Server[] = serverList?.map((item) => ({
       id: item.id,
-      servers: { serverAddress: item?.ipAddresses && item.ipAddresses[0].ip, serverType: item.type },
+      servers: {
+        serverAddress: item?.ipAddresses && item.ipAddresses[0].ip,
+        serverType: item.type,
+      },
       status: item.status,
       location: item.location,
       os: item.os,
@@ -287,7 +72,10 @@ const TrafficTable = ({ isminimized }: TrafficTableProps) => {
     }));
     const rowMaxs: Server[] = serverList?.map((item) => ({
       id: item.id,
-      servers: { serverAddress: item?.ipAddresses && item.ipAddresses[0].ip, serverType: item.type },
+      servers: {
+        serverAddress: item?.ipAddresses && item.ipAddresses[0].ip,
+        serverType: item.type,
+      },
       status: item.status,
       location: item.location,
       os: item.os,
@@ -299,19 +87,191 @@ const TrafficTable = ({ isminimized }: TrafficTableProps) => {
       outgoing: item.outcomingTraffic,
       manage: false,
     }));
-    setServerListRowMins(rowMins)
+    setServerListRowMins(rowMins);
     setServerListRowMaxs(rowMaxs);
   }, [serverList]);
 
+  const columnsMin: GridColDef<Server>[] = [
+    {
+      field: 'servers',
+      headerName: 'Servers',
+      width: 100,
+      renderCell: (params: GridRenderCellParams<Server>) => {
+        return (
+          <ServerCell
+            serverAddress={params.value.serverAddress as string}
+            serverType={params.value.serverType as string}
+          />
+        );
+      },
+      flex: 1,
+    },
+    {
+      field: 'status',
+      headerName: 'Status',
+      width: 70,
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <StatusContext
+          status={params.value == true ? StatusType.on : StatusType.off}
+          label={params.value == true ? 'ON' : 'OFF'}
+        />
+      ),
+      flex: 0.7,
+    },
+    { field: 'location', headerName: 'Location', width: 70, flex: 0.7 },
+    { field: 'os', headerName: 'OS', width: 70, flex: 0.7 },
+    {
+      field: 'cpu',
+      headerName: 'CPU Utilization',
+      width: 200,
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <CpuCell percentValue={params.value as number} />
+      ),
+      flex: 1,
+    },
+    {
+      field: 'ram',
+      headerName: 'RAM Utilization',
+      width: 130,
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <CpuCell percentValue={params.value as number} />
+      ),
+      flex: 1,
+    },
+    {
+      field: 'disk',
+      headerName: 'Disk Utilization',
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <CpuCell percentValue={params.value as number} />
+      ),
+      width: 130,
+      flex: 1,
+    },
+    {
+      field: 'bandwidth',
+      headerName: 'BandWidth Utilization',
+      width: 150,
+      flex: 1,
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <CpuCell percentValue={params.value as number} />
+      ),
+    },
+    {
+      field: 'manage',
+      headerName: 'Actions',
+      width: 90,
+      flex: 0.8,
+      
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <ManageCell status={params.value as boolean} seletedId={selectedRowId[0]} />
+      ),
+    },
+  ];
+  const columnsMax: GridColDef<Server>[] = [
+    {
+      field: 'servers',
+      headerName: 'Servers',
+      width: 100,
+      renderCell: (params: GridRenderCellParams<Server>) => {
+        return (
+          <ServerCell
+            serverAddress={params.value.serverAddress as string}
+            serverType={params.value.serverType as string}
+          />
+        );
+      },
+      flex: 1,
+    },
+    {
+      field: 'status',
+      headerName: 'Status',
+      width: 70,
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <StatusContext
+          status={params.value == true ? StatusType.on : StatusType.off}
+          label={params.value == true ? 'ON' : 'OFF'}
+        />
+      ),
+      flex: 1,
+    },
+    { field: 'location', headerName: 'Location', width: 70, flex: 1 },
+    { field: 'os', headerName: 'CPU Utilization', width: 110, flex: 1 },
+    {
+      field: 'cpu',
+      headerName: 'RAM Utilization',
+      width: 110,
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <CpuCell percentValue={params.value as number} />
+      ),
+      flex: 1,
+    },
+    {
+      field: 'disk',
+      headerName: 'Disk Utilization',
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <CpuCell percentValue={params.value as number} />
+      ),
+      width: 110,
+      flex: 1,
+    },
+    {
+      field: 'bandwidth',
+      headerName: 'BandWidth Utilization',
+      width: 150,
+      flex: 1,
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <CpuCell percentValue={params.value as number} />
+      ),
+    },
+    {
+      field: 'incoming',
+      headerName: 'Incoming Traffic',
+      width: 150,
+      flex: 1,
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <CpuCell percentValue={params.value as number} />
+      ),
+    },
+    {
+      field: 'outgoing',
+      headerName: 'Outgoing Traffic',
+      width: 150,
+      flex: 1,
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <CpuCell percentValue={params.value as number} />
+      ),
+    },
+    {
+      field: 'manage',
+      headerName: 'Actions',
+      width: 110,
+      flex: 1,
+      renderCell: (params: GridRenderCellParams<Server>) => (
+        <ManageCell status={params.value as boolean} seletedId={selectedRowId[0]} />
+      ),
+    },
+  ];
+
   return (
     <TrafficTableContainer isminimized={isminimized.toString()}>
-      <div style={{ height: '100%',  width: '100%' }}>
+      <div style={{ height: '100%', width: '100%' }}>
         {isminimized ? (
           /* @ts-ignore */
-          <DataGrid rows={serverListRowMins} columns={columnsMin} />
+          // getRowId={getRowId}
+          <DataGrid
+            rows={serverListRowMins ?? []}
+            rowSelectionModel={selectedRowId}
+            onRowSelectionModelChange={handleSelectionModelChange}
+            columns={columnsMin}
+          />
         ) : (
           /* @ts-ignore */
-          <DataGrid rows={serverListRowMaxs} columns={columnsMax} />
+          <DataGrid
+            rows={serverListRowMaxs ?? []}
+            rowSelectionModel={selectedRowId}
+            onRowSelectionModelChange={handleSelectionModelChange}
+            columns={columnsMax}
+          />
         )}
       </div>
     </TrafficTableContainer>

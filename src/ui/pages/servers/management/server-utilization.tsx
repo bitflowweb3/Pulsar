@@ -23,7 +23,7 @@ const ServerUtilization = () => {
         </Title>
         <HeaderDateDiv>
           <PeriodButtonGroup />
-          <MonthButton className='button-secondary'>January, 2023</MonthButton>
+          <MonthButton className='button-secondary' style={{border: 'none'}}>January, 2023</MonthButton>
         </HeaderDateDiv>
       </Header>
       <hr />
@@ -39,7 +39,7 @@ const ServerUtilization = () => {
         <ChartDiv>
           <ChartLabel>
             <label>Activity</label>
-            <label>CPU</label>
+            <label>RAM</label>
           </ChartLabel>
           <hr />
           <ServerUtilChart />
@@ -47,18 +47,30 @@ const ServerUtilization = () => {
         <ChartDiv>
           <ChartLabel>
             <label>Activity</label>
-            <label>CPU</label>
+            <label>Disk</label>
           </ChartLabel>
           <hr />
           <ServerUtilChart />
         </ChartDiv>
         <ChartDiv>
-          <ChartLabel>
-            <label>Activity</label>
-            <label>CPU</label>
-          </ChartLabel>
+          <ChartLabelDiv>
+            <ChartLabel>
+              <label>Activity</label>
+              <label>BandWidth</label>
+            </ChartLabel>
+            <BandwidthLabels>
+              <div>
+                <label>Incoming</label>
+                <label id='incoming-server-management'><strong>50G</strong></label>
+              </div>
+              <div>
+                <label>Outgoing</label>
+                <label id='outgoing-server-management'><strong>20G</strong></label>
+              </div>
+            </BandwidthLabels>
+          </ChartLabelDiv>
           <hr />
-          <ServerUtilChart />
+          <ServerUtilChart isBandwidth={ true } />
         </ChartDiv>
       </Body>
     </ServerDetailsDiv>
@@ -124,3 +136,33 @@ const ChartLabel = styled.div`
     }
   }
 `;
+const ChartLabelDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+const BandwidthLabels = styled.div`
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--space-xs);
+  gap: var(--space-l);
+  background-color: #262932;
+  padding: 4px 8px;
+  div {
+    display: flex;
+    flex-direction: column;
+    
+    label {
+      font-size: 0.7em;
+      &:first-child {
+        color: white;
+      }
+    }
+    #incoming-server-management {
+        color: #F17F7F;
+    }
+    #outgoing-server-management {
+        color: #72C2FC;
+    }
+  }
+`

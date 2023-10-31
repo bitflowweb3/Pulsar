@@ -3,10 +3,32 @@ import apiService from '../../services/apiservice';
 import { getAccessToken } from '../../services/auth';
 
 export const fetchServerList = createAsyncThunk('server/all', async () => {
-    const accessToken = (await getAccessToken()) ?? '';
+  const accessToken = (await getAccessToken()) ?? '';
   const res = await apiService.secureApi(accessToken).getServerList();
   return res.data;
 });
+
+export const fetchServerDetails = createAsyncThunk(
+  'server/details',
+  async (id: Number) => {
+    const accessToken = (await getAccessToken()) ?? '';
+    const res = await apiService.secureApi(accessToken).getServerDetails(id);
+    return res.data;
+  }
+);
+
+export const serverDetailsSlice = createSlice({
+  name: 'serverDetails',
+  initialState: {
+    serverDetails: {}
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchServerDetails.fulfilled, (state, action) => {
+      state.serverDetails = action.payload;
+    })
+  }
+})
 
 const serverSlice = createSlice({
   name: 'server',

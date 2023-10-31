@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 import { Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
-import LogoImage from '../../../assets/images/footer-logo.png'
+import LogoImage from '../../../assets/images/footer-logo.png';
 import Image from 'next/image';
 
 const Footer = () => {
-  return (
+  const [isClient, setClientSide] = useState<boolean | undefined>();
+  useEffect(() => {
+    setClientSide(true);
+  }, []);
+  return isClient ? (
     <FooterDiv>
       <FooterContent>
         <ProductInfos>
@@ -64,15 +68,15 @@ const Footer = () => {
             <label>Settings</label>
             <label>Contact</label>
           </ProductDetail>
-              </ProductInfos>
-              <hr />
-              <LogoContent>
-                  <Image src={LogoImage} alt='logo-image' />
-                  <label>Copyright @ 2023 Pulsar</label>
-    </LogoContent>
+        </ProductInfos>
+        <hr />
+        <LogoContent>
+          <Image src={LogoImage} alt='logo-image' />
+          <label>Copyright @ 2023 Pulsar</label>
+        </LogoContent>
       </FooterContent>
     </FooterDiv>
-  );
+  ) : null;
 };
 export default Footer;
 
@@ -101,6 +105,7 @@ const ProductInfos = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
+
 const ProductDetail = styled.div`
   display: flex;
   flex-direction: column;
@@ -109,18 +114,19 @@ const ProductDetail = styled.div`
 
   label {
     font-size: 16px;
-    color: white;
+    color: ${Color.$white};
     flex: 1;
     &:first-child {
       color: ${Color.$netural_700};
     }
   }
 `;
+
 const LogoContent = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    label {
-        color: #8A8A98;
-    }
-`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  label {
+    color: #8a8a98;
+  }
+`;

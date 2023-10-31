@@ -64,7 +64,13 @@ const getTrafficData = async (period: DatePeriod, accessToken?: string): Promise
 
 const getServerList = async (accessToken?: string): Promise<any> => 
   instance.get('/server/all', { ...getConfig(accessToken) })
+const getServerDetails = async (id: Number, accessToken?: string): Promise<any> => 
+  instance.get('/server/details', {
+    ...getConfig(accessToken), params: {
+    id
+  }})
 
+  
 const apiService = {
   api: {
     getHello,
@@ -73,6 +79,7 @@ const apiService = {
     getUser: () => getUser(accessToken),
     getTrafficData: (period: DatePeriod) => getTrafficData(period, accessToken),
     getServerList: () => getServerList(accessToken),
+    getServerDetails: (id:Number) => getServerDetails(id, accessToken),
   }),
 };
 export default apiService;

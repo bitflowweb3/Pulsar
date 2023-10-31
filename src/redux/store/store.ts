@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
-import serverReducer from '../slices/servers';
+import serverReducer, { serverDetailsSlice } from '../slices/servers';
 
 const rootReducers = combineReducers({
     server: serverReducer,
+    serverDetails: serverDetailsSlice.reducer,
 })
 
 const store = configureStore({

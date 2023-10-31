@@ -48,6 +48,12 @@ export const LoginButton = styled.button`
   font-size: 16px;
 `;
 export const SignupButton = styled.button`
-  padding: ${Padding.xs} ${Padding.s};
+  padding: ${Padding.s} ${Padding.base};
   border-radius: ${BorderRadius.xxxl};
+`
+export const HeaderTab = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `

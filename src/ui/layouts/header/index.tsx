@@ -9,6 +9,7 @@ import {
   LandingNavbar,
   LoginButton,
   SignupButton,
+  HeaderTab,
 } from './styled';
 import CompanyLogo from '../../../assets/images/company-logo.png';
 import LandingLogo from '../../../assets/images/landing-logo.png';
@@ -22,20 +23,20 @@ import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Menu } from 'antd';
 import { setAccessToken } from '../../../services/auth';
 import { useRouter } from 'next/router';
-
+import ArrowDownIcon from '../../components/common/svgicons/ArrowDownIcon';
+import { Color } from '../../../constants/color';
 
 interface LayoutProps {
   auth: AuthContextProps | null;
   account: AccountProviderProps | null;
 }
 const Header = ({ auth, account }: LayoutProps) => {
-
   const router = useRouter();
 
   const [isAccountPage, setIsAccountPage] = useState<boolean | undefined>(
     undefined
   );
-  const [isLogined, setIsLogined] = useState<boolean | undefined>(undefined);
+  const [isLogined, setIsLogined] = useState<boolean | undefined>();
 
   useEffect(() => {
     setIsAccountPage(account?.isAccountPage);
@@ -50,12 +51,16 @@ const Header = ({ auth, account }: LayoutProps) => {
   const Logout = () => {
     setAccessToken(null);
     router.push('/login');
-  }
-  
+  };
+
   const userMenu = (
     <Menu>
-      <Menu.Item><Link href='temp'>Profile</Link></Menu.Item>
-      <Menu.Item><Link href='dashboard'>My Account</Link></Menu.Item>
+      <Menu.Item>
+        <Link href='temp'>Profile</Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link href='dashboard'>My Account</Link>
+      </Menu.Item>
       <Menu.Item onClick={Logout}>Log out</Menu.Item>
     </Menu>
   );
@@ -64,27 +69,28 @@ const Header = ({ auth, account }: LayoutProps) => {
     <TopBar>
       <LogoContent>
         {isAccountPage ? (
-          <Image src={CompanyLogo} alt='Company Logo' />
+          <Link href='/price'>
+            <Image src={CompanyLogo} alt='Company Logo' />
+          </Link>
         ) : (
           <LandingPageLogoContent>
             <Image src={LandingLogo} alt='landing-logo' />
             <LandingNavbar>
               <Link href='/price'>Home</Link>
-
               <Dropdown menu={{ items }} trigger={['hover']}>
                 <Link href='/price'>
-                  Products&nbsp;&nbsp;
-                  <DownOutlined
-                    style={{ strokeWidth: '2px', fontSize: '13px' }}
-                  />
+                  <HeaderTab>
+                    Products&nbsp;&nbsp;
+                    <ArrowDownIcon stroke={Color.$white} />
+                  </HeaderTab>
                 </Link>
               </Dropdown>
               <Dropdown menu={{ items }} trigger={['hover']}>
                 <Link href='/price'>
-                  Resources&nbsp;&nbsp;
-                  <DownOutlined
-                    style={{ strokeWidth: '2px', fontSize: '13px' }}
-                  />
+                  <HeaderTab>
+                    Resources&nbsp;&nbsp;
+                    <ArrowDownIcon stroke={Color.$white} />
+                  </HeaderTab>
                 </Link>
               </Dropdown>
               <Link href='/price'>Pricing</Link>
@@ -92,14 +98,7 @@ const Header = ({ auth, account }: LayoutProps) => {
           </LandingPageLogoContent>
         )}
       </LogoContent>
-      {!isLogined ? (
-        <AuthContent>
-          <Link href='/login'>
-            <LoginButton>Log in</LoginButton>
-          </Link>
-          <SignupButton className='button-secondary'>Sign up</SignupButton>
-        </AuthContent>
-      ) : (
+      {isLogined ? (
         <AuthContent>
           <Image src={AlarmIcon} className='icon alarm-icon' alt='alarm' />
           <Image
@@ -112,7 +111,13 @@ const Header = ({ auth, account }: LayoutProps) => {
                 <Image src={UserAvatar} className='icon user-avatar' alt='user' />
                 </Link>
               </Dropdown>
-          
+        </AuthContent>
+      ): (
+        <AuthContent>
+          <Link href='/login'>
+            <LoginButton>Log in</LoginButton>
+          </Link>
+          <SignupButton className='button-primary'>Sign up</SignupButton>
         </AuthContent>
       )}
     </TopBar>

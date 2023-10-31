@@ -1,14 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BorderRadius, Padding, Space } from '../../../../constants/size';
 import { Color } from '../../../../constants/color';
 import ServersIcon from '../../../components/common/svgicons/ServersIcon';
 import TerminalIcon from '../../../components/common/svgicons/TerminalIcon';
 import ArrowDownIcon from '../../../components/common/svgicons/ArrowDownIcon';
-import AlertOctagonIcon from '../../../components/common/svgicons/AlertOctagon';
+import AlertOctagonIcon from '../../../components/common/svgicons/AlertCircle';
 import PowerCycleIcon from '../../../components/common/svgicons/PowerCycleIcon';
+import StatusContext from '../../../components/common/status';
+import { StatusType } from '../../../../types/status.module';
+import { useDispatch, useSelector } from 'react-redux';
+import { ServerDetails } from '../../../../types/server.module';
+import { fetchServerDetails } from '../../../../redux/slices/servers';
 
-const ServerDetails = () => {
+const ServerDetails = ({ serverId }: { serverId: number | undefined }) => {
+  const [serverDetailsState, setServerDetails] = useState<
+    ServerDetails | undefined
+  >();
+  //@ts-ignore
+  const serverDetails: ServerDetails = useSelector(
+    //@ts-ignore
+    (state) => state.serverDetails.serverDetails
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (serverId) {
+      //@ts-ignore
+      dispatch(fetchServerDetails(serverId));
+    }
+  }, [serverId]);
+
+  useEffect(() => {
+    setServerDetails(serverDetails);
+    
+  }, [serverDetails]);
+
   return (
     <ServerDetailsDiv>
       <Header>
@@ -17,7 +45,14 @@ const ServerDetails = () => {
             <ServersIcon stroke='#fff' />
           </IconDiv>
           <h2>Server Details</h2>
-          <label>Powered On</label>
+          <StatusContext
+            status={serverDetailsState?.status ?? StatusType.off}
+            label={
+              serverDetailsState?.status == StatusType.on
+                ? 'Powered On'
+                : 'Powered Off'
+            }
+          />
         </Title>
         <HeaderButtonGroup>
           <IconCardButton>
@@ -36,31 +71,31 @@ const ServerDetails = () => {
       </Header>
       <Body>
         <DetailInfo>
-          <label>{`24C \u00d7 2.9GHz`}</label>
+          <label>{serverDetailsState?.CPU}</label>
           <label>CPU</label>
         </DetailInfo>
         <DetailInfo>
-          <label>{`256GB DDR4`}</label>
+          <label>{serverDetailsState?.RAM}</label>
           <label>RAM</label>
         </DetailInfo>
         <DetailInfo>
-          <label>{`Ubuntu Focal`}</label>
+          <label>{serverDetailsState?.OS}</label>
           <label>OS</label>
         </DetailInfo>
         <DetailInfo>
-          <label>{`d2.c2.large`}</label>
+          <label>{serverDetailsState?.type}</label>
           <label>Type</label>
         </DetailInfo>
         <DetailInfo>
-          <label>{`2\u00d7 2TB NVME`}</label>
-          <label>CPU</label>
+          <label>{serverDetailsState?.storage}</label>
+          <label>Storage</label>
         </DetailInfo>
         <DetailInfo>
-          <label>{`Sep 15, 2023`}</label>
+          <label>{serverDetailsState?.created}</label>
           <label>Created</label>
         </DetailInfo>
         <DetailInfo>
-          <label>{`385 days`}</label>
+          <label>{serverDetailsState?.uptime}</label>
           <label>Uptime</label>
         </DetailInfo>
       </Body>
@@ -95,7 +130,7 @@ const DetailInfo = styled.div`
     font-size: 14px;
     color: ${Color.$white};
     &:last-child {
-        color: ${Color.$netural_700};
+      color: ${Color.$netural_700};
     }
   }
 `;
@@ -109,14 +144,11 @@ export const Title = styled.div`
   display: flex;
   flex-direction: row;
   gap: ${Space.s};
-  align-items: flex-start;
-  label {
-    color: white;
-  }
+  align-items: center;
   h2 {
     /* line-height: 0; */
   }
-`;
+`; 
 export const IconDiv = styled.div`
   margin-top: ${Space.xs};
 `;
