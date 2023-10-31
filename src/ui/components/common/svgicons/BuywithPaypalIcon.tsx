@@ -1,7 +1,12 @@
+import React, {useState, useEffect} from 'react'
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
 const BuywithPaypalIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
-  return (
+  const [isClient, setClientSide] = useState<boolean | undefined>();
+  useEffect(() => {
+    setClientSide(true)
+  }, [])
+  return ( !isClient ? null :
     // <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='60'

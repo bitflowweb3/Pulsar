@@ -1,7 +1,12 @@
+import React, {useState, useEffect} from 'react'
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
 const VisaIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
-  return (
+  const [isClient, setClientSide] = useState<boolean | undefined>();
+  useEffect(() => {
+    setClientSide(true)
+  }, [])
+  return ( !isClient ? null :
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='27'
@@ -35,14 +40,14 @@ const VisaIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
           fill='#293688'
         />
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M18.4592 7.13831C18.5922 6.80894 18.8316 6.78149 19.1507 6.78149H20.1881L21.3052 11.722H20.0285L19.8689 10.8986H18.1666L17.9006 11.722H16.4644L18.4592 7.13831ZM19.0711 8.61921C19.0711 8.61921 18.6189 9.82689 18.5391 10.0739V10.1014H19.6562C19.603 9.82689 19.337 8.59176 19.337 8.59176L19.2572 8.12516C19.1775 8.31729 19.0711 8.61921 19.0711 8.61921Z'
           fill='#3C58BF'
         />
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M18.7784 7.13831C18.9114 6.80894 19.1507 6.78149 19.4699 6.78149H20.1881L21.3052 11.722H20.0285L19.8689 10.8986H18.1666L17.9006 11.722H16.4644L18.7784 7.13831ZM19.0711 8.61921C19.0711 8.61921 18.6455 9.79944 18.5391 10.0739V10.1014H19.6562C19.603 9.82689 19.337 8.59176 19.337 8.59176L19.2572 8.12516C19.1775 8.31729 19.0711 8.61921 19.0711 8.61921Z'
           fill='#293688'
         />

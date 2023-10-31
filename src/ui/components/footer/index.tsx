@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { styled } from 'styled-components';
 import { Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
-import LogoImage from '../../../assets/images/footer-logo.png'
+import LogoImage from '../../../assets/images/footer-logo.png';
 import Image from 'next/image';
 
 const Footer = () => {
@@ -64,12 +65,12 @@ const Footer = () => {
             <label>Settings</label>
             <label>Contact</label>
           </ProductDetail>
-              </ProductInfos>
-              <hr />
-              <LogoContent>
-                  <Image src={LogoImage} alt='logo-image' />
-                  <label>Copyright @ 2023 Pulsar</label>
-    </LogoContent>
+        </ProductInfos>
+        <hr />
+        <LogoContent>
+          <Image src={LogoImage} alt='logo-image' />
+          <label>Copyright @ 2023 Pulsar</label>
+        </LogoContent>
       </FooterContent>
     </FooterDiv>
   );
@@ -101,6 +102,7 @@ const ProductInfos = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
+
 const ProductDetail = styled.div`
   display: flex;
   flex-direction: column;
@@ -109,18 +111,19 @@ const ProductDetail = styled.div`
 
   label {
     font-size: 16px;
-    color: white;
+    color: ${Color.$white};
     flex: 1;
     &:first-child {
       color: ${Color.$netural_700};
     }
   }
 `;
+
 const LogoContent = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    label {
-        color: #8A8A98;
-    }
-`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  label {
+    color: #8a8a98;
+  }
+`;

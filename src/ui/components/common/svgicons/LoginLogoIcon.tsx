@@ -1,7 +1,12 @@
+import React, {useState, useEffect} from 'react'
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
 const LoginLogoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
-  return (
+  const [isClient, setClientSide] = useState<boolean | undefined>();
+  useEffect(() => {
+    setClientSide(true)
+  }, [])
+  return ( !isClient ? null :
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='54'
@@ -11,7 +16,7 @@ const LoginLogoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
         xmlns='http://www.w3.org/2000/svg'
       >
         <g filter='url(#filter0_dd_814_24003)'>
-          <g clip-path='url(#clip0_814_24003)'>
+          <g clipPath='url(#clip0_814_24003)'>
             <rect x='3' y='2' width='48' height='48' rx='12' fill='white' />
             <rect
               x='3'
@@ -22,20 +27,20 @@ const LoginLogoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
               fill='url(#paint0_linear_814_24003)'
             />
             <path
-              fill-rule='evenodd'
-              clip-rule='evenodd'
+              fillRule='evenodd'
+              clipRule='evenodd'
               d='M27.0001 5.05828C15.4343 5.05828 6.0584 14.4342 6.0584 26C6.0584 37.5658 15.4343 46.9418 27.0001 46.9418C38.566 46.9418 47.9419 37.5658 47.9419 26C47.9419 14.4342 38.566 5.05828 27.0001 5.05828ZM5.94189 26C5.94189 14.3699 15.37 4.94177 27.0001 4.94177C38.6303 4.94177 48.0584 14.3699 48.0584 26C48.0584 37.6302 38.6303 47.0583 27.0001 47.0583C15.37 47.0583 5.94189 37.6302 5.94189 26Z'
               fill='#D0D5DD'
             />
             <path
-              fill-rule='evenodd'
-              clip-rule='evenodd'
+              fillRule='evenodd'
+              clipRule='evenodd'
               d='M27 20.1169C23.7506 20.1169 21.1165 22.751 21.1165 26.0004C21.1165 29.2497 23.7506 31.8839 27 31.8839C30.2494 31.8839 32.8835 29.2497 32.8835 26.0004C32.8835 22.751 30.2494 20.1169 27 20.1169ZM21 26.0004C21 22.6867 23.6863 20.0004 27 20.0004C30.3137 20.0004 33 22.6867 33 26.0004C33 29.3141 30.3137 32.0004 27 32.0004C23.6863 32.0004 21 29.3141 21 26.0004Z'
               fill='#D0D5DD'
             />
             <path
-              fill-rule='evenodd'
-              clip-rule='evenodd'
+              fillRule='evenodd'
+              clipRule='evenodd'
               d='M26.9999 21.9802C24.7801 21.9802 22.9805 23.7797 22.9805 25.9996C22.9805 28.2194 24.7801 30.019 26.9999 30.019C29.2198 30.019 31.0194 28.2194 31.0194 25.9996C31.0194 23.7797 29.2198 21.9802 26.9999 21.9802ZM22.864 25.9996C22.864 23.7154 24.7157 21.8636 26.9999 21.8636C29.2841 21.8636 31.1359 23.7154 31.1359 25.9996C31.1359 28.2838 29.2841 30.1355 26.9999 30.1355C24.7157 30.1355 22.864 28.2838 22.864 25.9996Z'
               fill='#D0D5DD'
             />
@@ -76,7 +81,7 @@ const LoginLogoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
               <path
                 d='M3 26H51V30.8C51 37.5206 51 40.8809 49.6921 43.4479C48.5416 45.7058 46.7058 47.5416 44.4479 48.6921C41.8809 50 38.5206 50 31.8 50H22.2C15.4794 50 12.1191 50 9.55211 48.6921C7.29417 47.5416 5.4584 45.7058 4.30792 43.4479C3 40.8809 3 37.5206 3 30.8V26Z'
                 fill='white'
-                fill-opacity='0.2'
+                fillOpacity='0.2'
               />
             </g>
           </g>
@@ -87,7 +92,7 @@ const LoginLogoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
             height='47.55'
             rx='11.775'
             stroke='#D0D5DD'
-            stroke-width='0.45'
+            strokeWidth='0.45'
           />
         </g>
         <defs>
@@ -98,9 +103,9 @@ const LoginLogoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
             width='54'
             height='54'
             filterUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
-            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feFlood floodOpacity='0' result='BackgroundImageFix' />
             <feColorMatrix
               in='SourceAlpha'
               type='matrix'
@@ -149,9 +154,9 @@ const LoginLogoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
             width='33'
             height='33'
             filterUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
-            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feFlood floodOpacity='0' result='BackgroundImageFix' />
             <feColorMatrix
               in='SourceAlpha'
               type='matrix'
@@ -200,9 +205,9 @@ const LoginLogoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
             width='63'
             height='39'
             filterUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
-            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feFlood floodOpacity='0' result='BackgroundImageFix' />
             <feGaussianBlur in='BackgroundImageFix' stdDeviation='3.75' />
             <feComposite
               in2='SourceAlpha'
@@ -224,8 +229,8 @@ const LoginLogoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
             y2='50'
             gradientUnits='userSpaceOnUse'
           >
-            <stop stop-color='white' />
-            <stop offset='1' stop-color='#D0D5DD' />
+            <stop stopColor='white' />
+            <stop offset='1' stopColor='#D0D5DD' />
           </linearGradient>
           <linearGradient
             id='paint1_linear_814_24003'
@@ -235,8 +240,8 @@ const LoginLogoIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
             y2='14'
             gradientUnits='userSpaceOnUse'
           >
-            <stop stop-color='#53389E' />
-            <stop offset='1' stop-color='#6941C6' />
+            <stop stopColor='#53389E' />
+            <stop offset='1' stopColor='#6941C6' />
           </linearGradient>
           <clipPath id='clip0_814_24003'>
             <rect x='3' y='2' width='48' height='48' rx='12' fill='white' />

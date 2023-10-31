@@ -36,13 +36,13 @@ export const MainBox = styled.div`
 `;
 
 interface CreditCardModelProps {
-    bgColor: string;
+    $bgcolor: string;
 }
 export const CreditCardModel = styled.div<CreditCardModelProps>`
   flex-basis: 30%;
   flex-grow: 1;
   border-radius: ${BorderRadius.xs};
-  background-color: ${(props => props.bgColor)};
+  background-color: ${(props => props.$bgcolor)};
   display: flex;
   flex-direction: column;
   padding: ${Space.s};
