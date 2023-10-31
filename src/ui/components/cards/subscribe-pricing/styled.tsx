@@ -3,43 +3,52 @@ import { Space } from '../../../../constants/size';
 import { Color } from '../../../../constants/color';
 
 export const SubscribePriceContent = styled.div`
-    flex: 1;
-    background-image: linear-gradient(to bottom, #7F56D9,rgba(42, 108, 236, 0.88), rgba(0, 42, 255, 0.78));
-    /* border: 1px solid ; */
-    border-radius: 16px;
-`
+  flex: 1;
+  background-image: linear-gradient(
+    to bottom,
+    #7f56d9,
+    rgba(42, 108, 236, 0.88),
+    rgba(0, 42, 255, 0.78)
+  );
+  /* border: 1px solid ; */
+  border-radius: 16px;
+`;
 export const SubscribeBorderContent = styled.div`
-    background-color: ${Color.$dark_card};
-    margin: 1px;
-    border-radius: 15px;
-    padding: ${Space.l} ${Space.l};
-    display: flex;
-    flex-direction: column;
-    gap: ${Space.xl};
-`
+  position: relative;
+  background-color: ${Color.$dark_card};
+  margin: 1px;
+  border-radius: 15px;
+  padding: ${Space.l} ${Space.l};
+  display: flex;
+  flex-direction: column;
+  gap: ${Space.xl};
+`;
 export const Header = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    label {
-        color: white;
-    }
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  label {
+    color: white;
+  }
+  h1 {
+    font-weight: 600;
+  }
+`;
 export const Body = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: ${Space.sb};
-`
+  display: flex;
+  flex-direction: column;
+  gap: ${Space.sb};
+`;
 export const PerformanceDiv = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: ${Space.sb};
-    label {
-        color: white;
-    }
-`
+  display: flex;
+  flex-direction: row;
+  gap: ${Space.sb};
+  label {
+    color: white;
+  }
+`;
 export const SubscribeButton = styled.div`
-    border-radius: ${Space.xxl};
-    text-align: center;
-    padding: ${Space.s};
-`
+  border-radius: ${Space.xxl};
+  text-align: center;
+  padding: ${Space.s};
+`;

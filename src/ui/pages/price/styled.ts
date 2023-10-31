@@ -43,9 +43,11 @@ export const SubHeader = styled.div`
   gap: ${Space.base};
   label {
     color: ${Color.$brand_600};
+    font-weight: 600;
   }
   h1 {
     font-size: 48px;
+    font-weight: 600;
     /* line-height: none !important; */
   }
   p {
