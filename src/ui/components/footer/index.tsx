@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 import { Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
@@ -7,7 +6,11 @@ import LogoImage from '../../../assets/images/footer-logo.png';
 import Image from 'next/image';
 
 const Footer = () => {
-  return (
+  const [isClient, setClientSide] = useState<boolean | undefined>();
+  useEffect(() => {
+    setClientSide(true);
+  }, []);
+  return isClient ? (
     <FooterDiv>
       <FooterContent>
         <ProductInfos>
@@ -73,7 +76,7 @@ const Footer = () => {
         </LogoContent>
       </FooterContent>
     </FooterDiv>
-  );
+  ) : null;
 };
 export default Footer;
 
