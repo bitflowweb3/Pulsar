@@ -2,17 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Hr } from '../../../common/Hr';
-import ServersIcon from '../../../common/svgicons/ServersIcon';
-import BillingIcon from '../../../common/svgicons/BillingIcon';
-import ViewStatementIcon from '../../../common/svgicons/ViewStatementIcon';
-import IpAddressesIcon from '../../../common/svgicons/IpAddressesIcon';
-import PowerCycleIcon from '../../../common/svgicons/PowerCycleIcon';
-import TrashIcon from '../../../common/svgicons/TrashIcon';
 import styled from 'styled-components';
 import { Space } from '../../../../../constants/size';
 import { Color } from '../../../../../constants/color';
 import Link from 'next/link';
 import ReimageMoal from '../../../modals/reimage-modal';
+import AssignedIcon from '../../../common/svgicons/AssignedIcon';
+import CircleCrossIcon from '../../../common/svgicons/CircleCrossIcon';
 
 const MenuItemPowerCycleDiv = styled.div`
   font-size: 14px;
@@ -86,40 +82,12 @@ export default function DropdownMenu(props: any) {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link href={{ pathname: '/servers/management', query: {id: selectedId}}}>
-          {/* <Link href='/servers/management' as={`/servers/management?id=${selectedId}`}> */}
+          {/* <Link> */}
             <MenuItemDiv>
-              <ServersIcon width={18} height={18} />
-              <label>Manage Server</label>
+              <AssignedIcon width={18} height={18} />
+              <label>Assign</label>
             </MenuItemDiv>
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link href='/payments'>
-            <MenuItemDiv>
-              <BillingIcon />
-              <label>Change Billing</label>
-            </MenuItemDiv>
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link href='/ipaddresses'>
-            <MenuItemDiv>
-              <IpAddressesIcon width={18} height={16} />
-              <label>Ip Addresses</label>
-            </MenuItemDiv>
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <MenuItemDiv>
-            <ViewStatementIcon
-              width={20}
-              height={20}
-              stroke='#8B8B93'
-              strokeWidth='1.5'
-            />
-            <label>View Statements</label>
-          </MenuItemDiv>
+          {/* </Link> */}
         </MenuItem>
         <Hr
           style={{
@@ -132,25 +100,14 @@ export default function DropdownMenu(props: any) {
         />
         <MenuItem onClick={handleClose}>
           <MenuItemPowerCycleDiv id='power-cycle'>
-            <PowerCycleIcon
+            <CircleCrossIcon
               width={18}
               height={18}
               strokeWidth='1.5'
               stroke='#ED4C4D'
             />
-            <label style={{ marginTop: '2px' }}>Power Cycle</label>
+            <label style={{ marginTop: '2px' }}>Remove</label>
           </MenuItemPowerCycleDiv>
-        </MenuItem>
-        <MenuItem>
-          <MenuItemDiv
-            onClick={() => {
-              handleClose();
-              openModal();
-            }}
-          >
-            <TrashIcon stroke='1.5' width={18} height={18} />
-            <label style={{ marginTop: '4px' }}>Reimage Server</label>
-          </MenuItemDiv>
         </MenuItem>
       </Menu>
       <ReimageMoal isOpen={isModalOpen} closeModal={closeModal} />

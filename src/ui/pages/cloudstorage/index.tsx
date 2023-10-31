@@ -5,7 +5,7 @@ import {
   IPAddressesHeader,
   IPAddressesMainContent,
 } from './styled';
-import SearchComponent from '../../../ui/components/common/input/search';
+import SearchComponent from '../../components/common/input/search';
 import IPAddressesTable from '../../components/lists/ipaddress-table';
 import ShoppingBagIcon from '../../components/common/svgicons/ShoppingBagIcon';
 import { Color } from '../../../constants/color';
@@ -24,7 +24,7 @@ export default function ServersPage() {
           <SearchComponent />
           <IPAllocateButton className='button-secondary'>
             <ShoppingBagIcon stroke={Color.$white} />
-            <label>Allocate additional IPs</label>
+            Buy Storage
           </IPAllocateButton>
         </IPAddressesHeader>
         <IPAddressesTable />

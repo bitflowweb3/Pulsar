@@ -1,7 +1,12 @@
+import React, {useState, useEffect} from 'react'
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
 const CircleIcon = ({ stroke, strokeWidth, width, height }: SvgIconProps) => {
-  return (
+  const [isClient, setClientSide] = useState<boolean | undefined>();
+  useEffect(() => {
+    setClientSide(true)
+  }, [])
+  return ( !isClient ? null :
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width={width??'16'}

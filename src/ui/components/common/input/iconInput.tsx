@@ -44,7 +44,7 @@ const InputTextDiv = styled.input`
 
 interface IconInputProps {
   placeText: string;
-  Icon: ({ stroke, strokeWidth }: SvgIconProps) => JSX.Element;
+  Icon: ({ stroke, strokeWidth }: SvgIconProps) => JSX.Element | null;
   onInputChange: (value: string) => void;
 }
 const IconInput = ({ placeText, Icon, onInputChange }: IconInputProps) => {
@@ -58,7 +58,7 @@ const IconInput = ({ placeText, Icon, onInputChange }: IconInputProps) => {
   return (
     <IconInputDiv>
       <IconDiv>
-        <Icon />
+        <Icon stroke={Color.$white } />
       </IconDiv>
       <InputTextDiv placeholder={placeText} value={inputValue} onChange={handleInputChange} />
     </IconInputDiv>

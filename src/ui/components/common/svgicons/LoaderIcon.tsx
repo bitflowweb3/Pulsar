@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
-const AlertOctagonIcon = ({ stroke, strokeWidth, width, height }: SvgIconProps) => {
+const LoaderIcon = ({ stroke, strokeWidth, width, height }: SvgIconProps) => {
   const [isClient, setClientSide] = useState<boolean | undefined>();
   useEffect(() => {
     setClientSide(true)
@@ -9,16 +9,16 @@ const AlertOctagonIcon = ({ stroke, strokeWidth, width, height }: SvgIconProps) 
   return ( !isClient ? null :
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
-        width={width??'20'}
-        height={height??'20'}
-        viewBox='0 0 20 20'
+        width={width??'19'}
+        height={height??'19'}
+        viewBox='0 0 19 19'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
       >
         <path
-          d='M10.0003 6.66663V9.99996M10.0003 13.3333H10.0087M6.55033 1.66663H13.4503L18.3337 6.54996V13.45L13.4503 18.3333H6.55033L1.66699 13.45V6.54996L6.55033 1.66663Z'
+          d='M9.59896 0.865234V4.19857M9.59896 14.1986V17.5319M3.70729 3.3069L6.06563 5.66523M13.1323 12.7319L15.4906 15.0902M1.26562 9.19857H4.59896M14.599 9.19857H17.9323M3.70729 15.0902L6.06563 12.7319M13.1323 5.66523L15.4906 3.3069'
           stroke='white'
-          strokeWidth='1.5'
+          strokeWidth='1.67'
           strokeLinecap='round'
           strokeLinejoin='round'
         />
@@ -26,4 +26,4 @@ const AlertOctagonIcon = ({ stroke, strokeWidth, width, height }: SvgIconProps) 
     </SvgContainer>
   );
 };
-export default AlertOctagonIcon;
+export default LoaderIcon;

@@ -1,8 +1,13 @@
+import React, {useState, useEffect} from 'react'
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
 const GoogleIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
-  return (
-    <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
+  const [isClient, setClientSide] = useState<boolean | undefined>();
+  useEffect(() => {
+    setClientSide(true)
+  }, [])
+  return ( !isClient ? null :
+    // <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='25'
         height='24'
@@ -27,7 +32,7 @@ const GoogleIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
           fill='#EA4335'
         />
       </svg>
-    </SvgContainer>
+    // </SvgContainer>
   );
 };
 export default GoogleIcon;

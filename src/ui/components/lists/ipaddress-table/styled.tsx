@@ -39,7 +39,8 @@ const StatusCellDiv = styled.div<StatusCellDivProps>`
   padding: ${Space.xs} ${Space.s};
   border-radius: ${Space.l};
   width: ${Space.xxxl};
-  color: ${(props) => (props.condition == 'true' ? Color.$green_dark : Color.$red_light)};
+  color: ${(props) =>
+    props.condition == 'true' ? Color.$green_dark : Color.$red_light};
 `;
 
 const CircleIconDiv = styled.div<StatusCellDivProps>`

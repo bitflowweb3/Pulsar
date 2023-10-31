@@ -62,8 +62,8 @@ const IPAddressesHeader = styled.div`
 const IPAllocateButton = styled(IconCardButton)`
   height: 36px;
   border-radius: var(--space-bl);
-  border: none !important;
   padding: var(--padding-none) var(--padding-bl);
+  border: none;
 `;
 
 export { PageHeader, IPAddressesMainContent, IPAddressesHeader, IPAllocateButton };
