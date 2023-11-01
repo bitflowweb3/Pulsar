@@ -15,6 +15,7 @@ import ConfigureTable from './configure-table';
 import ConfigureSupport from './support';
 import PlanPrice from './plan-price';
 import Footer from '../../components/footer';
+import { BasicPlan, BusinessPlan, EnterprisePlan } from '../../../constants/data/default-plan';
 
 const PricePage = () => {
   return (
@@ -31,9 +32,9 @@ const PricePage = () => {
           </p>
         </SubHeader>
         <SubBody>
-          <SubscribePriceCard />
-          <SubscribePriceCard />
-          <SubscribePriceCard />
+          <SubscribePriceCard planDetail={BasicPlan} firstCard/>
+          <SubscribePriceCard planDetail={BusinessPlan}/>
+          <SubscribePriceCard planDetail={EnterprisePlan}/>
         </SubBody>
       </SubContent>
       <SubContent>

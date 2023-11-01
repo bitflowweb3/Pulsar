@@ -3,6 +3,7 @@ import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import ServerCell from './server-cell';
 import { TrafficTableContainer, ContentDiv, ContentBorderDiv } from './styled';
 import { Space } from '../../../../constants/size';
+import StatusCell from './status-cell';
 
 interface ConfigureInfos {
   id: number;
@@ -15,7 +16,7 @@ interface ConfigureInfos {
   ram: number;
   ips: number;
   cost: number;
-  action: number;
+  action: boolean;
 }
 
 const columnsMin: GridColDef<ConfigureInfos>[] = [
@@ -68,6 +69,12 @@ const columnsMin: GridColDef<ConfigureInfos>[] = [
     headerName: 'Actions',
     width: 100,
     flex: 1,
+    renderCell: (params: GridRenderCellParams<ConfigureInfos>) => {
+      return (
+        <StatusCell status={params.value as boolean}
+        />
+      );
+    },
   },
 ];
 
@@ -83,7 +90,7 @@ const rowsMin = [
     ram: '256GB',
     ips: '24',
     cost: '$500',
-    actions: 'closed',
+    actions: false,
   },
   {
     id: 2,
@@ -96,7 +103,7 @@ const rowsMin = [
     ram: '32GB',
     ips: '16',
     cost: '$300',
-    actions: 'closed',
+    actions: false,
   },
   {
     id: 3,
@@ -109,7 +116,7 @@ const rowsMin = [
     ram: '16GB',
     ips: '1',
     cost: '$100',
-    actions: 'closed',
+    actions: true,
   },
 ];
 

@@ -1,93 +1,118 @@
 //customize notification
 .ant-notification-notice-icon {
-    line-height: 17px !important;
-  }
-  
-  // customize auth-content
-  .ant-dropdown-menu {
-    background-color: var(--color-primary);
-  }
-  .ant-dropdown-placement-bottomLeft {
-    top: 60px !important;
-  }
-  .ant-dropdown-menu-item {
-    padding-left: var(--padding-l);
-    span {
-      font-size: 16px;
-      &:hover {
-        color: #8758FF;
-      }
-      &:active {
-        color: #8758FF;
-      }
-    }
+  line-height: 17px !important;
+}
+
+// customize auth-content
+.ant-dropdown-menu {
+  background-color: var(--color-primary);
+}
+.ant-dropdown-placement-bottomLeft {
+  top: 60px !important;
+}
+.ant-dropdown-menu-item {
+  padding-left: var(--padding-l);
+  span {
+    font-size: 16px;
     &:hover {
-      background-color: var(--color-primary);
-      
+      color: #8758ff;
     }
     &:active {
-      background-color: var(--color-primary);
+      color: #8758ff;
     }
   }
-  
-  //customize modal
-  .ant-modal-wrap {
-    backdrop-filter: blur(6px);
-    background-color: rgba(150,150,150, 0.1);
+  &:hover {
+    background-color: var(--color-primary);
   }
-  
-  .ant-modal-content {
-    border-radius: 16px;
-    background-color: #1F2128;
-    box-shadow: 0 0 10px rgba(150, 150, 150, 0.1);
-    // height: 500px;
+  &:active {
+    background-color: var(--color-primary);
   }
+}
 
-  //customize antd-tabs
-  .ant-tabs.ant-tabs-top.ant-tabs-card {
-    background-color: #292B33;
-    border-radius: 14px 14px 14px 14px;
-    border: solid 1px #313442;
+//customize modal
+.ant-modal-wrap {
+  backdrop-filter: blur(6px);
+  background-color: rgba(150, 150, 150, 0.1);
+}
+
+.ant-modal-content {
+  border-radius: 16px;
+  background-color: #1f2128;
+  box-shadow: 0 0 10px rgba(150, 150, 150, 0.1);
+  // height: 500px;
+}
+
+//customize antd-tabs
+.ant-tabs.ant-tabs-top.ant-tabs-card {
+  background-color: #292b33;
+  border-radius: 14px 14px 14px 14px;
+  border: solid 1px #313442;
+}
+.ant-tabs-nav-list {
+  width: 100%;
+  border-bottom: solid 1px #313442;
+}
+.ant-tabs-tab {
+  flex: 1;
+  border-radius: 14px 14px 0 0 !important;
+  border: none !important;
+  background-color: #292b33 !important;
+  display: flex;
+  justify-content: center;
+  padding: 4px !important;
+}
+.ant-tabs-tab-active {
+  background-color: var(--color-pink-brand) !important;
+}
+
+//customize dashboard-toggle-button
+.MuiSwitch-thumb {
+  background-color: var(--color-pink-brand) !important;
+}
+.MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+  background-color: #151416 !important;
+}
+.MuiSwitch-track {
+  background-color: #151416 !important;
+}
+
+//customize table-pagination
+.MuiDataGrid-selectedRowCount {
+  color: white;
+}
+.MuiSelect-select {
+  color: white !important;
+}
+.MuiTablePagination-input svg {
+  stroke: white;
+}
+.MuiIconButton-sizeMedium svg {
+  stroke: white;
+}
+
+
+//customize ant-slider
+.ant-tooltip-arrow {
+  display: none;
+}
+.ant-tooltip-inner {
+  background: none;
+  color: white !important;
+  position: relative;
+  top: var(--space-base);
+}
+div.ant-slider-handle {
+  border: none !important;
+  display: relative;
+}
+div.ant-slider-handle.ant-tooltip-open {
+  border: none;
+}
+.ant-slider-track {
+  background-color: #7364DB;
+}
+.ant-slider:hover {
+  .ant-slider-track {
+    background-color: #7364DB;
   }
-  .ant-tabs-nav-list {
-    width: 100%;
-    border-bottom: solid 1px #313442;
-  }
-  .ant-tabs-tab {
-    flex: 1;
-    border-radius: 14px 14px 0 0 !important;
-    border: none !important;
-    background-color: #292B33 !important;
-    display: flex;
-    justify-content: center;
-    padding: 4px !important;
-  }
-  .ant-tabs-tab-active {
-    background-color: var(--color-pink-brand) !important;
-  }
-  
-  //customize dashboard-toggle-button
-  .MuiSwitch-thumb {
-    background-color: var(--color-pink-brand) !important;
-  }
-  .MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
-    background-color: #151416 !important;
-  }
-  .MuiSwitch-track {
-    background-color: #151416 !important;
-  }
-  
-  //customize table-pagination
-  .MuiDataGrid-selectedRowCount {
-    color: white;
-  }
-  .MuiSelect-select {
-    color: white !important;  
-  }
-  .MuiTablePagination-input svg {
-    stroke: white;
-  }
-  .MuiIconButton-sizeMedium svg {
-    stroke: white;
-  }
-  
+}

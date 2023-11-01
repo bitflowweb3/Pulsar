@@ -8,41 +8,60 @@ import {
   SubscribePriceContent,
 } from './styled';
 import FilledSuccessIcon from '../../common/svgicons/FilledSuccessIcon';
+import CurveArrowIcon from '../../common/svgicons/CurveArrowIcon';
+import { BasicPlanType } from '../../../../types/plan.modulet';
 
-const SubscribePriceCard = () => {
+const SubscribePriceCard = ({
+  firstCard,
+  planDetail,
+}: {
+  firstCard?: boolean | undefined;
+  planDetail: BasicPlanType;
+}) => {
   return (
     <SubscribePriceContent>
       <SubscribeBorderContent>
         <Header>
-          <h1>$100</h1>
-          <label>Basic Plan</label>
-          <label>Billed monthly</label>
+          <h1>{`$${planDetail.price}`}</h1>
+          <label>{planDetail.type}</label>
+          <label>{planDetail.detail}</label>
         </Header>
         <Body>
-          <PerformanceDiv>
-            <FilledSuccessIcon />
-            <label>4 Cores @ 2.90GHz</label>
-          </PerformanceDiv>
-          <PerformanceDiv>
-            <FilledSuccessIcon />
-            <label>2TB NVME SSD</label>
-          </PerformanceDiv>
-          <PerformanceDiv>
-            <FilledSuccessIcon />
-            <label>16GB RAM</label>
-          </PerformanceDiv>
-          <PerformanceDiv>
-            <FilledSuccessIcon />
-            <label>1 Dedicated IP Address</label>
-          </PerformanceDiv>
-          <PerformanceDiv>
-            <FilledSuccessIcon />
-            <label>10GB Commit</label>
-          </PerformanceDiv>
+          {Object.keys(planDetail).map((key) => {
+            if (key !== 'price' && key !== 'type' && key !== 'detail') {
+              return (
+                <PerformanceDiv key={key}>
+                  <FilledSuccessIcon />
+                  {/* @ts-ignore */}
+                  <label>{planDetail[key]}</label>
+                </PerformanceDiv>
+              );
+            }
+          })}
         </Body>
         <SubscribeButton className='button-primary'>
           Get started
         </SubscribeButton>
+        {firstCard ? (
+          <div style={{ position: 'absolute', top: '-24px', right: '24px' }}>
+            <CurveArrowIcon />
+          </div>
+        ) : null}
+
+        {firstCard ? (
+          <label
+            style={{
+              color: '#6941C6',
+              position: 'absolute',
+              top: '-36px',
+              right: '-84px',
+              fontSize: '16px',
+              fontWeight: 600,
+            }}
+          >
+            Most popular!
+          </label>
+        ) : null}
       </SubscribeBorderContent>
     </SubscribePriceContent>
   );
