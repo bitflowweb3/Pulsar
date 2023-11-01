@@ -35,7 +35,7 @@ const CustomPrice = () => {
         <AddServerButton>
           <PlusRoundedIcon stroke={Color.$white} />
           <label>
-            <strong>Addition Contacts</strong>
+            Addition Contacts
           </label>
         </AddServerButton>
       </ContentBorderDiv>
@@ -96,6 +96,10 @@ const AddServerButton = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: ${Space.s};
   color: ${Color.$white};
+  label {
+    font-size: 16px;
+  }
 `;

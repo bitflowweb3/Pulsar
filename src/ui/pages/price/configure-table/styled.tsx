@@ -41,7 +41,8 @@ const ServerCellDiv = styled.div`
     }
     &:last-child {
       color: ${Color.$gray_primary};
-      font-weight: 200;
+      font-weight: 400;
+      font-size: 12px;
     }
   }
 `;

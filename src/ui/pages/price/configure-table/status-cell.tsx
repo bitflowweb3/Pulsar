@@ -1,3 +1,6 @@
+import { Color } from '../../../../constants/color';
+import CircleCrossIcon from '../../../components/common/svgicons/CircleCrossIcon';
+import LoaderIcon from '../../../components/common/svgicons/LoaderIcon';
 import { StatusCellDiv, CircleIconDiv } from './styled';
 
 interface StatusCellProps {
@@ -6,10 +9,7 @@ interface StatusCellProps {
 
 const StatusCell = ({ status }: StatusCellProps) => {
   return (
-    <StatusCellDiv condition={status.toString()}>
-      <CircleIconDiv condition={status.toString()} />
-      <label>{status ? 'ON' : 'OFF'}</label>
-    </StatusCellDiv>
+    status ? <LoaderIcon /> : <CircleCrossIcon stroke={Color.$error_400} />
   );
 };
 export default StatusCell;
