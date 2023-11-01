@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
+import SelectComponent from '../../components/common/select';
+import ToolIcon from '../../components/common/svgicons/ToolIcon';
+import { SelectDiv } from './styled';
 
 const ConfigureSupport = () => {
   return (
@@ -16,14 +19,14 @@ const ConfigureSupport = () => {
         </Header>
         <Body>
           <SubBody>
-            <label>
-              <strong>Current Plan</strong>
-            </label>
-            <label>Basic</label>
+            <label>Current Plan</label>
+            <SelectDiv style={{ width: '150px' }}>
+              <SelectComponent Icon={() => (<ToolIcon stroke={Color.$white} />)} />
+            </SelectDiv>
           </SubBody>
           <SubBody>
             <label>
-              <strong>Amount</strong>
+              Amount
             </label>
             <label>$ 15</label>
           </SubBody>
@@ -73,6 +76,7 @@ const Body = styled.div`
 const SubBody = styled.div`
   display: flex;
   flex-direction: column;
+  gap: ${Space.s};
   label {
     color: ${Color.$white};
   }

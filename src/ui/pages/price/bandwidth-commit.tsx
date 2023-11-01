@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import OsciloIcon from '../../components/common/svgicons/OsciloIcon';
 import { Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
+import { BandwidthSliderDiv, IpSliderDiv } from './styled';
+import { Slider } from 'antd';
 
 const BandwidthCommit = () => {
+  const [isClient, setClient] = useState<boolean | undefined>();
+  useEffect(() => {
+    setClient(true);
+  }, []);
   return (
     <ContentDiv>
       <ContentBorderDiv>
@@ -14,13 +20,9 @@ const BandwidthCommit = () => {
               <OsciloIcon stroke={Color.$white} />
               <h5>Bandwidth Commit</h5>
             </IconDiv>
-            <div className='band_middle'>
-              <input type='range' id='vol' name='vol' min='0' max='80' />
-              <div className='band_range'>
-                <label>5 Gbps</label>
-                <label>50 Gbps</label>
-              </div>
-            </div>
+            {isClient ? <BandwidthSliderDiv>
+              <Slider defaultValue={40} max={50} min={5} />
+            </BandwidthSliderDiv> : null}
           </BandwidthInfo>
           <div className='band_right'>
             <p>Amount</p>

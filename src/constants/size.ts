@@ -23,6 +23,7 @@ export enum Space {
     xxl = '48px',
     xxxl = '64px',
     lxl = '80px',
+    lxxl = '96px',
     none = '0px',
 }
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Space } from '../../../constants/size';
+import { BorderRadius, Padding, Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
 
 export const PricePageContent = styled.div`
@@ -55,48 +55,54 @@ export const SubHeader = styled.div`
   }
 `;
 export const SubBody = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: ${Space.l};
-`
+  display: flex;
+  flex-direction: row;
+  gap: ${Space.l};
+`;
 export const ConfigureInfoBody = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: ${Space.l};
-`
+  display: flex;
+  flex-direction: column;
+  gap: ${Space.l};
+`;
 
 export const ServerConfigureContent = styled.div`
-    flex: 1;
-    background-image: linear-gradient(to bottom, #7F56D9,rgba(42, 108, 236, 0.88), rgba(0, 42, 255, 0.78));
-    /* border: 1px solid ; */
-    border-radius: 16px;
-`
-export const ServerConfigureBorderContent = styled.div`
-    background-color: ${Color.$dark_card};
-    margin: 1px;
-    border-radius: 15px;
-    padding: ${Space.l} ${Space.l};
-    display: flex;
-    flex-direction: column;
-    gap: ${Space.xl};
-`
-export const ServerConfigureDiv = styled.div`
-  display: flex;
   flex: 1;
-  flex-direction: row;;
-  gap: ${Space.l};
-`
-export const ConfigureBody = styled.div`
+  background-image: linear-gradient(
+    to bottom,
+    #7f56d9,
+    rgba(42, 108, 236, 0.88),
+    rgba(0, 42, 255, 0.78)
+  );
+  /* border: 1px solid ; */
+  border-radius: 16px;
+`;
+export const ServerConfigureBorderContent = styled.div`
+  background-color: ${Color.$dark_card};
+  margin: 1px;
+  border-radius: 15px;
+  padding: ${Space.l} ${Space.l};
   display: flex;
   flex-direction: column;
   gap: ${Space.xl};
-`
+`;
+export const ServerConfigureDiv = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  gap: ${Space.l};
+`;
+export const ConfigureBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${Space.base};
+`;
 
 export const ConfigureInfo = styled.div`
   display: flex;
   flex-direction: row;
-  gap: ${Space.xl};
-`
+  gap: ${Space.xs};
+  align-items: center;
+`;
 
 export const ConfigureName = styled.div`
   display: flex;
@@ -107,11 +113,95 @@ export const ConfigureName = styled.div`
     font-size: 18px;
     color: white;
   }
-`
+  width: 200px;
+`;
 export const IconDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 32px;
   height: 32px;
+`;
+export const SelectDiv = styled.div`
+  width: 180px;
+`;
+
+export const StepDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: ${Space.xs} ${Space.s};
+`;
+
+export const StepButton = styled.button`
+  border-radius: ${Space.s};
+  background-color: ${Color.$dark_card};
+  border: solid 1px ${Color.$gray_600};
+  padding: ${Space.s} ${Space.s};
+  font-size: 24px;
+  line-height: 0.7em;
+  color: ${Color.$white};
+`;
+
+export const StepContext = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: ${Space.s};
+  justify-content: space-between;
+  border-radius: ${BorderRadius.xl};
+  padding: ${Padding.s};
+  background-color: ${Color.$neutral_overlay};
+  color: ${Color.$white};
+  span {
+    background-color: #476CEC;
+    padding: ${Space.none} ${Space.xxs};
+    border-radius: ${BorderRadius.xs};
+  }
+`;
+
+export const VerticalDiver = styled.div`
+  width: 0px;
+  border-left: solid 1px #8B8B93;
 `
+
+export const IpSliderDiv = styled.main`
+  width: 250px;
+  position: relative;
+  &::after {
+    content: '1 IP';
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    color: #8a8a98;
+    padding: 4px;
+  }
+  &:before {
+    content: '50 IPs';
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    color: #8a8a98;
+    padding: 4px;
+  }
+`;
+
+export const BandwidthSliderDiv = styled.main`
+  width: 250px;
+  position: relative;
+  &::after {
+    content: '5 Gbps';
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    color: #8a8a98;
+    padding: 4px;
+  }
+  &:before {
+    content: '50 Gbps';
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    color: #8a8a98;
+    padding: 4px;
+  }
+`;

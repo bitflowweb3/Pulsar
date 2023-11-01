@@ -18,6 +18,8 @@ import {
 import CalendarIcon from '../../common/svgicons/CalendarIcon';
 import FilterIcon from '../../common/svgicons/FilterIcon';
 import InvoicesTable from '../../lists/invoices-table';
+import SelectComponent from '../../common/select';
+import EarthIcon from '../../common/svgicons/EarthIcon';
 
 const PaymentInvoices = () => {
   return (
@@ -33,34 +35,21 @@ const PaymentInvoices = () => {
           </InvoiceDate>
         </Header>
         <Category>
-          <CategorySelectContainer>
-            <CategorySelect id='category-select'>
-              <option value='' selected>
-                All Category
-              </option>
-              <option value='option1' style={{ padding: '10px' }}>
-                Option 1
-              </option>
-              <option value='option2' style={{ padding: '10px' }}>
-                Option 2
-              </option>
-              <option value='option3'>Option 3</option>
-            </CategorySelect>
-          </CategorySelectContainer>
+          <div style={{ width: '180px' }}><SelectComponent Icon={ EarthIcon } /></div>
           <InvoiceFilterDetails>
-              <DesktopDatePicker defaultValue={dayjs('2022-04-17')} />
+            <DesktopDatePicker defaultValue={dayjs('2022-04-17')} />
             <StatusSelectContainer>
               <StatusSelect>
-              <option value='' selected>
-                Status
-              </option>
-              <option value='option1' style={{ padding: '10px' }}>
-                Option 1
-              </option>
-              <option value='option2' style={{ padding: '10px' }}>
-                Option 2
-              </option>
-              <option value='option3'>Option 3</option>
+                <option value='' selected>
+                  Status
+                </option>
+                <option value='option1' style={{ padding: '10px' }}>
+                  Option 1
+                </option>
+                <option value='option2' style={{ padding: '10px' }}>
+                  Option 2
+                </option>
+                <option value='option3'>Option 3</option>
               </StatusSelect>
             </StatusSelectContainer>
             <Filters>
