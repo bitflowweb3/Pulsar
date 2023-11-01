@@ -43,9 +43,19 @@ const Header = ({ auth, account }: LayoutProps) => {
     setIsLogined(auth?.isAuthenticated);
   }, [account, auth]);
 
-  const items = [
-    { label: 'item 1', key: 'item-1' }, // remember to pass the key prop
-    { label: 'item 2', key: 'item-2' },
+  const products = [
+    { label: 'Overview', key: 'item-1' }, // remember to pass the key prop
+    { label: 'Featues', key: 'item-2' },
+    { label: 'Solutions', key: 'item-3' },
+    { label: 'Tutorials', key: 'item-4' },
+    { label: 'Pricing', key: 'item-5' },
+  ];
+  const resources = [
+    { label: 'Blog', key: 'item-1' }, // remember to pass the key prop
+    { label: 'Newsletter', key: 'item-2' },
+    { label: 'Events', key: 'item-3' },
+    { label: 'Help centre', key: 'item-4' },
+    { label: 'Support', key: 'item-5' },
   ];
 
   const Logout = () => {
@@ -77,7 +87,7 @@ const Header = ({ auth, account }: LayoutProps) => {
             <Image src={LandingLogo} alt='landing-logo' />
             <LandingNavbar>
               <Link href='/price'>Home</Link>
-              <Dropdown menu={{ items }} trigger={['hover']}>
+              <Dropdown menu={{ items: products }} trigger={['hover']}>
                 <Link href='/price'>
                   <HeaderTab>
                     Products&nbsp;&nbsp;
@@ -85,7 +95,7 @@ const Header = ({ auth, account }: LayoutProps) => {
                   </HeaderTab>
                 </Link>
               </Dropdown>
-              <Dropdown menu={{ items }} trigger={['hover']}>
+              <Dropdown menu={{ items: resources }} trigger={['hover']}>
                 <Link href='/price'>
                   <HeaderTab>
                     Resources&nbsp;&nbsp;
