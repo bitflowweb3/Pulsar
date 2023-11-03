@@ -29,12 +29,12 @@ const PaymentInvoices = () => {
           <h3>
             <strong>Invoices</strong>
           </h3>
-          <InvoiceDate>
+          {/* <InvoiceDate>
             <CalendarIcon />
             <label>Feb 15, 2022 - Feb21, 2022</label>
-          </InvoiceDate>
+          </InvoiceDate> */}
         </Header>
-        <Category>
+        {/* <Category>
           <div style={{ width: '180px' }}><SelectComponent Icon={ EarthIcon } /></div>
           <InvoiceFilterDetails>
             <DesktopDatePicker defaultValue={dayjs('2022-04-17')} />
@@ -57,7 +57,7 @@ const PaymentInvoices = () => {
               <label>Filters</label>
             </Filters>
           </InvoiceFilterDetails>
-        </Category>
+        </Category> */}
         <InvoicesTable />
       </InvoiceContainer>
     </LocalizationProvider>
