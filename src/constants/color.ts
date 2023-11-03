@@ -15,6 +15,7 @@ export enum Color  {
     $pink_button = '#8758ff',
     $gray_dark = '#475467',
     $gray_600 = '#475467',
+    $gray_200 = '#969696',
     $gray_primary = '#7d7d7d',
     $gray_light = '#969696',
     $yello_primary = '#FEEC4B',
