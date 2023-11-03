@@ -7,7 +7,7 @@ const MasterCardIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
     setClientSide(true)
   }, [])
   return ( !isClient ? null :
-    <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
+    // <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='27'
         height='18'
@@ -42,7 +42,7 @@ const MasterCardIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
           fill='#FF6300'
         />
       </svg>
-    </SvgContainer>
+    // </SvgContainer>
   );
 };
 export default MasterCardIcon;
