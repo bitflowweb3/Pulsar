@@ -90,7 +90,6 @@
   stroke: white;
 }
 
-
 //customize ant-slider
 .ant-tooltip-arrow {
   display: none;
@@ -109,10 +108,71 @@ div.ant-slider-handle.ant-tooltip-open {
   border: none;
 }
 .ant-slider-track {
-  background-color: #7364DB;
+  background-color: #7364db;
 }
 .ant-slider:hover {
   .ant-slider-track {
-    background-color: #7364DB;
+    background-color: #7364db;
+  }
+}
+
+//customize phone-input component
+.react-tel-input {
+  border-radius: 16px !important;
+  border: solid 1px #313442 !important;
+  .form-control {
+    width: 100% !important;
+    border-radius: 16px !important;
+    // border: solid 1px #313442 !important;
+    border: none !important;
+    background: #313442 !important;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 300px #313442 inset !important;
+      background-color: #313442 !important;
+      border-color: #313442 !important;
+      border: none !important;
+      box-sizing: border-box !important;
+    }
+    &:-webkit-autofill {
+      &:focus {
+        -webkit-box-shadow: 0 0 0 300px #313442 inset !important;
+        background-color: #313442 !important;
+        border-color: #313442 !important;
+        border: none !important;
+      }
+    }
+  }
+  .flag-dropdown {
+    background-color: #313442 !important;
+    border-radius: 16px 0 0 16px !important;
+    border: none !important;
+    & :hover {
+      background-color: #313442 !important;
+      border-radius: 16px 0 0 16px !important;
+      border: none !important;
+    }
+    & :focus {
+      background-color: #313442 !important;
+      border-radius: 16px 0 0 16px !important;
+      border: solid 1px #313442 !important;
+    }
+  }
+  .flag-dropdown {
+    .open {
+      background-color: #313442 !important;
+      border-radius: 16px 0 0 16px !important;
+      border: solid 1px #313442 !important;
+    }
+    .country-list {
+      background-color: #313442 !important;
+      border: none !important;
+      border-radius: 0px !important;
+      .highlight {
+        background-color: #1f2128 !important;
+        border: none !important;
+        border-radius: 0px !important;
+      }
+    }
   }
 }
