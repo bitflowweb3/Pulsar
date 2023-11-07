@@ -13,6 +13,7 @@ import { Space } from '../../../../../constants/size';
 import { Color } from '../../../../../constants/color';
 import Link from 'next/link';
 import ReimageMoal from '../../../modals/reimage-modal';
+import CloudStorageIcon from '../../../common/svgicons/CloudStorageIcon';
 
 const MenuItemPowerCycleDiv = styled.div`
   font-size: 14px;
@@ -107,6 +108,14 @@ export default function DropdownMenu(props: any) {
             <MenuItemDiv>
               <IpAddressesIcon width={18} height={16} />
               <label>Ip Addresses</label>
+            </MenuItemDiv>
+          </Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link href='/ipaddresses'>
+            <MenuItemDiv>
+              <CloudStorageIcon width={18} height={14} />
+              <label>Cloud Storage</label>
             </MenuItemDiv>
           </Link>
         </MenuItem>
