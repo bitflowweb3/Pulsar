@@ -7,7 +7,7 @@ const BitCoinCardIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
     setClientSide(true)
   }, [])
   return ( !isClient ? null :
-    <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
+    // <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='28'
         height='18'
@@ -30,7 +30,7 @@ const BitCoinCardIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
           fill='#8FC258'
         />
       </svg>
-    </SvgContainer>
+    // </SvgContainer>
   );
 };
 export default BitCoinCardIcon;

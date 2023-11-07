@@ -23,6 +23,7 @@ import PasswordInput from '../../components/common/password';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import InputComponent from '../../components/common/input/input';
+import PhoneInputComponent from '../../components/common/phone-input';
 
 interface User {
   email: string;
@@ -63,6 +64,7 @@ const SignupPage = () => {
                 placeText='Enter your email'
               />
             </EmailDiv>
+            <PhoneInputComponent />
             <PasswordDiv>
               <PasswordInput onInputChange={getPassword} />
             </PasswordDiv>

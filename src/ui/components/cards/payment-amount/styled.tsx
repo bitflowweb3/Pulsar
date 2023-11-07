@@ -29,7 +29,7 @@ export const MakePaymentButton = styled.button`
 `;
 
 export const AmountButton = styled.button`
-    border-radius: ${BorderRadius.xxl};
+    border-radius: ${BorderRadius.base};
     padding: ${Padding.sb} ${Padding.l};
     font-size: ${FontSize.lxl};
     margin: ${Space.xl} ${Space.none};

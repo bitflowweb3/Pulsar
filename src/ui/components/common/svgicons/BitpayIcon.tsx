@@ -7,7 +7,7 @@ const BitpayIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
     setClientSide(true)
   }, [])
   return ( !isClient ? null :
-    <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
+    // <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='28'
         height='19'
@@ -30,7 +30,7 @@ const BitpayIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
           fill='#002855'
         />
       </svg>
-    </SvgContainer>
+    // </SvgContainer>
   );
 };
 export default BitpayIcon;

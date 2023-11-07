@@ -10,6 +10,7 @@ const TrafficTableContainer = styled.div`
   border-radius: var(--space-l);
   padding: var(--space-s) var(--space-base);
   margin: 0px 4px 12px 0px;
+  flex: 1;
 `
 const ServerCellDiv = styled.div`
   display: flex;
@@ -66,10 +67,10 @@ const ManageCellButton = styled.button`
   align-items: center;
   gap: ${Space.s};
   border-radius: ${BorderRadius.l};
-  border: solid 1px ${Color.$gray_dark};
+  /* border: solid 1px ${Color.$gray_dark}; */
   padding: ${Space.xs} 12px;
   label {
-    color: white;
+    color: #8A8A98;
     font-weight: 300;
   }
 `;

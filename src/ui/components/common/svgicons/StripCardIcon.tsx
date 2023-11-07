@@ -7,7 +7,7 @@ const StripCardIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
     setClientSide(true)
   }, [])
   return ( !isClient ? null :
-    <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
+    // <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='27'
         height='19'
@@ -30,7 +30,7 @@ const StripCardIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
           fill='#6461FC'
         />
       </svg>
-    </SvgContainer>
+    // </SvgContainer>
   );
 };
 export default StripCardIcon;

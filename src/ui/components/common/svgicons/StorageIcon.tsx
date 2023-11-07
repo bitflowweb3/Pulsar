@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
-const StorageIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
+const StorageIcon = ({ stroke, strokeWidth, width, height }: SvgIconProps) => {
   const [isClient, setClientSide] = useState<boolean | undefined>();
   useEffect(() => {
     setClientSide(true)
@@ -9,8 +9,8 @@ const StorageIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
   return ( !isClient ? null :
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
-        width='28'
-        height='22'
+        width={width??'28'}
+        height={height??'22'}
         viewBox='0 0 28 22'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
