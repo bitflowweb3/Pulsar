@@ -20,7 +20,7 @@ const columnsMin: GridColDef<Server>[] = [
   { field: 'invoiceId', headerName: 'Invoice ID', width: 100, flex: 1 },
   { field: 'date', headerName: 'Date', width: 110, flex: 1 },
   { field: 'amount', headerName: 'Amount', width: 110, flex: 1 },
-  { field: 'paidWith', headerName: 'Amount', width: 110, flex: 1 },
+  { field: 'paidWith', headerName: 'Paid with', width: 110, flex: 1 },
   {
     field: 'status',
     headerName: 'Status',

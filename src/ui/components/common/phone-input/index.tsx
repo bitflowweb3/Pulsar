@@ -7,7 +7,8 @@ const PhoneInputComponent = () => {
     <PhoneInput
           country={'us'}
           value='12345678'
-          onChange={() => '123123123'}
+      onChange={() => '123123123'}
+      autocompleteSearch={false}
     />
   );
 };
