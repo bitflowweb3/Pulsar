@@ -5,6 +5,7 @@ import { Color } from '../../../../constants/color';
 export const InvoiceContainer = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
 `;
 
 export const Header = styled.div`

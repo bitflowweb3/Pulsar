@@ -3,6 +3,8 @@ import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import StatusCell from './status-cell';
 import ManageCell from './manage-cell';
 import { TrafficTableContainer } from './styled';
+import { StatusType } from '../../../../types/status.module';
+import StatusContext from '../../common/status';
 
 interface Server {
   id: number;
@@ -10,7 +12,7 @@ interface Server {
   date: string;
   amount: string;
   paidWith: string;
-  status: boolean
+  status: StatusType
   actions: string;
 }
 
@@ -18,13 +20,21 @@ const columnsMin: GridColDef<Server>[] = [
   { field: 'invoiceId', headerName: 'Invoice ID', width: 100, flex: 1 },
   { field: 'date', headerName: 'Date', width: 110, flex: 1 },
   { field: 'amount', headerName: 'Amount', width: 110, flex: 1 },
-  { field: 'paidWith', headerName: 'Amount', width: 110, flex: 1 },
+  { field: 'paidWith', headerName: 'Paid with', width: 110, flex: 1 },
   {
     field: 'status',
     headerName: 'Status',
     width: 150,
     renderCell: (params: GridRenderCellParams<Server>) => (
-      <StatusCell status={params.value as boolean} />
+      <StatusContext
+        status={params.value as StatusType}
+        label={
+          params.value === StatusType.assigned
+            ? 'Paid'
+            : params.value === StatusType.unassigned
+            ? 'Unpaid': 'Unpaid'
+        }
+      />
     ),
     flex: 1,
   },
@@ -46,7 +56,7 @@ const rowsMin = [
     date: '17 Oct, 2022',
     amount: '$2485',
     paidWith: 'Visa ending in 1526',
-    status: true,
+    status: StatusType.assigned,
     actions: true,
   },
   {
@@ -55,7 +65,7 @@ const rowsMin = [
     date: '17 Oct, 2022',
     amount: '$2485',
     paidWith: 'Visa ending in 1526',
-    status: false,
+    status: StatusType.assigned,
     actions: true,
   },
   {
@@ -64,7 +74,7 @@ const rowsMin = [
     date: '17 Oct, 2022',
     amount: '$2485',
     paidWith: 'Visa ending in 1526',
-    status: true,
+    status: StatusType.unassigned,
     actions: true,
   },
   
@@ -73,10 +83,9 @@ const rowsMin = [
 const InvoicesTable = () => {
   return (
     <TrafficTableContainer>
-      <div style={{ height: 1000, width: '100%' }}>
+      <div style={{ height: '100%'}}>
           {/* @ts-ignore */ }
           <DataGrid rows={rowsMin} columns={columnsMin} />
-
       </div>
     </TrafficTableContainer>
   );

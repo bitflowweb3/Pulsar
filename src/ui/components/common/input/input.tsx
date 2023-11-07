@@ -4,19 +4,19 @@ import styled from 'styled-components';
 
 const InputDiv = styled.div`
   background-color: ${Color.$neutral_overlay};
-  width: 600px;
+  /* width: 600px; */
   border-radius: 24px;
   padding: ${Space.s} ${Space.base};
   align-items: center;
   display: flex;
   flex-direction: row;
-  flex: 1;
-  width: 100%;
+  flex: 1 1 0;
 `;
 const InputTextDiv = styled.input`
   background-color: ${Color.$neutral_overlay};
   color: white;
-  flex: 1 1 200px;
+  width: 100%;
+  flex: 1 1 0;
   &:hover {
     background-color: ${Color.$neutral_overlay};
   }

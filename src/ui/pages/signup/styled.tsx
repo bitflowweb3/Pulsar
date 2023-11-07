@@ -101,3 +101,22 @@ export const GotoSignUp = styled.div`
     cursor: pointer;
   }
 `;
+export const NameDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: ${Space.base};
+`
+export const Divider = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: ${Space.base};
+  align-items: center;
+  color: white;
+  margin: -16px 0;
+  hr {
+    border-color: ${Color.$gray_200};
+    width: 100% !important;
+  }
+`

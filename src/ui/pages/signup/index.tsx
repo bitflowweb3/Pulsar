@@ -11,6 +11,8 @@ import {
   LoginButton,
   SocialLoginButton,
   GotoSignUp,
+  NameDiv,
+  Divider,
 } from './styled';
 import LoginLogoIcon from '../../components/common/svgicons/LoginLogoIcon';
 import EmailIcon from '../../components/common/svgicons/EmailIcon';
@@ -18,41 +20,21 @@ import IconInput from '../../components/common/input/iconInput';
 import { CheckBox } from '../../components/common/checkbox';
 import GoogleIcon from '../../components/common/svgicons/GoogleIcon';
 import PasswordInput from '../../components/common/password';
-import { postLoginEnvironment, setAccessToken } from '../../../services/auth';
-import { Notification } from '../../../utilities/notification';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import InputComponent from '../../components/common/input/input';
+import PhoneInputComponent from '../../components/common/phone-input';
 
 interface User {
   email: string;
   password: string;
 }
-const LoginPage = () => {
+const SignupPage = () => {
   const [user, setUser] = useState<User>({ email: '', password: '' });
   const router = useRouter();
 
-  const login = async () => {
-    try {
-      const response = await postLoginEnvironment({
-        user: user ? user.email : null,
-        password: user ? user.password : null,
-      });
-      if (response.status === 200) {
-        Notification.success({
-          message: 'Success',
-          description:
-          'Logined successfully'
-        })
-        setAccessToken('bearer' + '123123');
-        router.push('/dashboard');
-      }
-    } catch (error) {
-      console.log(error);
-      Notification.error({
-        message: 'Error',
-        description: 'Login failed'
-      })
-    }
+  const signup = async () => {
+    
   };
 
   const getEmail = (value: string) =>
@@ -67,40 +49,47 @@ const LoginPage = () => {
           <LoginHeader>
             <LoginLogoIcon />
             <label>
-              <strong>Log in to your account</strong>
+              <strong>Create an account</strong>
             </label>
-            <p>Welcome back! Please enter your details</p>
           </LoginHeader>
           <LoginMain>
+            <NameDiv>
+              <InputComponent inputPlaceholder='First Name'/>
+              <InputComponent inputPlaceholder='Last Name'/>
+            </NameDiv>
             <EmailDiv>
-              <label>Email</label>
               <IconInput
                 onInputChange={getEmail}
                 Icon={EmailIcon}
                 placeText='Enter your email'
               />
             </EmailDiv>
+            <PhoneInputComponent />
             <PasswordDiv>
-              <label>Password</label>
+              <PasswordInput onInputChange={getPassword} />
+            </PasswordDiv>
+            <PasswordDiv>
               <PasswordInput onInputChange={getPassword} />
             </PasswordDiv>
             <CheckboxContainer>
               <div>
                 <CheckBox />
-                <label>Remember for 30 days</label>
+                <label>I agree to the <a><u>terms & conditions</u></a></label>
               </div>
-              <label>Forgot password</label>
             </CheckboxContainer>
-            <LoginButton className='button-primary' onClick={login}>
-              Sign In
+            <LoginButton className='button-primary' onClick={signup}>
+              Get Started
             </LoginButton>
+            <Divider>
+              <hr/> OR <hr />
+            </Divider>
             <SocialLoginButton>
               <GoogleIcon />
               <label>Sign in with Google</label>
             </SocialLoginButton>
             <GotoSignUp>
               <p>
-                Don&apos;t have an account? <Link href='/signup'><label>Sign up</label></Link>
+                Aleady have an account?  <Link href='/login'><label>Log in</label></Link>
               </p>
             </GotoSignUp>
           </LoginMain>
@@ -109,4 +98,4 @@ const LoginPage = () => {
     </MainPageContainer>
   );
 };
-export default LoginPage;
+export default SignupPage;

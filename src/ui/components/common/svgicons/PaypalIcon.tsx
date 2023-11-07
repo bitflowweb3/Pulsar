@@ -7,7 +7,7 @@ const PaypalIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
     setClientSide(true)
   }, [])
   return ( !isClient ? null :
-    <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
+    // <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='27'
         height='19'
@@ -52,7 +52,7 @@ const PaypalIcon = ({ stroke, strokeWidth }: SvgIconProps) => {
           fill='#253B80'
         />
       </svg>
-    </SvgContainer>
+    // </SvgContainer>
   );
 };
 export default PaypalIcon;
