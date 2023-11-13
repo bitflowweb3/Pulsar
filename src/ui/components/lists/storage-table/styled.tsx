@@ -87,7 +87,10 @@ const ManageDropDown = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
+const UsedByDiv = styled.div`
+  padding: ${Space.xs} ${Space.base};
+  border-radius: ${BorderRadius.base};
+`
 export {
   StatusCellDiv,
   ServerCellDiv,
@@ -96,4 +99,5 @@ export {
   ManageCellButton,
   ManageDropDown,
   TrafficTableContainer,
+  UsedByDiv,
 };

@@ -6,4 +6,5 @@ export type StorageType = {
     diskUsage: number;
     status: StatusType;
     usedBy: number;
+    manage: string;
 }

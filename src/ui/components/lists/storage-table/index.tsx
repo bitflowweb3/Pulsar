@@ -1,41 +1,44 @@
 import React from 'react';
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
-import ServerCell from './server-cell';
-import StatusCell from './status-cell';
 import ManageCell from './manage-cell';
-import { TrafficTableContainer } from './styled';
+import { TrafficTableContainer, UsedByDiv } from './styled';
 import { StatusType } from '../../../../types/status.module';
 import StatusContext from '../../common/status';
+import { StorageType } from '../../../../types/storage.module';
+import CpuCell, { DiskCell } from './cpu-cell';
 
-interface Server {
-  id: number;
-  ipaddress: string;
-  location: string;
-  dateAllocated: string;
-  status: StatusType;
-  assinedTo: {
-    serverAddress: string;
-    serverType: string;
-  };
-  manage: string;
-}
-
-const columnsMin: GridColDef<Server>[] = [
-  { field: 'ipaddress', headerName: 'IP Address', width: 100, flex: 1 },
-  { field: 'location', headerName: 'Location', width: 70, flex: 1 },
-  { field: 'dateAllocated', headerName: 'Date Allocated', width: 110, flex: 1 },
+const columnsMin: GridColDef<StorageType>[] = [
+  { field: 'deviceName', headerName: 'Device Name', width: 100, flex: 1 },
+  {
+    field: 'diskUtilization',
+    headerName: 'Disk Utilization',
+    width: 150,
+    flex: 1,
+    renderCell: (params: GridRenderCellParams<StorageType>) => (
+      <DiskCell percentValue={params.value as number} />
+    ),
+  },
+  {
+    field: 'diskUsage',
+    headerName: 'Disk Usage',
+    width: 150,
+    flex: 1,
+    renderCell: (params: GridRenderCellParams<StorageType>) => (
+      <CpuCell percentValue={params.value as number} />
+    ),
+  },
   {
     field: 'status',
     headerName: 'Status',
     width: 70,
-    renderCell: (params: GridRenderCellParams<Server>) => (
+    renderCell: (params: GridRenderCellParams<StorageType>) => (
       <StatusContext
         status={params.value as StatusType}
         label={
-          params.value === StatusType.assigned
-            ? 'Assigned'
-            : params.value === StatusType.unassigned
-            ? 'Unassigned'
+          params.value === StatusType.online
+            ? 'Online'
+            : params.value === StatusType.offline
+            ? 'Offline'
             : params.value === StatusType.provisioning
             ? 'Provisioning...'
             : params.value === StatusType.error
@@ -47,25 +50,19 @@ const columnsMin: GridColDef<Server>[] = [
     flex: 1,
   },
   {
-    field: 'assignedTo',
-    headerName: 'Assigned To',
-    width: 100,
-    renderCell: (params: GridRenderCellParams<Server>) => {
-      return (
-        <ServerCell
-          serverAddress={params.value.serverAddress as string}
-          serverType={params.value.serverType as string}
-        />
-      );
-    },
-    flex: 1,
+    field: 'usedBy', headerName: 'Used By', width: 110,
+    renderCell: (params: GridRenderCellParams<StorageType>) => (
+      <UsedByDiv className='button-primary'
+      >{`${params.value} Servers`}</UsedByDiv>
+    ),
+    flex: 1
   },
   {
     field: 'manage',
     headerName: 'Actions',
     width: 110,
     flex: 1,
-    renderCell: (params: GridRenderCellParams<Server>) => (
+    renderCell: (params: GridRenderCellParams<StorageType>) => (
       <ManageCell status={params.value as boolean} />
     ),
   },
@@ -74,38 +71,29 @@ const columnsMin: GridColDef<Server>[] = [
 const rowsMin = [
   {
     id: 1,
-    ipaddress: '192.168.1.24',
-    location: 'Phoenix',
-    dateAllocated: '17 Oct, 2022',
-    status: StatusType.provisioning,
-    assignedTo: {
-      serverAddress: '192.168.1.24',
-      serverType: 'd1.c1.large',
-    },
+    deviceName: 'Extra Storage',
+    diskUtilization: '70',
+    diskUsage: '60',
+    status: StatusType.offline,
+    usedBy: 0,
     manage: true,
   },
   {
     id: 2,
-    ipaddress: '192.168.1.24',
-    location: 'Phoenix',
-    dateAllocated: '17 Oct, 2022',
-    status: StatusType.assigned,
-    assignedTo: {
-      serverAddress: '192.168.1.24',
-      serverType: 'd1.c1.large',
-    },
+    deviceName: 'Personal Files',
+    diskUtilization: '80',
+    diskUsage: '50',
+    status: StatusType.provisioning,
+    usedBy: 3,
     manage: true,
   },
   {
     id: 3,
-    ipaddress: '192.168.1.24',
-    location: 'Phoenix',
-    dateAllocated: '17 Oct, 2022',
-    status: StatusType.error,
-    assignedTo: {
-      serverAddress: '192.168.1.24',
-      serverType: 'd1.c1.large',
-    },
+    deviceName: 'Movies',
+    diskUtilization: '40',
+    diskUsage: '60',
+    status: StatusType.online,
+    usedBy: 2,
     manage: true,
   },
 ];

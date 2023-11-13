@@ -29,6 +29,7 @@ export const StatusLabel = styled.label<StatusProps>`
       case StatusType.on:
       case StatusType.success:
       case StatusType.assigned:
+      case StatusType.online:
         color = Color.$success_300;
         break;
       case StatusType.error:
@@ -36,6 +37,7 @@ export const StatusLabel = styled.label<StatusProps>`
         color = Color.$error_400;
         break;
       case StatusType.unassigned:
+      case StatusType.offline:
         color = Color.$netural_700;
         break;
       case StatusType.loading:
@@ -54,18 +56,31 @@ export const StatusCircleIcon = styled.div<StatusProps>`
   height: 10px;
   border-radius: 20px;
   background-color: ${(props) => {
+    let color: Color;
     switch (props.status) {
-      case StatusType.on | StatusType.success | StatusType.assigned:
-        return Color.$success_300;
-      case StatusType.error | StatusType.off:
-        return Color.$error_400;
+      case StatusType.on:
+      case StatusType.success:
+      case StatusType.assigned:
+      case StatusType.online:
+        color = Color.$success_300;
+        break;
+      case StatusType.error:
+      case StatusType.off:
+        color = Color.$error_400;
+        break;
       case StatusType.unassigned:
-        return Color.$netural_700;
-      case StatusType.loading | StatusType.provisioning:
-        return Color.$white;
+      case StatusType.offline:
+        color = Color.$netural_700;
+        break;
+      case StatusType.loading:
+      case StatusType.provisioning:
+        color = Color.$white;
+        break;
       default:
-        return Color.$success_300;
+        color = Color.$success_300;
+        break;
     }
+    return color;
   }};
 `;
 
