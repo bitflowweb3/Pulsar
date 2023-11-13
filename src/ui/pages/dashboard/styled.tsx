@@ -14,7 +14,7 @@ const DashboardMainContent = styled.div`
   flex-direction: row;
   gap: var(--space-xl);
   
-  height: calc(100vh - 200px);
+  height: calc(100vh - 160px);
   padding-left: ${Space.sb};
 
   overflow-y: auto;

@@ -110,7 +110,7 @@ const rowsMin = [
   },
 ];
 
-const IpAddressesTable = () => {
+const StorageTable = () => {
   return (
     <TrafficTableContainer>
       <div style={{ height: '100%', width: '100%' }}>
@@ -120,4 +120,4 @@ const IpAddressesTable = () => {
     </TrafficTableContainer>
   );
 };
-export default IpAddressesTable;
+export default StorageTable;
