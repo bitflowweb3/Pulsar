@@ -9,6 +9,8 @@ import Link from 'next/link';
 import ReimageMoal from '../../../modals/reimage-modal';
 import AssignedIcon from '../../../common/svgicons/AssignedIcon';
 import CircleCrossIcon from '../../../common/svgicons/CircleCrossIcon';
+import { ClockIcon } from '@mui/x-date-pickers';
+import IpAddressesIcon from '../../../common/svgicons/IpAddressesIcon';
 
 const MenuItemPowerCycleDiv = styled.div`
   font-size: 14px;
@@ -83,10 +85,18 @@ export default function DropdownMenu(props: any) {
       >
         <MenuItem onClick={handleClose}>
           {/* <Link> */}
-            <MenuItemDiv>
-              <AssignedIcon width={18} height={18} />
-              <label>Assign</label>
-            </MenuItemDiv>
+          <MenuItemDiv style={{paddingLeft: 0}}>
+            <ClockIcon width={18} height={16} />
+            <label>Resize</label>
+          </MenuItemDiv>
+          {/* </Link> */}
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          {/* <Link> */}
+          <MenuItemDiv>
+            <IpAddressesIcon width={18} height={18} />
+            <label>Rename Drive</label>
+          </MenuItemDiv>
           {/* </Link> */}
         </MenuItem>
         <Hr

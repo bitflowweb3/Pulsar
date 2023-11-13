@@ -1,31 +1,26 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 import { SvgContainer, SvgIconProps } from '../SvgIcon';
 
-const AssignedIcon = ({
-  stroke,
-  strokeWidth,
-  width,
-  height,
-}: SvgIconProps) => {
+const AssignedIcon = ({ stroke, strokeWidth, width, height }: SvgIconProps) => {
   const [isClient, setClientSide] = useState<boolean | undefined>();
   useEffect(() => {
-    setClientSide(true)
-  }, [])
-  return ( !isClient ? null :
+    setClientSide(true);
+  }, []);
+  return !isClient ? null : (
     <SvgContainer stroke={stroke} strokeWidth={strokeWidth}>
       <svg
         width='20'
-        height='18'
-        viewBox='0 0 20 18'
+        height='20'
+        viewBox='0 0 20 20'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
       >
         <path
-          d='M19.0836 1.66684V7.16684M19.0836 7.16684H13.5836M19.0836 7.16684L14.8394 3.17018C13.5749 1.90494 11.9335 1.08493 10.1625 0.833724C8.39149 0.582518 6.58679 0.913722 5.02037 1.77743C3.45396 2.64113 2.21069 3.99055 1.47792 5.62232C0.745153 7.2541 0.56258 9.07983 0.957717 10.8244C1.35285 12.569 2.30429 14.1378 3.66866 15.2946C5.03302 16.4514 6.7364 17.1334 8.5221 17.2379C10.3078 17.3423 12.0791 16.8636 13.569 15.8738C15.059 14.884 16.1869 13.4368 16.7827 11.7502'
+          d='M19.1673 9.1567V10C19.1662 11.9768 18.5261 13.9002 17.3425 15.4834C16.159 17.0666 14.4953 18.2248 12.5997 18.7853C10.7041 19.3457 8.67814 19.2784 6.82392 18.5934C4.96969 17.9084 3.38658 16.6423 2.3107 14.984C1.23481 13.3257 0.723793 11.3641 0.853855 9.39166C0.983917 7.41922 1.74809 5.54167 3.03241 4.03902C4.31672 2.53637 6.05237 1.48914 7.98049 1.05351C9.90861 0.617872 11.9259 0.817181 13.7315 1.62171M19.1673 2.66671L10.0007 11.8425L7.25066 9.09254'
           stroke='#8B8B93'
-          strokeWidth='1.5'
-          strokeLinecap='round'
-          strokeLinejoin='round'
+          stroke-width='1.5'
+          stroke-linecap='round'
+          stroke-linejoin='round'
         />
       </svg>
     </SvgContainer>
