@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { StyledCard } from '../../../components/cards/card-style';
 import ChartBarIcon from '../../../components/common/svgicons/ChartBarIcon';
@@ -11,8 +11,18 @@ import StatusContext from '../../../components/common/status';
 import { StatusType } from '../../../../types/status.module';
 import EditIcon from '../../../components/common/svgicons/EditIcon';
 import CloudStorageIcon from '../../../components/common/svgicons/CloudStorageIcon';
+import StorageConfigModal from '../../../components/modals/storageconfig-modal';
 
 const CloudStorageCard = () => {
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   return (
     <StyledCard>
       <Header>
@@ -20,7 +30,7 @@ const CloudStorageCard = () => {
           <CloudStorageIcon stroke={Color.$white} />
           <label>Cloud Storage</label>
         </LabelDiv>
-        <ChangeBillingModelButton>
+        <ChangeBillingModelButton onClick={openModal}>
           <EditIcon stroke='white' />
           Configure
         </ChangeBillingModelButton>
@@ -90,6 +100,7 @@ const CloudStorageCard = () => {
           <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
       </Body>
+      <StorageConfigModal isOpen={isModalOpen} closeModal={closeModal} />
     </StyledCard>
   );
 };

@@ -89,7 +89,7 @@ const Body = styled.div`
   flex-direction: column;
   gap: ${Space.base};
 `;
-const AddServerButton = styled.button`
+export const AddServerButton = styled.button`
   border-radius: ${BorderRadius.xl};
   padding: ${Padding.s} ${Padding.sb};
   border: solid 1px ${Color.$gray_600};
