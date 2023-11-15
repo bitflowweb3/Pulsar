@@ -69,7 +69,7 @@ const ServersMainContent = styled.div`
   flex-direction: row;
   gap: var(--space-base);
   overflow-y: hidden;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 160px);
   padding-left: ${Space.sb};
   padding-right: ${Space.base};
 

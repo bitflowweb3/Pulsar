@@ -6,18 +6,18 @@ import {
   IPAddressesMainContent,
 } from './styled';
 import SearchComponent from '../../components/common/input/search';
-import IPAddressesTable from '../../components/lists/ipaddress-table';
+import StorageTable from '../../components/lists/storage-table';
 import ShoppingBagIcon from '../../components/common/svgicons/ShoppingBagIcon';
 import { Color } from '../../../constants/color';
+
 
 export default function ServersPage() {
   return (
     <MainPageContainer>
       <PageHeader>
         <h3>
-          <strong>IP Addresses</strong>
+          <strong>Cloud Storage</strong>
         </h3>
-        <h6>January 1-30, 2023</h6>
       </PageHeader>
       <IPAddressesMainContent>
         <IPAddressesHeader>
@@ -27,7 +27,7 @@ export default function ServersPage() {
             Buy Storage
           </IPAllocateButton>
         </IPAddressesHeader>
-        <IPAddressesTable />
+        <StorageTable />
       </IPAddressesMainContent>
     </MainPageContainer>
   );

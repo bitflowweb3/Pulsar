@@ -8,13 +8,12 @@ interface StatusCellDivProps {
 interface TrafficTableContainerProps {
   isminimized: string;
 }
-const TrafficTableContainer = styled.div<TrafficTableContainerProps>`
+const TrafficTableContainer = styled.div`
   flex: 1;
   background-color: var(--color-primary);
   border-radius: var(--space-l);
   padding: var(--space-s) var(--space-base);
-  margin: ${(props) =>
-    props.isminimized === 'true' ? 'none' : '0px 16px 12px 12px'};
+  margin: 0px 16px 12px 12px;
 `;
 const ServerCellDiv = styled.div`
   display: flex;
@@ -59,11 +58,10 @@ const CpuCellDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: ${Space.base};
-  width: 100%;
 
   label {
     color: white;
-    width: 30px;
+    width: 20px;
   }
 `;
 
@@ -76,7 +74,7 @@ const ManageCellButton = styled.button`
   /* border: solid 1px ${Color.$gray_dark}; */
   padding: ${Space.xs} 12px;
   label {
-    color: #8A8A98;
+    color: #8a8a98;
     font-weight: 300;
     font-size: 18px;
     &:hover {
@@ -89,7 +87,10 @@ const ManageDropDown = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
+const UsedByDiv = styled.button`
+  padding: ${Space.xs} ${Space.base};
+  border-radius: ${BorderRadius.base};
+`
 export {
   StatusCellDiv,
   ServerCellDiv,
@@ -98,4 +99,5 @@ export {
   ManageCellButton,
   ManageDropDown,
   TrafficTableContainer,
+  UsedByDiv,
 };

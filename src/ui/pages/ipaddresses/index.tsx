@@ -17,7 +17,6 @@ export default function ServersPage() {
         <h3>
           <strong>IP Addresses</strong>
         </h3>
-        <h6>January 1-30, 2023</h6>
       </PageHeader>
       <IPAddressesMainContent>
         <IPAddressesHeader>

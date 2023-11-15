@@ -9,11 +9,12 @@ interface TrafficTableContainerProps {
   isminimized: string;
 }
 const TrafficTableContainer = styled.div`
+  flex: 1;
   background-color: var(--color-primary);
   border-radius: var(--space-l);
   padding: var(--space-s) var(--space-base);
   margin: 0px 16px 12px 12px;
-`
+`;
 const ServerCellDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -73,8 +74,12 @@ const ManageCellButton = styled.button`
   /* border: solid 1px ${Color.$gray_dark}; */
   padding: ${Space.xs} 12px;
   label {
-    color: #8A8A98;
+    color: #8a8a98;
     font-weight: 300;
+    font-size: 18px;
+    &:hover {
+      color: ${Color.$brand_600};
+    }
   }
 `;
 const ManageDropDown = styled.div`

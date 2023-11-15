@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { StyledCard } from '../../../components/cards/card-style';
-import ChartBarIcon from '../../../components/common/svgicons/ChartBarIcon';
 import { Color } from '../../../../constants/color';
 import { Space } from '../../../../constants/size';
 import { IconCardButton } from './server-details';
-import PaymentsIcon from '../../../components/common/svgicons/PaymentsIcon';
 import IpAddressesIcon from '../../../components/common/svgicons/IpAddressesIcon';
 import StatusContext from '../../../components/common/status';
 import { StatusType } from '../../../../types/status.module';
 import EditIcon from '../../../components/common/svgicons/EditIcon';
+import IpConfigModal from '../../../components/modals/ipconfig-modal';
 
 const IpCard = () => {
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   return (
     <StyledCard>
       <Header>
@@ -19,7 +27,7 @@ const IpCard = () => {
           <IpAddressesIcon stroke={Color.$white} />
           <label>Ip Addresses</label>
         </LabelDiv>
-        <ChangeBillingModelButton>
+        <ChangeBillingModelButton onClick={openModal}>
           <EditIcon stroke='white' />
           Configure
         </ChangeBillingModelButton>
@@ -89,6 +97,7 @@ const IpCard = () => {
           <StatusContext status={StatusType.on} label='Active' type={false} />
         </Info>
       </Body>
+      <IpConfigModal isOpen={isModalOpen} closeModal={closeModal} />
     </StyledCard>
   );
 };

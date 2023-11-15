@@ -4,22 +4,11 @@ import { Modal } from 'antd';
 import { ModalProps } from '../../../../types/modalProps.module';
 import { BorderRadius, Padding, Space } from '../../../../constants/size';
 import { Color } from '../../../../constants/color';
-import AlertOctagonIcon from '../../common/svgicons/AlertCircle';
 import InputComponent from '../../common/input/input';
 import { CardButton } from '../../../pages/servers/management/server-details';
-import ReimageLoadingMoal from '../reimage-loading-modal';
+import LoaderIcon from '../../common/svgicons/LoaderIcon';
 
-const ReimageModal = ({ isOpen, closeModal }: ModalProps) => {
-  const [isModalOpen, setModalOpen] = useState<boolean>(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
-  const closeChildModal = () => {
-    setModalOpen(false);
-  };
-
+const ReimageFailedModal = ({ isOpen, closeModal }: ModalProps) => {
   const [isModal, setIsModal] = useState<boolean>(false);
 
   const handleCancel = () => {
@@ -33,9 +22,7 @@ const ReimageModal = ({ isOpen, closeModal }: ModalProps) => {
 
   return (
     <Modal
-      style={{
-        top: '250px',
-      }}
+      style={{ top: '250px' }}
       width='450px'
       open={isModal}
       onCancel={handleCancel}
@@ -45,49 +32,27 @@ const ReimageModal = ({ isOpen, closeModal }: ModalProps) => {
       <ModalDiv>
         <Content>
           <IconDiv>
-            <AlertOctagonIcon
-              stroke={Color.$error_500}
+            <LoaderIcon
+              stroke={Color.$white}
               strokeWidth='3'
               width={48}
               height={48}
             />
           </IconDiv>
           <h4>
-            <strong>Reimaging Server</strong>
+            <strong>ReImage Server</strong>
           </h4>
+          <p>This will take a while...</p>
           <p>
-            Reimaging will permanently destroy all data on this system. The data
-            is not recoverable.
+            You can close this window and continue your administration tasks,
+            we’ll notify you once the server is done reimaging.
           </p>
-          <InputDiv>
-            <label>Acknowledge</label>
-            <InputComponent
-              inputPlaceholder='I HEREBY CONSENT TO ALL DATA BEING DESTROYED'
-              disable={true}
-            />
-          </InputDiv>
-          <InputDiv>
-            <label>Password</label>
-            <InputComponent
-              inputPlaceholder='Type your password'
-              type='password'
-            />
-          </InputDiv>
         </Content>
-        <ButtonDiv>
-          <ModalButton>Cancel</ModalButton>
-          <ModalButton onClick={() => {
-            openModal();
-            closeModal();
-          }
-          }>REIMAGE</ModalButton>
-        </ButtonDiv>
       </ModalDiv>
-      <ReimageLoadingMoal isOpen={isModalOpen} closeModal={closeChildModal} />
     </Modal>
   );
 };
-export default ReimageModal;
+export default ReimageFailedModal;
 
 const ModalDiv = styled.div`
   display: flex;
@@ -99,6 +64,10 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${Space.s};
+  align-items: center;
+  p {
+    text-align: center;
+  }
 `;
 const IconDiv = styled.div`
   align-self: center;
