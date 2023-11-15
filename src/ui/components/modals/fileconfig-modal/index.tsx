@@ -11,6 +11,7 @@ import {
 import CircleCrossIcon from '../../common/svgicons/CircleCrossIcon';
 import StorageIcon from '../../common/svgicons/StorageIcon';
 import ServerSearchModal from '../serversearch-modal';
+import ReimageLoadMoal from '../reimage-modal';
 
 const FileConfigModal = ({ isOpen, closeModal }: ModalProps) => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
