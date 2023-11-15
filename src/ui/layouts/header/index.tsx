@@ -115,19 +115,21 @@ const Header = ({ auth, account }: LayoutProps) => {
             src={QustionIcon}
             className='icon question-mark-icon'
             alt='about'
-            />
-            <Dropdown overlay={ userMenu } trigger={['click']}>
-                <Link href='/price'>
-                <Image src={UserAvatar} className='icon user-avatar' alt='user' />
-                </Link>
-              </Dropdown>
+          />
+          <Dropdown overlay={userMenu} trigger={['click']}>
+            <Link href='/price'>
+              <Image src={UserAvatar} className='icon user-avatar' alt='user' />
+            </Link>
+          </Dropdown>
         </AuthContent>
-      ): (
+      ) : (
         <AuthContent>
           <Link href='/login'>
             <LoginButton>Log in</LoginButton>
           </Link>
-          <SignupButton className='button-primary'>Sign up</SignupButton>
+          <Link href='/signup'>
+            <SignupButton className='button-primary'>Sign up</SignupButton>
+          </Link>
         </AuthContent>
       )}
     </TopBar>

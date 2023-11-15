@@ -72,6 +72,10 @@ const ManageCellButton = styled.button`
   label {
     color: #8A8A98;
     font-weight: 300;
+    font-size: 18px;
+    &:hover {
+      color: ${Color.$brand_600};
+    }
   }
 `;
 const ManageDropDown = styled.div`

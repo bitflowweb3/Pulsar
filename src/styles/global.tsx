@@ -5,8 +5,8 @@ const MainPageContainer = styled.div`
     height: calc(100vh - 60px);
     width: 100vw;
     overflow: hidden;
-    padding-top: var(--padding-xl);
-    padding-bottom: var(--padding-xl);
+    padding-top: var(--padding-l);
+    padding-bottom: var(--padding-l);
     padding-left: var(--padding-s);
     padding-right: var(--padding-s);
 `

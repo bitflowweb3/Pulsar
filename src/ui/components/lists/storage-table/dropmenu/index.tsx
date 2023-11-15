@@ -2,18 +2,15 @@ import React, { useEffect, useState } from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Hr } from '../../../common/Hr';
-import ServersIcon from '../../../common/svgicons/ServersIcon';
-import BillingIcon from '../../../common/svgicons/BillingIcon';
-import ViewStatementIcon from '../../../common/svgicons/ViewStatementIcon';
-import IpAddressesIcon from '../../../common/svgicons/IpAddressesIcon';
-import PowerCycleIcon from '../../../common/svgicons/PowerCycleIcon';
-import TrashIcon from '../../../common/svgicons/TrashIcon';
 import styled from 'styled-components';
 import { Space } from '../../../../../constants/size';
 import { Color } from '../../../../../constants/color';
 import Link from 'next/link';
 import ReimageMoal from '../../../modals/reimage-modal';
-import CloudStorageIcon from '../../../common/svgicons/CloudStorageIcon';
+import AssignedIcon from '../../../common/svgicons/AssignedIcon';
+import CircleCrossIcon from '../../../common/svgicons/CircleCrossIcon';
+import { ClockIcon } from '@mui/x-date-pickers';
+import IpAddressesIcon from '../../../common/svgicons/IpAddressesIcon';
 
 const MenuItemPowerCycleDiv = styled.div`
   font-size: 14px;
@@ -87,48 +84,20 @@ export default function DropdownMenu(props: any) {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link href={{ pathname: '/servers/management', query: {id: selectedId}}}>
-          {/* <Link href='/servers/management' as={`/servers/management?id=${selectedId}`}> */}
-            <MenuItemDiv>
-              <ServersIcon width={18} height={18} />
-              <label>Manage Server</label>
-            </MenuItemDiv>
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link href='/payments'>
-            <MenuItemDiv>
-              <BillingIcon />
-              <label>Change Billing</label>
-            </MenuItemDiv>
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link href='/ipaddresses'>
-            <MenuItemDiv>
-              <IpAddressesIcon width={18} height={16} />
-              <label>Ip Addresses</label>
-            </MenuItemDiv>
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link href='/ipaddresses'>
-            <MenuItemDiv>
-              <CloudStorageIcon width={18} height={14} />
-              <label>Cloud Storage</label>
-            </MenuItemDiv>
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <MenuItemDiv>
-            <ViewStatementIcon
-              width={20}
-              height={20}
-              stroke='#8B8B93'
-              strokeWidth='1.5'
-            />
-            <label>View Statements</label>
+          {/* <Link> */}
+          <MenuItemDiv style={{paddingLeft: 0}}>
+            <ClockIcon width={18} height={16} />
+            <label>Resize</label>
           </MenuItemDiv>
+          {/* </Link> */}
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          {/* <Link> */}
+          <MenuItemDiv>
+            <IpAddressesIcon width={18} height={18} />
+            <label>Rename Drive</label>
+          </MenuItemDiv>
+          {/* </Link> */}
         </MenuItem>
         <Hr
           style={{
@@ -141,25 +110,14 @@ export default function DropdownMenu(props: any) {
         />
         <MenuItem onClick={handleClose}>
           <MenuItemPowerCycleDiv id='power-cycle'>
-            <PowerCycleIcon
+            <CircleCrossIcon
               width={18}
               height={18}
               strokeWidth='1.5'
               stroke='#ED4C4D'
             />
-            <label style={{ marginTop: '2px' }}>Power Cycle</label>
+            <label style={{ marginTop: '2px' }}>Remove</label>
           </MenuItemPowerCycleDiv>
-        </MenuItem>
-        <MenuItem>
-          <MenuItemDiv
-            onClick={() => {
-              handleClose();
-              openModal();
-            }}
-          >
-            <TrashIcon stroke='1.5' width={18} height={18} />
-            <label style={{ marginTop: '4px' }}>Reimage Server</label>
-          </MenuItemDiv>
         </MenuItem>
       </Menu>
       <ReimageMoal isOpen={isModalOpen} closeModal={closeModal} />

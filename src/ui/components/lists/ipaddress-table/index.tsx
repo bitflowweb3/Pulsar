@@ -113,7 +113,7 @@ const rowsMin = [
 const IpAddressesTable = () => {
   return (
     <TrafficTableContainer>
-      <div style={{ height: 1000, width: '100%' }}>
+      <div style={{ height: '100%', width: '100%' }}>
         {/* @ts-ignore */}
         <DataGrid rows={rowsMin} columns={columnsMin} />
       </div>

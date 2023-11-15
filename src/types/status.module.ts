@@ -7,4 +7,6 @@ export enum StatusType {
     'unassigned',
     'provisioning',
     'loading',
+    'offline',
+    'online',
 }
