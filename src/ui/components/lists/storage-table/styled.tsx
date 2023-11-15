@@ -87,7 +87,7 @@ const ManageDropDown = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const UsedByDiv = styled.div`
+const UsedByDiv = styled.button`
   padding: ${Space.xs} ${Space.base};
   border-radius: ${BorderRadius.base};
 `
