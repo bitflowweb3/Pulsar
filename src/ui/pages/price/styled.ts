@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { BorderRadius, Padding, Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
+import { device } from '../../../constants/device';
+import { media } from '../../../styles/responsive';
 
 export const PricePageContent = styled.div`
   display: flex;
@@ -33,7 +35,10 @@ export const PricePageContent = styled.div`
 export const SubContent = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1200px;
+  width: ${device.lg};
+  ${media.lg`
+  width: ${device.md}`};
+
   padding: ${Space.xxxl} ${Space.l};
   gap: ${Space.xxxl};
 `;
@@ -58,6 +63,11 @@ export const SubBody = styled.div`
   display: flex;
   flex-direction: row;
   gap: ${Space.l};
+  ${media.md`
+  flex-direction: column;
+  padding-left: 250px;
+  padding-right: 250px;
+  `};
 `;
 export const ConfigureInfoBody = styled.div`
   display: flex;
@@ -66,6 +76,8 @@ export const ConfigureInfoBody = styled.div`
 `;
 
 export const ServerConfigureContent = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 1;
   background-image: linear-gradient(
     to bottom,
@@ -77,6 +89,7 @@ export const ServerConfigureContent = styled.div`
   border-radius: 16px;
 `;
 export const ServerConfigureBorderContent = styled.div`
+  flex: 1;
   background-color: ${Color.$dark_card};
   margin: 1px;
   border-radius: 15px;
@@ -153,7 +166,7 @@ export const StepContext = styled.div`
   background-color: ${Color.$neutral_overlay};
   color: ${Color.$white};
   span {
-    background-color: #476CEC;
+    background-color: #476cec;
     padding: ${Space.none} ${Space.xxs};
     border-radius: ${BorderRadius.xs};
   }
@@ -161,8 +174,8 @@ export const StepContext = styled.div`
 
 export const VerticalDiver = styled.div`
   width: 0px;
-  border-left: solid 1px #8B8B93;
-`
+  border-left: solid 1px #8b8b93;
+`;
 
 export const IpSliderDiv = styled.main`
   width: 250px;
