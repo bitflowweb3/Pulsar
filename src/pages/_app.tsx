@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import AppLayout from '../ui/layouts/AppLayout';
 import '../styles/globals.scss';
+import 'bootstrap/dist/css/bootstrap.css'
 import { AuthProvider } from '../auth/AuthProvider';
 import { AccountProvider } from '../ui/layouts/AccountProvider';
 import store from '../redux/store/store';

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Space } from '../../../../constants/size';
 import { Color } from '../../../../constants/color';
+import { media } from '../../../../styles/responsive';
 
 export const SubscribePriceContent = styled.div`
   flex: 1;
@@ -17,11 +18,12 @@ export const SubscribeBorderContent = styled.div`
   position: relative;
   background-color: ${Color.$dark_card};
   margin: 1px;
+  /* height: 50vh; */
   border-radius: 15px;
-  padding: ${Space.l} ${Space.l};
+  padding: ${Space.xl} ${Space.l};
   display: flex;
   flex-direction: column;
-  gap: ${Space.xl};
+  gap: ${Space.xxl};
 `;
 export const Header = styled.div`
   display: flex;

@@ -3,6 +3,7 @@ import {
   ConfigureBody,
   ConfigureInfo,
   ConfigureName,
+  ConfigureSubHeader,
   IconDiv,
   IpSliderDiv,
   SelectDiv,
@@ -11,7 +12,6 @@ import {
   StepButton,
   StepContext,
   StepDiv,
-  SubHeader,
   VerticalDiver,
 } from './styled';
 import LocationIcon from '../../components/common/svgicons/LocationIcon';
@@ -32,12 +32,12 @@ const ServerConfigure = () => {
   return (
     <ServerConfigureContent>
       <ServerConfigureBorderContent>
-        <SubHeader>
+        <ConfigureSubHeader>
           <h3>Server Configuration</h3>
           <p
             style={{ fontSize: '16px' }}
           >{`Customize your server\'s specifications to ensure optimal performance and reliability`}</p>
-        </SubHeader>
+        </ConfigureSubHeader>
         <ConfigureBody>
           <ConfigureInfo>
             <ConfigureName>
