@@ -23,13 +23,12 @@ const columnsMin: GridColDef<ConfigureInfos>[] = [
   {
     field: 'location',
     headerName: 'Location',
-    width: 100,
-    flex: 1,
+    width: 150,
   },
   {
     field: 'processor',
     headerName: 'Processor',
-    width: 100,
+    width: 150,
     renderCell: (params: GridRenderCellParams<ConfigureInfos>) => {
       return (
         <ServerCell
@@ -38,13 +37,13 @@ const columnsMin: GridColDef<ConfigureInfos>[] = [
         />
       );
     },
-    flex: 1,
+    // flex: 1,
   },
   {
     field: 'storage',
     headerName: 'Storage',
-    width: 100,
-    flex: 1,
+    width: 150,
+    // flex: 1,
   },
   {
     field: 'ram',
@@ -86,7 +85,7 @@ const rowsMin = [
       processorType: '24 Cores (3.10GHz)',
       processorDetail: 'Dual Xeon Gold 5317',
     },
-    storage: '2&times; 2TB NVME ',
+    storage: '2\u00d7 2TB NVME ',
     ram: '256GB',
     ips: '24',
     cost: '$500',
@@ -99,7 +98,7 @@ const rowsMin = [
       processorType: '12 Cores (3.20GHz)',
       processorDetail: 'Dual Xeon Gold 5317',
     },
-    storage: '2&times; 2TB NVME ',
+    storage: '2\u00d7 2TB NVME ',
     ram: '32GB',
     ips: '16',
     cost: '$300',
@@ -112,7 +111,7 @@ const rowsMin = [
       processorType: '8 Cores (2.90GHz)',
       processorDetail: 'Dual Xeon Gold 5317',
     },
-    storage: '2&times; 2TB NVME ',
+    storage: '2\u00d7 2TB NVME ',
     ram: '16GB',
     ips: '1',
     cost: '$100',

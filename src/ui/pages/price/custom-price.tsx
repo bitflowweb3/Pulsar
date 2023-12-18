@@ -5,6 +5,7 @@ import { BorderRadius, Padding, Space } from '../../../constants/size';
 import FilledSuccessIcon from '../../components/common/svgicons/FilledSuccessIcon';
 
 import PlusRoundedIcon from '../../components/common/svgicons/PlusRoundedIcon';
+import { media } from '../../../styles/responsive';
 
 const CustomPrice = () => {
   return (
@@ -47,6 +48,9 @@ export default CustomPrice;
 
 const ContentDiv = styled.div`
   flex-basis: 320px;
+  ${media.lg`
+    flex-basis: 230px;
+  `}
   background-image: linear-gradient(
     to bottom,
     #7f56d9,

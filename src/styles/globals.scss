@@ -3,6 +3,8 @@
 @import 'tailwindcss/utilities';
 @import 'assets.scss';
 @import 'custom.scss';
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Rethink+Sans:ital@1&display=swap');
 
 :root {
   //colors
@@ -50,6 +52,8 @@
   --space-xl: 32px;
   --space-xxl: 64px;
   --space-none: 0px;
+
+  overflow: hidden;
 }
 
 .main-content {
@@ -63,6 +67,11 @@
   //   padding-left: var(--padding-lxl);
   //   padding-right: var(--padding-s);
   // }
+  
+}
+
+a {
+  text-decoration: none !important;
 }
 
 button {

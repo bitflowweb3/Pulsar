@@ -10,21 +10,25 @@ import {
   LoginButton,
   SignupButton,
   HeaderTab,
+  EnabledLogo,
+  DisabledLogo,
+  OffcanvasBodyDiv,
+  UserAvatarDiv,
 } from './styled';
 import CompanyLogo from '../../../assets/images/company-logo.png';
 import LandingLogo from '../../../assets/images/landing-logo.png';
 import UserAvatar from '../../../assets/icons/girl.png';
-import AlarmIcon from '../../../assets/icons/alarm-icon.svg';
-import QustionIcon from '../../../assets/icons/question-icon.svg';
+import AlarmHeaderIcon from '../../components/common/svgicons/AlarmHeaderIcon';
 import { AuthContextProps } from '../../../auth/AuthProvider';
 import Link from 'next/link';
 import 'antd/dist/antd.css';
-import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Menu } from 'antd';
 import { setAccessToken } from '../../../services/auth';
 import { useRouter } from 'next/router';
 import ArrowDownIcon from '../../components/common/svgicons/ArrowDownIcon';
 import { Color } from '../../../constants/color';
+import QuestionHeaderIcon from '../../components/common/svgicons/QuestionHeaderIcon';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
 interface LayoutProps {
   auth: AuthContextProps | null;
@@ -32,6 +36,11 @@ interface LayoutProps {
 }
 const Header = ({ auth, account }: LayoutProps) => {
   const router = useRouter();
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const [isAccountPage, setIsAccountPage] = useState<boolean | undefined>(
     undefined
@@ -84,8 +93,42 @@ const Header = ({ auth, account }: LayoutProps) => {
           </Link>
         ) : (
           <LandingPageLogoContent>
-            <Image src={LandingLogo} alt='landing-logo' />
-            <LandingNavbar>
+            <EnabledLogo onClick={handleShow}>
+              <Image src={LandingLogo} alt='landing-logo' />
+            </EnabledLogo>
+            <DisabledLogo>
+              <Image src={LandingLogo} alt='landing-logo' />
+            </DisabledLogo>
+            <Offcanvas show={show} onHide={handleClose} backdrop={true}>
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title>
+                  <Image src={LandingLogo} alt='landing-logo' />
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <OffcanvasBodyDiv className='font-rubik'>
+                  <Link href='/price'>Home</Link>
+                  <Dropdown menu={{ items: products }} trigger={['hover']}>
+                    <Link href='/price'>
+                      <HeaderTab>
+                        Products&nbsp;&nbsp;
+                        <ArrowDownIcon stroke={Color.$white} />
+                      </HeaderTab>
+                    </Link>
+                  </Dropdown>
+                  <Dropdown menu={{ items: resources }} trigger={['hover']}>
+                    <Link href='/price'>
+                      <HeaderTab>
+                        Resources&nbsp;&nbsp;
+                        <ArrowDownIcon stroke={Color.$white} />
+                      </HeaderTab>
+                    </Link>
+                  </Dropdown>
+                  <Link href='/price'>Pricing</Link>
+                </OffcanvasBodyDiv>
+              </Offcanvas.Body>
+            </Offcanvas>
+            <LandingNavbar className='font-rubik'>
               <Link href='/price'>Home</Link>
               <Dropdown menu={{ items: products }} trigger={['hover']}>
                 <Link href='/price'>
@@ -110,15 +153,21 @@ const Header = ({ auth, account }: LayoutProps) => {
       </LogoContent>
       {isLogined ? (
         <AuthContent>
-          <Image src={AlarmIcon} className='icon alarm-icon' alt='alarm' />
-          <Image
-            src={QustionIcon}
-            className='icon question-mark-icon'
-            alt='about'
-          />
+          <div className='icon alarm-icon cursor-pointer'>
+            <AlarmHeaderIcon stroke={'1'} />
+          </div>
+          <div className='icon alarm-icon cursor-pointer'>
+            <QuestionHeaderIcon stroke={'1'} />
+          </div>
           <Dropdown overlay={userMenu} trigger={['click']}>
             <Link href='/price'>
-              <Image src={UserAvatar} className='icon user-avatar' alt='user' />
+              <UserAvatarDiv>
+                <Image
+                  src={UserAvatar}
+                  className='icon user-avatar'
+                  alt='user'
+                />
+              </UserAvatarDiv>
             </Link>
           </Dropdown>
         </AuthContent>

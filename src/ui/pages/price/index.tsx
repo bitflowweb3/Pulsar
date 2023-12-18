@@ -15,7 +15,17 @@ import ConfigureTable from './configure-table';
 import ConfigureSupport from './support';
 import PlanPrice from './plan-price';
 import Footer from '../../components/footer';
-import { BasicPlan, BusinessPlan, EnterprisePlan } from '../../../constants/data/default-plan';
+import {
+  BasicPlan,
+  BusinessPlan,
+  EnterprisePlan,
+} from '../../../constants/data/default-plan';
+
+const planDetails = [
+  { planType: BasicPlan, firstCard: true },
+  { planType: BusinessPlan, firstCard: false },
+  { planType: EnterprisePlan, firstCard: false },
+];
 
 const PricePage = () => {
   return (
@@ -32,9 +42,13 @@ const PricePage = () => {
           </p>
         </SubHeader>
         <SubBody>
-          <SubscribePriceCard planDetail={BasicPlan} firstCard/>
-          <SubscribePriceCard planDetail={BusinessPlan}/>
-          <SubscribePriceCard planDetail={EnterprisePlan}/>
+          {planDetails.map((plan, index) => (
+            <SubscribePriceCard
+              key={index}
+              planDetail={plan.planType}
+              firstCard={plan.firstCard}
+            />
+          ))}
         </SubBody>
       </SubContent>
       <SubContent>
