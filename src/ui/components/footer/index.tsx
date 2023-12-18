@@ -4,6 +4,77 @@ import { Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
 import LogoImage from '../../../assets/images/footer-logo.png';
 import Image from 'next/image';
+import { device } from '../../../constants/device';
+import { media } from '../../../styles/responsive';
+
+const footerDetails = [
+  {
+    infos: [
+      'Products',
+      'Overview',
+      'Features',
+      'Solutions',
+      'Tutorials',
+      'Pricing',
+      'Releases',
+    ],
+  },
+  {
+    infos: [
+      'Servers',
+      'About us',
+      'Careers',
+      'Press',
+      'News',
+      'Media kit',
+      'Contact',
+    ],
+  },
+  {
+    infos: [
+      'Resources',
+      'Blog',
+      'Newsletter',
+      'Events',
+      'Help Center',
+      'Tutorials',
+      'Support',
+    ],
+  },
+  {
+    infos: [
+      'Use cases',
+      'Startups',
+      'Enterprise',
+      'Government',
+      'Sass',
+      'Marketplaces',
+      'Ecommerce',
+    ],
+  },
+  {
+    infos: [
+      'Social',
+      'Twitter',
+      'Linkedin',
+      'Facebook',
+      'Github',
+      'AngelList',
+      'Dribble',
+    ],
+  },
+  {
+    infos: [
+      'Legal',
+      'Terms',
+      'Privacy',
+      'Cookies',
+      'Licenses',
+      'Settings',
+      'Contact',
+    ],
+  },
+];
 
 const Footer = () => {
   const [isClient, setClientSide] = useState<boolean | undefined>();
@@ -14,60 +85,13 @@ const Footer = () => {
     <FooterDiv>
       <FooterContent>
         <ProductInfos>
-          <ProductDetail>
-            <label>Products</label>
-            <label>Overview</label>
-            <label>Features</label>
-            <label>Solutions</label>
-            <label>Tutorials</label>
-            <label>Pricing</label>
-            <label>Releases</label>
-          </ProductDetail>
-          <ProductDetail>
-            <label>Servers</label>
-            <label>About us</label>
-            <label>Careers</label>
-            <label>Press</label>
-            <label>News</label>
-            <label>Media kit</label>
-            <label>Contact</label>
-          </ProductDetail>
-          <ProductDetail>
-            <label>Resources</label>
-            <label>Blog</label>
-            <label>Newsletter</label>
-            <label>Events</label>
-            <label>Help centre</label>
-            <label>Tutorials</label>
-            <label>Support</label>
-          </ProductDetail>
-          <ProductDetail>
-            <label>Use cases</label>
-            <label>Startups</label>
-            <label>Enterprise</label>
-            <label>Government</label>
-            <label>Saas</label>
-            <label>Marketplaces</label>
-            <label>Ecommerce</label>
-          </ProductDetail>
-          <ProductDetail>
-            <label>Social</label>
-            <label>Twitter</label>
-            <label>Linkedin</label>
-            <label>Facebook</label>
-            <label>GitHub</label>
-            <label>AngelList</label>
-            <label>Dribble</label>
-          </ProductDetail>
-          <ProductDetail>
-            <label>Legal</label>
-            <label>Terms</label>
-            <label>Privacy</label>
-            <label>Cookies</label>
-            <label>Licenses</label>
-            <label>Settings</label>
-            <label>Contact</label>
-          </ProductDetail>
+          {footerDetails.map((infos, index) => (
+            <ProductDetail key={index}>
+              {infos.infos.map((info, index) => (
+                <label key={info + index}>{info}</label>
+              ))}
+            </ProductDetail>
+          ))}
         </ProductInfos>
         <hr />
         <LogoContent>
@@ -90,6 +114,11 @@ const FooterDiv = styled.div`
 
 const FooterContent = styled.div`
   width: 1200px;
+
+  ${media.lg`
+    width: ${device.md}
+  `}
+  
   display: flex;
   flex-direction: column;
   gap: ${Space.xl};
@@ -101,6 +130,9 @@ const FooterContent = styled.div`
 `;
 
 const ProductInfos = styled.div`
+  ${media.md`
+    display: none;
+  `}
   display: flex;
   flex-direction: row;
   justify-content: space-between;

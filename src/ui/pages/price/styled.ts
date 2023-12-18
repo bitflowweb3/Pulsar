@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { BorderRadius, Padding, Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
+import { device } from '../../../constants/device';
+import { media } from '../../../styles/responsive';
 
 export const PricePageContent = styled.div`
   display: flex;
@@ -10,6 +12,7 @@ export const PricePageContent = styled.div`
   height: calc(100vh - 60px);
   width: 100vw;
   overflow-y: auto;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -33,9 +36,19 @@ export const PricePageContent = styled.div`
 export const SubContent = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1200px;
+  width: ${device.lg};
+  ${media.lg`
+  width: ${device.md}`};
+  /* height: calc(100vh - 60px); */
+
   padding: ${Space.xxxl} ${Space.l};
   gap: ${Space.xxxl};
+  ${media.md`
+    width: ${device.sm};
+  `}
+  ${media.sm`
+    width: ${device.xs};
+  `}
 `;
 export const SubHeader = styled.div`
   display: flex;
@@ -44,6 +57,55 @@ export const SubHeader = styled.div`
   label {
     color: ${Color.$brand_600};
     font-weight: 600;
+    font-size: 1.5em;
+  }
+  h1 {
+    font-size: 48px;
+    font-weight: 600;
+    /* line-height: none !important; */
+  }
+  p {
+    font-size: 20px;
+  }
+  ${media.lg`
+    text-align: center;
+    width: ${device.md};
+    label {
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 16px;
+    }
+  `}
+  ${media.md`
+    text-align: center;
+    width: ${device.xs};
+    align-self: center;
+    label {
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 24px;
+      padding: 0 24px;
+    }
+    p {
+      font-size: 16px;
+      display:none;
+    }
+  `}
+`;
+
+export const ConfigureSubHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${Space.base};
+  label {
+    color: ${Color.$brand_600};
+    font-weight: 600;
+    font-size: 1.5em;
   }
   h1 {
     font-size: 48px;
@@ -54,10 +116,20 @@ export const SubHeader = styled.div`
     font-size: 20px;
   }
 `;
+
 export const SubBody = styled.div`
   display: flex;
   flex-direction: row;
-  gap: ${Space.l};
+  gap: ${Space.xxxl};
+
+  ${media.lg`
+    gap: ${Space.xl};
+  `}
+
+  ${media.md`
+  flex-direction: column;
+  padding: ${Padding.none} ${Padding.xxl}
+  `};
 `;
 export const ConfigureInfoBody = styled.div`
   display: flex;
@@ -66,6 +138,8 @@ export const ConfigureInfoBody = styled.div`
 `;
 
 export const ServerConfigureContent = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 1;
   background-image: linear-gradient(
     to bottom,
@@ -77,6 +151,7 @@ export const ServerConfigureContent = styled.div`
   border-radius: 16px;
 `;
 export const ServerConfigureBorderContent = styled.div`
+  flex: 1;
   background-color: ${Color.$dark_card};
   margin: 1px;
   border-radius: 15px;
@@ -87,9 +162,12 @@ export const ServerConfigureBorderContent = styled.div`
 `;
 export const ServerConfigureDiv = styled.div`
   display: flex;
-  flex: 1;
+  /* flex: 1; */
   flex-direction: row;
   gap: ${Space.l};
+  ${media.md`
+    flex-direction: column;
+  `}
 `;
 export const ConfigureBody = styled.div`
   display: flex;
@@ -102,6 +180,11 @@ export const ConfigureInfo = styled.div`
   flex-direction: row;
   gap: ${Space.xs};
   align-items: center;
+  ${media.sm`
+    flex-direction: column;
+    align-items: flex-start;
+    gap: ${Space.sb};
+  `}
 `;
 
 export const ConfigureName = styled.div`
@@ -153,7 +236,7 @@ export const StepContext = styled.div`
   background-color: ${Color.$neutral_overlay};
   color: ${Color.$white};
   span {
-    background-color: #476CEC;
+    background-color: #476cec;
     padding: ${Space.none} ${Space.xxs};
     border-radius: ${BorderRadius.xs};
   }
@@ -161,8 +244,8 @@ export const StepContext = styled.div`
 
 export const VerticalDiver = styled.div`
   width: 0px;
-  border-left: solid 1px #8B8B93;
-`
+  border-left: solid 1px #8b8b93;
+`;
 
 export const IpSliderDiv = styled.main`
   width: 250px;
@@ -187,6 +270,10 @@ export const IpSliderDiv = styled.main`
 
 export const BandwidthSliderDiv = styled.main`
   width: 250px;
+  
+  ${media.sm`
+    width: 150px;
+  `}
   position: relative;
   &::after {
     content: '5 Gbps';

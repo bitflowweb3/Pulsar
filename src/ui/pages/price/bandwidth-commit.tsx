@@ -5,6 +5,7 @@ import { Space } from '../../../constants/size';
 import { Color } from '../../../constants/color';
 import { BandwidthSliderDiv, IpSliderDiv } from './styled';
 import { Slider } from 'antd';
+import { media } from '../../../styles/responsive';
 
 const BandwidthCommit = () => {
   const [isClient, setClient] = useState<boolean | undefined>();
@@ -24,10 +25,10 @@ const BandwidthCommit = () => {
               <Slider defaultValue={40} max={50} min={5} />
             </BandwidthSliderDiv> : null}
           </BandwidthInfo>
-          <div className='band_right'>
-            <p>Amount</p>
-            <p>$ 60</p>
-          </div>
+          <BandwidthPrice>
+            <label>Amount</label>
+            <label>$ 60</label>
+          </BandwidthPrice>
         </BandwidthCommitContent>
       </ContentBorderDiv>
     </ContentDiv>
@@ -61,8 +62,22 @@ const BandwidthInfo = styled.div`
   display: flex;
   flex-direction: row;
   gap: ${Space.xxl};
+  ${media.md`
+    flex-direction: column;
+    gap: ${Space.s};
+  `}
+  
 `;
 const IconDiv = styled.div`
   display: flex;
   flex-direction: row;
+  gap: ${Space.sb};
 `;
+const BandwidthPrice = styled.div`
+  label {
+    font-size: 16px;
+    color: white;
+    display: block;
+    text-align: end;
+  }
+`

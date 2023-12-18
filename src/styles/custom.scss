@@ -8,12 +8,15 @@
   background-color: var(--color-primary);
 }
 .ant-dropdown-placement-bottomLeft {
-  top: 60px !important;
+  // top: 60px !important;
 }
 .ant-dropdown-menu-item {
   padding-left: var(--padding-l);
+  & a {
+    text-decoration: none;
+  }
   span {
-    font-size: 16px;
+    font-size: 16px;    
     &:hover {
       color: #8758ff;
     }
@@ -175,4 +178,10 @@ div.ant-slider-handle.ant-tooltip-open {
       }
     }
   }
+}
+
+// Offcanvas price page
+
+div.offcanvas {
+  background-color: #1f2128 !important;
 }
