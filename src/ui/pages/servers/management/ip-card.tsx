@@ -149,7 +149,7 @@ const Body = styled.div`
   }
 
   hr {
-    border-color: ${Color.$neutral_overlay};
+    border-color: ${Color.$neutral_overlay} !important;
   }
 `;
 const Info = styled.div`

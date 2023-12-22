@@ -10,7 +10,6 @@ const PageHeader = styled.div`
     color: ${Color.$gray_primary};
   }
 `;
-
 const ServersMainContent = styled.div`
   display: flex;
   flex-direction: column;
