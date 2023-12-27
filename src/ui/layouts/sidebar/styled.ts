@@ -10,9 +10,11 @@ export const SidebarDiv = styled.div`
     padding: var(--padding-l);
     background-color: var(--color-primary);
     justify-content: space-between;
+    
     ${media.md`
     display: none;
   `}
+    
   overflow-y: auto;
   &::-webkit-scrollbar {
       width: 0px;
