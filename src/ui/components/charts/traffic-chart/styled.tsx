@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Hr } from '../../common/Hr';
+import { media } from '../../../../styles/responsive';
 
 const TrafficChartContainer = styled.div`
   background-color: var(--color-primary);
@@ -43,6 +44,11 @@ const PeriodButtonGroupDiv = styled.div`
   border-radius: var(--padding-l);
   padding: var(--padding-xs) var(--padding-s);
   background-color: var(--color-neutral-primary);
+
+  ${media.lg`
+        display: none;
+  `}
+
   & > .active-button {
     border-radius: 22px;
     padding: var(--padding-none) var(--padding-sb);
@@ -90,10 +96,10 @@ const Footer = styled.footer`
       padding: var(--padding-none) var(--space-base);
       font-size: 1.2em;
       &:first-child {
-        color: #F17F7F;
+        color: #f17f7f;
       }
       &:last-child {
-        color: #72C2FC;
+        color: #72c2fc;
       }
     }
   }

@@ -59,6 +59,7 @@
 .main-content {
   display: flex;
   flex-direction: row;
+
   // .main-page {
   //   background-color: var(--color-bg-primary);
   //   height: calc(100vh - 60px);
@@ -101,6 +102,10 @@ p {
   color: white;
 }
 
+a {
+  transition: none !important;
+}
+
 span {
   font-size: 14px;
   color: white;
@@ -109,6 +114,7 @@ span {
 hr {
   border-top: none !important;
   border-bottom: solid 1px var(--color-gray-100) !important;
+  margin: 0px !important;
 }
 
 h1 {
