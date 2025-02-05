@@ -173,7 +173,7 @@ export const WalletCardBody = styled.div`
     text-align: center;
   }
   hr {
-    border-color: ${Color.$neutral_overlay};
+    border-color: ${Color.$neutral_overlay} !important;
   }
   section {
     display: flex;

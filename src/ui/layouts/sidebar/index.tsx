@@ -23,6 +23,7 @@ import Switch from '@mui/material/Switch';
 import TabButtonGroup from '../../../ui/components/common/tabsgroup';
 import { AccountProviderProps } from '../AccountProvider';
 import { AuthContextProps } from '../../../auth/AuthProvider';
+import MobileTabButtonGroup from '../../components/common/mobile-tabsgroup';
 
 interface LayoutProps {
   auth: AuthContextProps | null;
@@ -42,7 +43,8 @@ const Sidebar = ({ auth, account } : LayoutProps) => {
   }, [account, auth]);
 
   return isAccountPage && isAuthenticated ? (
-    <SidebarDiv>
+    <div>
+      <SidebarDiv>
       <TabButtonGroup />
       <ProContent>
         <hr />
@@ -100,7 +102,10 @@ const Sidebar = ({ auth, account } : LayoutProps) => {
           <Image src={MaximizeIcon} alt='maximize-icon' />
         </ToggleDiv>
       </ProContent>
-    </SidebarDiv>
+      </SidebarDiv>
+      <MobileTabButtonGroup />
+    </div>
+    
   ) : (
     <div style={{ display: 'none' }}></div>
   );

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Color } from '../../../../constants/color';
 import { BorderRadius, Space } from '../../../../constants/size';
+import { media } from '../../../../styles/responsive';
 
 interface StatusCellDivProps {
   condition: string;
@@ -60,6 +61,12 @@ const CpuCellDiv = styled.div`
   align-items: center;
   gap: ${Space.base};
   width: 100%;
+
+  span {
+    ${media.md`
+      display: none;
+    `}
+  }
 
   label {
     color: white;

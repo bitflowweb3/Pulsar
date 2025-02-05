@@ -160,7 +160,7 @@ const Header = styled.div`
   align-items: center;
   gap: ${Space.s};
   hr {
-    border-color: #f1f1f1;
+    border-color: #f1f1f1 !important;
   }
 `;
 const Body = styled.div`
@@ -168,9 +168,9 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   hr {
-    margin-top: ${Padding.xs};
-    margin-bottom: ${Padding.xs};
-    border-color: ${Color.$neutral_overlay};
+    margin-top: ${Padding.xs} !important;
+    margin-bottom: ${Padding.xs} !important;
+    border-color: ${Color.$neutral_overlay} !important;
   }
 `;
 const TableRow = styled.div`

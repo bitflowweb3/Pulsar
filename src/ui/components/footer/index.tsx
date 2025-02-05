@@ -124,8 +124,8 @@ const FooterContent = styled.div`
   gap: ${Space.xl};
   padding: ${Space.xxxl} ${Space.xl};
   hr {
-    padding-top: ${Space.xl};
-    border-color: ${Color.$netural_700};
+    padding-top: ${Space.xl} !important;
+    border-color: ${Color.$netural_700} !important;
   }
 `;
 

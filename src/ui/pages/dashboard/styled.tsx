@@ -1,5 +1,6 @@
 import { Space } from '../../../constants/size';
 import styled from 'styled-components';
+import { media } from '../../../styles/responsive';
 
 const PageHeader = styled.div`
   padding: ${Space.none} ${Space.sb};
@@ -13,10 +14,13 @@ const DashboardMainContent = styled.div`
   display: flex;
   flex-direction: row;
   gap: var(--space-xl);
-  
+
   height: calc(100vh - 160px);
   padding-left: ${Space.sb};
-
+  ${media.xl`
+    padding-left: ${Space.l};
+    padding-right: ${Space.l};
+      `}
   overflow-y: auto;
   &::-webkit-scrollbar {
     width: 5px;
@@ -43,39 +47,66 @@ const DashboardMainContent = styled.div`
     gap: var(--space-l);
 
     &:first-child {
-      flex-basis: calc(100vw - 615px);
+      overflow-y: auto;
       flex-shrink: 1;
-      flex-grow: 0;
+      flex-grow: 10;
+      position: sticky;
+      top: 0px;
+      right: var(--space-base);
+      width: 350px;
+      &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-gray-400);
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--color-neutral-400);
+    }
     }
     &:last-child {
-      flex-basis: 360px;
-      flex-grow: none;
+      width: 360px;
+      min-width: 360px;
+      max-width: 360px;
+      flex-shrink: 2;
+      flex-grow: 0;
+      position: sticky;
+      top: 0px;
+      right: var(--space-base);
+      ${media.xl`
+        display: none;
+      `}
     }
   }
   .dashboard-right-sidebar {
     overflow-y: auto;
-  &::-webkit-scrollbar {
-    width: 0px;
-  }
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
 
-  /* Track */
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
 
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: var(--color-gray-400);
-  }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-gray-400);
+    }
 
-  /* Handle on hover */
-  &::-webkit-scrollbar-thumb:hover {
-    background: var(--color-neutral-400);
-  }
-
-    position: sticky;
-    top: 0px;
-    right: var(--space-base);
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--color-neutral-400);
+    }
   }
 `;
 

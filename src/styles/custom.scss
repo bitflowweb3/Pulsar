@@ -185,3 +185,12 @@ div.ant-slider-handle.ant-tooltip-open {
 div.offcanvas {
   background-color: #1f2128 !important;
 }
+
+// Table selected text customized
+
+.MuiTablePagination-selectLabel {
+  margin-bottom: 0;
+}
+.MuiTablePagination-displayedRows {
+  margin-bottom: 0;
+}

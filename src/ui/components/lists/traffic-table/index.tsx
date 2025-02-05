@@ -96,6 +96,7 @@ const TrafficTable = ({ isminimized }: TrafficTableProps) => {
       field: 'servers',
       headerName: 'Servers',
       width: 100,
+      minWidth: 100,
       renderCell: (params: GridRenderCellParams<Server>) => {
         return (
           <ServerCell
@@ -110,6 +111,7 @@ const TrafficTable = ({ isminimized }: TrafficTableProps) => {
       field: 'status',
       headerName: 'Status',
       width: 70,
+      minWidth: 70,
       renderCell: (params: GridRenderCellParams<Server>) => (
         <StatusContext
           status={params.value == true ? StatusType.on : StatusType.off}
@@ -160,7 +162,7 @@ const TrafficTable = ({ isminimized }: TrafficTableProps) => {
       field: 'manage',
       headerName: 'Actions',
       width: 90,
-      flex: 0.8,
+      flex: 1,
       
       renderCell: (params: GridRenderCellParams<Server>) => (
         <ManageCell status={params.value as boolean} seletedId={selectedRowId[0]} />

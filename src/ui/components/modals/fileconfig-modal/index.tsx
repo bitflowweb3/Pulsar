@@ -116,9 +116,9 @@ const Body = styled.div`
   flex-direction: column;
   gap: ${Space.base};
   hr {
-    margin-top: ${Padding.xs};
-    margin-bottom: ${Padding.xs};
-    border-color: ${Color.$neutral_overlay};
+    margin-top: ${Padding.xs} !important;
+    margin-bottom: ${Padding.xs} !important;
+    border-color: ${Color.$neutral_overlay} !important;
   }
 `;
 const TableRow = styled.div`

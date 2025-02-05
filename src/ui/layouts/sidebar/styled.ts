@@ -1,13 +1,39 @@
 import styled from 'styled-components'
+import { media } from '../../../styles/responsive'
 
 export const SidebarDiv = styled.div`
     display: flex;
     flex-direction: column;
-    width: 256px;
+    width: 240px;
+    min-width: 240px;
     height: calc(100vh - 60px);
     padding: var(--padding-l);
     background-color: var(--color-primary);
     justify-content: space-between;
+    
+    ${media.md`
+    display: none;
+  `}
+    
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-gray-400);
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--color-neutral-400);
+    }
 `
 export const ProContent = styled.div`
     display: flex;
@@ -30,7 +56,7 @@ export const UpgradeContentDiv = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: var(--color-neutral-primary);
-    padding: var(--space-xl);
+    padding: var(--space-l) var(--space-xl);
     gap: var(--space-s);
 `
 export const UpgradeButton = styled.button`

@@ -15,28 +15,63 @@ const StyledLink = styled(Link)`
   display: flex;
 `;
 const TabsGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: var(--padding-xs);
+background-color: #1f2128;
+  ${media.md`
+    position: absolute;
+    transform:translate(-50%, 0);
+    top: 60px;
+    left: 50%;
+
+    display: flex;
+    flex-direction: row;
+  `};
+  ${media.sm`
+  position: absolute;
+    transform:translate(-50%, 0);
+    top: 80px;
+    left: 50%;
+
+    display: flex;
+    flex-direction: row;
+  `}
+  display: none;
 `;
 const TabButton = styled.button`
   display: flex;
   flex: 1;
-  flex-direction: row;
+  width: 80px;
+  ${media.sm`
+      width: 40px;
+      padding: var(--padding-s) var(--padding-s);
+  `}
+  & > span {
+    ${media.sm`
+      display: none;
+  `}
+  }
+  flex-direction: column;
+  align-items: center;
   gap: var(--padding-s);
-  border-radius: 48px;
   padding: var(--padding-s) var(--padding-base);
 `;
 const TabButtonNone = styled.button`
   display: flex;
   flex: 1;
-  flex-direction: row;
+  width: 80px;
+  flex-direction: column;
+  align-items: center;
   gap: var(--padding-s);
-  padding: var(--padding-s) var(--padding-base);
-  border-radius: 48px;
+  padding: var(--padding-s) var(--padding-s);
+  ${media.sm`
+      width: 40px;
+      padding: var(--padding-s) var(--padding-s);
+  `}
 
   & > span {
     color: var(--color-gray-400);
+    ${media.sm`
+      display: none;
+  `}
   }
   & > .button {
     filter: brightness(50%);
@@ -62,13 +97,13 @@ const pages = [
   },
   { name: 'Servers', icon: ServersIcon, route: 'servers', link: '/servers' },
   {
-    name: 'IP Addresses',
+    name: 'IPs',
     icon: IpAddressesIcon,
     route: 'ipaddresses',
     link: '/ipaddresses',
   },
   {
-    name: 'Cloud Storage',
+    name: 'Storage',
     icon: CloudStorageIcon,
     route: 'cloudstorage',
     link: '/cloudstorage',
@@ -88,7 +123,7 @@ const pages = [
   },
 ];
 
-const TabButtonGroup = () => {
+const MobileTabButtonGroup = () => {
   const router = useRouter();
   const currentRoute = router.pathname;
 
@@ -118,4 +153,4 @@ const TabButtonGroup = () => {
     </TabsGroup>
   );
 };
-export default TabButtonGroup;
+export default MobileTabButtonGroup;
