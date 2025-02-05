@@ -34,6 +34,7 @@ interface LineChartProps {
   period: DatePeriod,
 }
 
+//linechat
 const LineChart = ({ trafficData, period }: LineChartProps) => {
   const [chartLoading, setIsChartsLoaded] = useState<boolean | undefined>();
   const [gradientColor, setGradientColor] = useState<any | undefined>();
