@@ -2,9 +2,13 @@ This is a Next.js project for Pulsar Dashboard.
 ## How to start
 
 ```bash
-First run the development server
+install dependencies
 
-`npm run dev`
+`yarn`
+
+run the development server
+
+`yarn dev`
 
 Then you can see the result on http://localhost:3000
 
