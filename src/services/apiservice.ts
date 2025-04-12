@@ -26,23 +26,23 @@ instance.interceptors.request.use(
   }
 );
 
-// instance.interceptors.response.use(
-//   (response) => response.data,
-//   async (error: {
-//     response: AxiosResponse;
-//     config: AxiosRequestConfig & { retry: boolean };
-//   }) => {
-//     const originalRequest = error.config;
-//     if (error.response?.status === 401 && !originalRequest.retry) {
-//       originalRequest.retry = true;
-//       if (error.response.config.url !== '/users/me') {
-//         await router.push('/api/auth/logout');
-//       }
-//       return instance(originalRequest);
-//     }
-//     return Promise.reject(error);
-//   }
-// );
+instance.interceptors.response.use(
+  (response) => response.data,
+  async (error: {
+    response: AxiosResponse;
+    config: AxiosRequestConfig & { retry: boolean };
+  }) => {
+    const originalRequest = error.config;
+    if (error.response?.status === 401 && !originalRequest.retry) {
+      originalRequest.retry = true;
+      if (error.response.config.url !== '/users/me') {
+        await router.push('/api/auth/logout');
+      }
+      return instance(originalRequest);
+    }
+    return Promise.reject(error);
+  }
+);
 
 export const getConfig = (accessToken?: string) => ({
   withCredetials: false,
