@@ -14,17 +14,17 @@ if (typeof window !== "undefined") {
 } else baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 const instance = axios.create({ baseURL });
 
-instance.interceptors.request.use(
-  async (config: AxiosRequestConfig) => {
-    const isClient = typeof window !== 'undefined';
-    if (config.headers && isClient) {
-    }
-    return config as InternalAxiosRequestConfig;
-  },
-  (error) => {
-    Promise.reject(error);
-  }
-);
+// instance.interceptors.request.use(
+//   async (config: AxiosRequestConfig) => {
+//     const isClient = typeof window !== 'undefined';
+//     if (config.headers && isClient) {
+//     }
+//     return config as InternalAxiosRequestConfig;
+//   },
+//   (error) => {
+//     Promise.reject(error);
+//   }
+// );
 
 // instance.interceptors.response.use(
 //   (response) => response.data,
